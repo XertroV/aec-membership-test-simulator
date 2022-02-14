@@ -11,7 +11,7 @@ Parameters are: number of trials in the simulation, the population size of membe
 
 ## Major Findings
 
-In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, but also where 17% of members provided respond "No" -- there is a 71.6% chance of the AEC reaching a *false negative* result. In such a case, Flux would still have over 3,800 members that respond "Yes" (or do not respond).
+In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, but also one where 17% of members provided respond "No" -- there is a 71.6% chance of the AEC reaching a *false negative* result. In such a case, Flux would still have over 3,800 members that respond "Yes" (or do not respond).
 
 Moreover, say that Flux is gaining members faster that attrition. It turns out that this makes the AEC's methodology *less likely to succeed.*
 
@@ -19,7 +19,7 @@ Moreover, say that Flux is gaining members faster that attrition. It turns out t
 
 Finally, there are even more cases where the AEC's method fails spectacularly.
 
-Say 50% of Flux's 4680 members submitted as part of our objection to the AEC's consideration of involuntary deregistration -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x.
+Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x.
 
 ---
 
