@@ -11,7 +11,7 @@ Parameters are: number of trials in the simulation, the population size of membe
 
 ## Major Findings
 
-In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, but also one where 17% of members provided respond "No" -- there is a 71.6% chance of the AEC reaching a *false negative* result. In such a case, Flux would still have over 3,800 members that respond "Yes" (or do not respond).
+In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, but also one where 17% of members provided respond "No" -- there is a 71.7% chance of the AEC reaching a *false negative* result. In such a case, Flux would still have over 3,800 members that respond "Yes" (or do not respond).
 
 Moreover, say that Flux is gaining members faster than it is loosing them. ('Loosing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.*
 
@@ -26,7 +26,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 <p align="center">
     <img width="800" src="aec-test-sim-N100000-m4680-f796-s1649-r24.png" />
     <br>
-    <em>Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.6% of the time.</em>
+    <em>Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.7% of the time.</em>
 </p>
 
 ---
