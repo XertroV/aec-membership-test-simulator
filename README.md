@@ -101,6 +101,9 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 
 ---
 
+<!-- don't really need this bit. does it really help? -->
+
+<!--
 ## Appendix: Some State ECs are Worse
 
 The Electoral Commissions of both NSW and Victoria have verification methods that are **deliberately** designed to **prevent** valid parties from registering -- or, at the very least, the methods are dishonestly defended.
@@ -145,7 +148,7 @@ I do think they are heavily biased towards the status quo, though.
 I do not think they are honest with themselves regarding these biases.
 
 I'm sure Hampel is a very nice person and does lots of nice things.
-It does not change the fact that she is unable to tell the boundaries of her own incompetence.
+It does not change the fact that she is unable to tell the boundaries of her own incompetence. -->
 
 ## Appendix: Errors in Feb 13 response to AEC
 
