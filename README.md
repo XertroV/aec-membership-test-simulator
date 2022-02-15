@@ -1,5 +1,46 @@
 # Simulate AEC Membership Test Methodology and Produce Graphs (of PMF)
 
+In Australia, to register a political party you need a minimum number of members.
+Federally, that's 1500.
+
+Recently (September 2021), parliamentarians (i.e., the 4 major parties) decided there was just too much competition! That would not do. So, a bunch of changes were made to the Electoral Act to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show.
+
+Every few years, the AEC will check that each political party has enough members according to the legislative requirement. The party must provide a list of 1500 to 1650 names (inclusive) to use as evidence of their eligibility. The Australian Electoral Commission (AEC) will then filter out some names (duplicates, dead people, etc). That produces a NEW list of <= 1650 names. Then, the AEC will do a statistical sampling of members and will use that to determine whether a party is eligible.
+
+[The method is detailed on pages 23 and 24 of "Guide for registering a
+party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
+([mirror](party-registration-guide.pdf))
+
+Flux failed it's recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
+
+* [AEC's Notice to Flux (with results)](docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
+* [Our Response](docs/Response-to-AEC-rego-20220213.pdf)
+
+Here is an except from the first page, to give you an idea of the gist:
+
+> We have 3 arguments supporting our case. Each argument is *individually* sufficient to show
+that a decision (by the AEC) to deregister the Party would not be based on reasonable
+grounds; each argument is a *decisive criticism* of the current methodology.
+>
+> * The statistical method used fails ~10% of the time for borderline cases.
+> * The statistical method uses an artificially limited sample size and thus does not estimate party membership, though does (roughly) measure membership attrition.
+> * We have sufficient membership and provide evidence. Attached is a list of 4680 members. Each entry was, at some point, verified against the electoral roll.
+>
+> Unless each of these criticisms can be addressed, we do not believe that a decision by the
+AEC to deregister the Party would be based in reality.
+
+(Note: there are at least two non-critical errors in our response -- the AEC has already been informed. See the end of the doc for what was sent to the AEC re those errors.)
+
+Yesterday I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Even though we are **in fact** an eligible party?)
+
+Turns out there was a 71.7% chance that the AEC's method would find a false negative.
+
+## TL;DR: It's fuckin' rigged.
+
+----
+
+## Running this simulator
+
 Tested w/ python 3.9 and 3.10. (3.8 did not work.)
 
 Install python3 deps: `pip3 install matplotlib pandas click`
@@ -15,11 +56,12 @@ In the case of Flux's recent membership audit, the simulation shows that -- *on 
 
 Moreover, say that Flux is gaining members faster than it is loosing them. ('Loosing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.*
 
-### **The system is rigged. It's a farce.**
+## **The system is rigged. It's a farce.**
 
 Finally, there are even more cases where the AEC's method fails spectacularly.
 
 Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x.
+
 
 ---
 
@@ -44,3 +86,68 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
     <br>
     <em>If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
 </p>
+
+---
+
+## Other States are Worse
+
+Both NSW and Victoria have verification methods that are **deliberately** designed to **prevent** valid parties from registering.
+
+There's no author attributed to this except from [Electoral Regulation Research Network newsletter - April 2019](https://law.unimelb.edu.au/__data/assets/pdf_file/0015/3052014/ERRN-newsletter-April-2019-final.pdf) (perhaps they knew they were being dishonest, though I doubt it).
+
+> VCAT decided on an application to review a decision of the Victorian Electoral Commission (VEC) to refuse to register The Flux Party – Victoria as a political party.
+> [...]
+> In her Order, made on 23 October 2018, Justice Hampel, Vice President of VCAT, refuted every one of Mr Millington’s arguments.
+
+[Source material (VCAT Judgement)](https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/vic/VCAT/2018/1661.html?context=1;query=Millington%20v%20Victorian%20Electoral%20Commission;mask_path=)
+
+Here's a sample of such a "refutation":
+
+> This submission is equally flawed. An argument based on probabilities is unsound.
+>
+> ---
+>
+> <p align="right"><a href="https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/vic/VCAT/2018/1661.html?context=1;query=Millington%20v%20Victorian%20Electoral%20Commission;mask_path=">Her Honour Judge Hampel, Vice President VCAT</a></p>
+
+I wonder what she thinks **beyond reasonable doubt** means.
+
+It is clear that Hampel has literally no understanding of statistics or probabilities.
+
+Perhaps, if she had a high-school level understanding of probability theory she would know about the binomial theorem and maybe gain a small intuition for how wrong she is.
+
+As a witness in this case, my evidence was dismissed because I did not work as a statistician.
+No effort was made to enquire into the method. That's the sort of piss-poor thinking that lead to the AEC's method being used.
+
+Say you wanted to verify my account of the case?
+How would you verify the record of the tribunal?
+You can't -- it's not public. Tough.
+
+I'm sure she's a very nice person and does lots of nice things.
+It does not change the fact that she is unable to tell the boundaries of her own incompetence.
+
+## Appendix: Errors in Feb 13 response to AEC
+
+
+<blockquote>
+First, in the section "The AEC’s membership test methodology artificially reduces sample size":
+
+> Keep in mind that – given this experimental setup – we’d expect 9 or more failures 10% of
+the time. If we were doing this experiment in real life, 10% of the time we would
+underestimate the number of cars by a factor of more than 2500x.
+
+This is a typo -- we'd expect 8 or more failures 10% of the time, and 9 or more failures ~5% of the time.
+
+Second, in the section "Closing remarks":
+
+> Consider a soon-to-be-registered party with 1650 valid members (assume this is true). What
+happens if 200 malicious members join (prior to registration), with the sole purpose of
+preventing that party from registering? Then, it’s expected that ~10.8% of the membership
+list provided to the AEC as part of their registration application are these malicious members.
+Thus the failure rate according to the AEC’s methodology is expected to exceed the current
+threshold (set by the AEC) – the AEC would conclude that the party does not meet
+requirements.
+
+The italicized part is not correct. The AEC's method is much better than this -- it only fails 10% to 20% of the time (the above quote implies that the method fails more than 50% of the time). The exact false negative rate depends on the number of members filtered by the AEC, similar to how our December 2021 list of 1649 names had 24 entries filtered. The AEC's method is more reliable when fewer names are filtered, with the 20% false negative rate corresponding to 25 members filtered out. (0 names filtered corresponds to a 10% false negative rate.)
+
+It is worth pointing out that there are similar (though slightly more extreme) parameters that do result in a >50% failure rate of the AEC's method. For example a party of 2000 members, 300 of which are malicious, and 15 names filtered has a failure rate of 50.4%.
+</blockquote>
