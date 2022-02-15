@@ -7,6 +7,8 @@ Recently (September 2021), parliamentarians (i.e., the 4 major parties) decided 
 
 Every few years, the AEC will check that each political party has enough members according to the legislative requirement. The party must provide a list of 1500 to 1650 names (inclusive) to use as evidence of their eligibility. The Australian Electoral Commission (AEC) will then filter out some names (duplicates, dead people, etc). That produces a NEW list of <= 1650 names. Then, the AEC will do a statistical sampling of members and will use that to determine whether a party is eligible. Particularly, those names selected are asked to confirm or deny their membership. In this project: "failure rate" refers to the rate at which members respond "No".
 
+The AEC does not accept lists larger than 1650; there is no chance for a party to replace any of those filtered members; that filtering process increases the chance of false negatives; and standard of statistical evaluation is to assume that the list of 1650 members were *the only members* of the party. Zero consideration is given beyond this. How many parties have been wrongly denied registration? Nobody knows.
+
 [The method is detailed on pages 23 and 24 of "Guide for registering a
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
 ([mirror](party-registration-guide.pdf))
@@ -24,14 +26,13 @@ grounds; each argument is a *decisive criticism* of the current methodology.
 >
 > * The statistical method used fails ~10% of the time for borderline cases.
 > * The statistical method uses an artificially limited sample size and thus does not estimate party membership, though does (roughly) measure membership attrition.
-> * We have sufficient membership and provide evidence. Attached is a list of 4680 members. Each entry was, at some point, verified against the electoral roll.
+> * We have sufficient membership and provide evidence. **Attached is a list of 4680 members. Each entry was, at some point, verified against the electoral roll.**
 >
-> Unless each of these criticisms can be addressed, we do not believe that a decision by the
-AEC to deregister the Party would be based in reality.
+> Unless each of these criticisms can be addressed, we do not believe that a decision by the AEC to deregister the Party would be based in reality.
 
 (Note: there are at least two non-critical errors in our response -- the AEC has already been informed. See the end of the doc for what was sent to the AEC re those errors.)
 
-Yesterday (2022-02-14) I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Even though we are **in fact** an eligible party?)
+Yesterday (2022-02-14) I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Given that we are **in fact** an eligible party.)
 
 Turns out there was a 71.7% chance that the AEC's method would find a false negative.
 
@@ -91,25 +92,29 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 
 ## Other States are Worse
 
-Both NSW and Victoria have verification methods that are **deliberately** designed to **prevent** valid parties from registering.
+Both NSW and Victoria have verification methods that are **deliberately** designed to **prevent** valid parties from registering (or, at the very least, the methods are dishonestly defended).
 
-There's no author attributed to this except from [Electoral Regulation Research Network newsletter - April 2019](https://law.unimelb.edu.au/__data/assets/pdf_file/0015/3052014/ERRN-newsletter-April-2019-final.pdf) (perhaps they knew they were being dishonest, though I doubt it).
+Here is an example from Flux's attempt to register in Victoria.
+
+There's no author attributed to this excerpt from [Electoral Regulation Research Network newsletter - April 2019](https://law.unimelb.edu.au/__data/assets/pdf_file/0015/3052014/ERRN-newsletter-April-2019-final.pdf) (perhaps they knew they were being dishonest, though I doubt it).
 
 > VCAT decided on an application to review a decision of the Victorian Electoral Commission (VEC) to refuse to register The Flux Party – Victoria as a political party.
+>
 > [...]
+>
 > In her Order, made on 23 October 2018, Justice Hampel, Vice President of VCAT, refuted every one of Mr Millington’s arguments.
 
 [Source material (VCAT Judgement)](https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/vic/VCAT/2018/1661.html?context=1;query=Millington%20v%20Victorian%20Electoral%20Commission;mask_path=)
 
 Here's a sample of such a "refutation":
 
-> This submission is equally flawed. An argument based on probabilities is unsound.
+> [...] This submission is equally flawed. An argument based on probabilities is unsound.
 >
 > ---
 >
 > <p align="right"><a href="https://www.austlii.edu.au/cgi-bin/viewdoc/au/cases/vic/VCAT/2018/1661.html?context=1;query=Millington%20v%20Victorian%20Electoral%20Commission;mask_path=">Her Honour Judge Hampel, Vice President VCAT</a></p>
 
-I wonder what she thinks **beyond reasonable doubt** means.
+I wonder what she thinks **beyond reasonable doubt** means, and what she thought the VEC's argument (in support of its determination) was based on.
 
 It is clear that Hampel has literally no understanding of statistics or probabilities.
 
@@ -123,7 +128,11 @@ Say you wanted to verify my account of the case?
 How would you verify the record of the tribunal?
 You can't -- it's not public. Tough.
 
-I'm sure she's a very nice person and does lots of nice things.
+To be clear: I do not think the VEC or VCAT broke the law at any point.
+I do think they are heavily biased towards the status quo, though.
+I do not think they are honest with themselves regarding these biases.
+
+I'm sure Hampel is a very nice person and does lots of nice things.
 It does not change the fact that she is unable to tell the boundaries of her own incompetence.
 
 ## Appendix: Errors in Feb 13 response to AEC
