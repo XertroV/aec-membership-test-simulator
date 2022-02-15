@@ -90,11 +90,12 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 
 ---
 
-## Other States are Worse
+## Some State ECs are Worse
 
-Both NSW and Victoria have verification methods that are **deliberately** designed to **prevent** valid parties from registering (or, at the very least, the methods are dishonestly defended).
+The Electoral Commissions of both NSW and Victoria have verification methods that are **deliberately** designed to **prevent** valid parties from registering -- or, at the very least, the methods are dishonestly defended.
 
 Here is an example from Flux's attempt to register in Victoria.
+This is what happens if you volunteer to play by their rules.
 
 There's no author attributed to this excerpt from [Electoral Regulation Research Network newsletter - April 2019](https://law.unimelb.edu.au/__data/assets/pdf_file/0015/3052014/ERRN-newsletter-April-2019-final.pdf) (perhaps they knew they were being dishonest, though I doubt it).
 
