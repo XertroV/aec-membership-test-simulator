@@ -214,7 +214,7 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
 def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=None, graph_fname=None, show=True, party_name=None, force=False):
     fname = run_spec.out_fname(n_trials)
 
-    if not force and all(os.path.exists(f'./{fname}.{ext}') for ext in ['png', 'csv']):
+    if not force and all(os.path.exists(f'./{ext}/{fname}.{ext}') for ext in ['png', 'csv']):
         print(f"Output files exist (use --force to overwrite) -- skipping run: {run_spec}")
         return
 
@@ -283,9 +283,9 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
     plt.subplots_adjust(top=0.83)
     plt.legend()
 
-    print(f"Writing files out under ./{fname}.{{png,csv}}")
-    plt.savefig(f"{fname}.png", dpi=200)
-    df.to_csv(f"{fname}.csv")
+    print(f"Writing files out under ./{{png,csv}}/{fname}.{{png,csv}}")
+    plt.savefig(f"png/{fname}.png", dpi=200)
+    df.to_csv(f"csv/{fname}.csv")
     if show:
         plt.show()
     plt.close()
