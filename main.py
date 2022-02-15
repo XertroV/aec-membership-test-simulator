@@ -306,6 +306,7 @@ def aec(n_trials, show, jobs, force):
     run(trial_pool, n_trials, RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 0), show=show, party_name="Flux+Gain20%Lose10%", force=force)
     run(trial_pool, n_trials, RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 24), show=show, party_name="Flux+Gain20%Lose10%", force=force)
     run(trial_pool, n_trials, RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), show=show, party_name="Flux+Gain100%Lose33%", force=force)
+    run(trial_pool, n_trials, RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), show=show, party_name="Flux+Gain100%Lose33%", force=force)
     run(trial_pool, n_trials, RunSpec(frs.total_members, 0.5, 1650, 0), show=show, party_name="Flux+HalfBadMembers", force=force)
     run(trial_pool, n_trials, RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), show=show, party_name="Flux@Thresh", force=force)
     run(trial_pool, n_trials, RunSpec(1650, 150/1650, 1650, 0), show=show, party_name="1650@Thresh", force=force)
