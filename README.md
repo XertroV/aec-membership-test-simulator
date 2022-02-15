@@ -16,7 +16,7 @@ Recently (leading up to September 2021), parliamentarians (i.e., the 4 major par
 
 Every few years, the Australian Electoral Commission (AEC) will check that each political party has enough members according to the legislative requirement. The party must provide a list of 1500 to 1650 names (inclusive) to use as evidence of their eligibility. The AEC will then filter out some names (duplicates, dead people, etc). That produces a NEW list of <= 1650 names. Then, the AEC will do a statistical sampling of members and will use that to determine whether a party is eligible. Particularly, a small subset of members are selected and contacted, asking for a yes/no confirmation of membership. Non-responses are skipped. A "No" answer counts as a failure -- this is a *membership denial*. In this project: "failure rate" refers to the rate at which members respond "No".
 
-The AEC does not accept lists larger than 1650; there is no chance for a party to replace any of those filtered members; that filtering process increases the chance of false negatives; parties are not told which members were filtered (even which are deceased) so they cannot be proactively removed; and, finally, the standard of statistical evaluation is to assume that the list of 1650 members were *the only members* of the party. Zero consideration is given beyond this (outside the chance to respond). How many parties have been wrongly denied registration? Nobody knows.
+The AEC does not accept lists larger than 1650; there is no chance for a party to replace any of those filtered members; that filtering process increases the chance of false negatives (excluding duplicates); parties are not told which members were filtered (even which are deceased) so they cannot be proactively removed; and, finally, the standard of statistical evaluation is to assume that the list of 1650 members were *the only members* of the party. Zero consideration is given beyond this (outside the chance to respond). How many parties have been wrongly denied registration? Nobody knows.
 
 [The method is detailed on pages 23 and 24 of "Guide for registering a
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
@@ -58,7 +58,7 @@ Install python3 deps: `pip3 install matplotlib pandas click`
 For arguments, run `./main.py --help`
 
 To add a set of parameters, add a new line in `main.py` under the `aec()` function.
-Parameters are: number of trials in the simulation, the population size of members from which the party can choose a membership list to provide, the failure rate of members confirming their membership when contacted, and the number of members that are filtered out of the list (reasons include: they support the registration of another party, they're deceased, or the details cannot be matched against the electoral roll).
+Parameters are: number of trials in the simulation, the population size of members from which the party can choose a membership list to provide, the failure rate of members confirming their membership when contacted, and the number of members that are filtered out of the list (reasons include: they support the registration of another party, they're deceased, the details cannot be matched against the electoral roll, or duplicate entries).
 
 ## Major Findings
 
