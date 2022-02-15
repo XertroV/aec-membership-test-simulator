@@ -70,7 +70,7 @@ Moreover, say that Flux is gaining members faster than it is loosing them. ('Loo
 
 Finally, there are even more cases where the AEC's method fails spectacularly.
 
-Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x. See Fig 3, [Example 3.1](png/aec-test-sim-N100000-m20000-f10000-s1650-r0.png)
+Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x. See Fig 3, and related: [Example 3.1](png/aec-test-sim-N100000-m20000-f10000-s1650-r0.png).
 
 ---
 
@@ -93,7 +93,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 <p align="center">
     <img width="800" src="png/aec-test-sim-N100000-m4680-f2340-s1650-r0.png" />
     <br>
-    <em>If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
+    <em>Fig 3: If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
 </p>
 
 ---
