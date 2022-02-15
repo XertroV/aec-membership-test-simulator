@@ -255,7 +255,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 
     # draw data
     df.plot.bar(stacked=True, figsize=(8, 5))
-    plt.xlabel('AEC Member Contact Failures')
+    plt.xlabel('AEC Contact -- Membership Denials')
     plt.ylabel("$P(x = X)$")
 
     # set a title if one was passed
