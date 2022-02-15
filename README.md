@@ -22,7 +22,7 @@ The AEC does not accept lists larger than 1650; there is no chance for a party t
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
 ([mirror](party-registration-guide.pdf))
 
-Flux failed it's recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
+Flux failed its recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
 
 * [AEC's Notice to Flux (with results)](docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
 * [Our Response](docs/Response-to-AEC-rego-20220213.pdf)
