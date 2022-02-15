@@ -20,12 +20,12 @@ The AEC does not accept lists larger than 1650; there is no chance for a party t
 
 [The method is detailed on pages 23 and 24 of "Guide for registering a
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
-([mirror](party-registration-guide.pdf))
+([mirror](https://xertrov.github.io/aec-membership-test-simulator/docs/party-registration-guide.pdf))
 
 Flux failed its recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
 
-* [AEC's Notice to Flux (with results)](docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
-* [Our Response](docs/Response-to-AEC-rego-20220213.pdf)
+* [AEC's Notice to Flux (with results)](https://xertrov.github.io/aec-membership-test-simulator/docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
+* [Our Response](https://xertrov.github.io/aec-membership-test-simulator/docs/Response-to-AEC-rego-20220213.pdf)
 
 Here is an except from the first page, to give you an idea of the gist:
 
@@ -75,7 +75,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 ---
 
 <p align="center">
-    <img src="png/aec-test-sim-N100000-m4680-f796-s1649-r24.png" />
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m4680-f796-s1649-r24.png" />
     <br>
     <em>
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m4680-f796-s1649-r24.png">Fig 1</a>: Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.7% of the time.</em>
@@ -84,7 +84,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 ---
 
 <p align="center">
-    <img src="png/aec-test-sim-N100000-m5616-f1264-s1650-r0.png" />
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m5616-f1264-s1650-r0.png" />
     <br>
     <em>
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m5616-f1264-s1650-r0.png">Fig 2</a>: This distribution shows that the AEC's validation method becomes less reliable as a party *gains* members.<br><strong>Improvement makes life harder! Strength is weakness!</strong></em>
@@ -93,7 +93,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 ---
 
 <p align="center">
-    <img src="png/aec-test-sim-N100000-m4680-f2340-s1650-r0.png" />
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m4680-f2340-s1650-r0.png" />
     <br>
     <em>
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m4680-f2340-s1650-r0.png">Fig 3</a>: If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
