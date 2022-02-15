@@ -31,7 +31,7 @@ AEC to deregister the Party would be based in reality.
 
 (Note: there are at least two non-critical errors in our response -- the AEC has already been informed. See the end of the doc for what was sent to the AEC re those errors.)
 
-Yesterday I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Even though we are **in fact** an eligible party?)
+Yesterday (2022-02-14) I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Even though we are **in fact** an eligible party?)
 
 Turns out there was a 71.7% chance that the AEC's method would find a false negative.
 
