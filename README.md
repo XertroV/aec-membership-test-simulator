@@ -5,7 +5,7 @@ Federally, that's 1500.
 
 Recently (September 2021), parliamentarians (i.e., the 4 major parties) decided there was just too much competition! That would not do. So, a bunch of changes were made to the Electoral Act to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show.
 
-Every few years, the AEC will check that each political party has enough members according to the legislative requirement. The party must provide a list of 1500 to 1650 names (inclusive) to use as evidence of their eligibility. The Australian Electoral Commission (AEC) will then filter out some names (duplicates, dead people, etc). That produces a NEW list of <= 1650 names. Then, the AEC will do a statistical sampling of members and will use that to determine whether a party is eligible.
+Every few years, the AEC will check that each political party has enough members according to the legislative requirement. The party must provide a list of 1500 to 1650 names (inclusive) to use as evidence of their eligibility. The Australian Electoral Commission (AEC) will then filter out some names (duplicates, dead people, etc). That produces a NEW list of <= 1650 names. Then, the AEC will do a statistical sampling of members and will use that to determine whether a party is eligible. Particularly, those names selected are asked to confirm or deny their membership. In this project: "failure rate" refers to the rate at which members respond "No".
 
 [The method is detailed on pages 23 and 24 of "Guide for registering a
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
@@ -129,25 +129,39 @@ It does not change the fact that she is unable to tell the boundaries of her own
 
 
 <blockquote>
+<p>
 First, in the section "The AEC’s membership test methodology artificially reduces sample size":
+</p>
 
-> Keep in mind that – given this experimental setup – we’d expect 9 or more failures 10% of
+<blockquote>
+Keep in mind that – given this experimental setup – we’d expect 9 or more failures 10% of
 the time. If we were doing this experiment in real life, 10% of the time we would
 underestimate the number of cars by a factor of more than 2500x.
+</blockquote>
 
+<p>
 This is a typo -- we'd expect 8 or more failures 10% of the time, and 9 or more failures ~5% of the time.
+</p>
 
+<p>
 Second, in the section "Closing remarks":
+</p>
 
-> Consider a soon-to-be-registered party with 1650 valid members (assume this is true). What
+<blockquote>
+Consider a soon-to-be-registered party with 1650 valid members (assume this is true). What
 happens if 200 malicious members join (prior to registration), with the sole purpose of
 preventing that party from registering? Then, it’s expected that ~10.8% of the membership
 list provided to the AEC as part of their registration application are these malicious members.
 Thus the failure rate according to the AEC’s methodology is expected to exceed the current
 threshold (set by the AEC) – the AEC would conclude that the party does not meet
 requirements.
+</blockquote>
 
+<p>
 The italicized part is not correct. The AEC's method is much better than this -- it only fails 10% to 20% of the time (the above quote implies that the method fails more than 50% of the time). The exact false negative rate depends on the number of members filtered by the AEC, similar to how our December 2021 list of 1649 names had 24 entries filtered. The AEC's method is more reliable when fewer names are filtered, with the 20% false negative rate corresponding to 25 members filtered out. (0 names filtered corresponds to a 10% false negative rate.)
+</p>
 
+<p>
 It is worth pointing out that there are similar (though slightly more extreme) parameters that do result in a >50% failure rate of the AEC's method. For example a party of 2000 members, 300 of which are malicious, and 15 names filtered has a failure rate of 50.4%.
+</p>
 </blockquote>
