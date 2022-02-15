@@ -64,13 +64,13 @@ Parameters are: number of trials in the simulation, the population size of membe
 
 In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, and that 17% of members provided will respond "No" -- there is a 71.7% chance of the AEC reaching a *false negative* result. In such a case, overall Flux would have over 3,800 members that respond "Yes" (or do not respond). See Fig 1.
 
-Moreover, say that Flux is gaining members faster than it is loosing them. ('Loosing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.* See Fig 2, [Example 2.1](png/aec-test-sim-N100000-m5616-f1264-s1650-r24.png), [Example 2.2 (Filtered=0)](png/aec-test-sim-N100000-m9360-f2354-s1650-r0.png), [Example 2.3 (Filtered=24)](png/aec-test-sim-N100000-m9360-f2354-s1650-r24.png).
+Moreover, say that Flux is gaining members faster than it is loosing them. ('Loosing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.* See Fig 2, [Example 2.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m5616-f1264-s1650-r24.png), [Example 2.2 (Filtered=0)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m9360-f2354-s1650-r0.png), [Example 2.3 (Filtered=24)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m9360-f2354-s1650-r24.png).
 
 ## **The system is rigged. It's a farce.**
 
 Finally, there are even more cases where the AEC's method fails spectacularly.
 
-Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x. See Fig 3, and related: [Example 3.1](png/aec-test-sim-N100000-m20000-f10000-s1650-r0.png).
+Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x. See Fig 3, and related: [Example 3.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N100000-m20000-f10000-s1650-r0.png).
 
 ---
 
