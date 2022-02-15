@@ -113,10 +113,11 @@ I wonder what she thinks **beyond reasonable doubt** means.
 
 It is clear that Hampel has literally no understanding of statistics or probabilities.
 
-Perhaps, if she had a high-school level understanding of probability theory she would know about the binomial theorem and maybe gain a small intuition for how wrong she is.
+Perhaps, if she had a high-school level understanding of probability theory, then she would know about the binomial theorem and maybe gain a small intuition for how wrong she is.
 
 As a witness in this case, my evidence was dismissed because I did not work as a statistician.
-No effort was made to enquire into the method. That's the sort of piss-poor thinking that lead to the AEC's method being used.
+No effort was made to enquire into the method.
+That's the sort of piss-poor thinking that leads to problems the AEC's method being used.
 
 Say you wanted to verify my account of the case?
 How would you verify the record of the tribunal?
