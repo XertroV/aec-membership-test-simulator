@@ -1,4 +1,4 @@
-# Simulate AEC Membership Test Methodology and Produce Graphs (of PMF)
+# AEC Party Membership Test Methodology is Rigged! A Statistical Analysis of AEC Methodology and Graphs (of PMFs)
 
 In Australia, to register a political party you need a minimum number of members.
 Federally, that's 1500.
