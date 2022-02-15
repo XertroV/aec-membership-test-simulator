@@ -302,6 +302,7 @@ def aec(n_trials, show, jobs, force):
     trial_pool = mp.Pool(jobs or SIM_CHUNKS)
     run(trial_pool, n_trials, default_run_spec, show=show, party_name="Flux", force=force)
     run(trial_pool, n_trials, RunSpec(frs.total_members, 0.16, 1650, frs.n_members_removed), show=show, party_name="Flux@0.16", force=force)
+    run(trial_pool, n_trials, RunSpec(frs.total_members, 0.18, 1650, frs.n_members_removed), show=show, party_name="Flux@0.18", force=force)
     run(trial_pool, n_trials, RunSpec(frs.total_members, frs.failure_rate, 1650, 0), show=show, party_name="Flux+NoFilter", force=force)
     run(trial_pool, n_trials, RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 0), show=show, party_name="Flux+Gain20%Lose10%", force=force)
     run(trial_pool, n_trials, RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 24), show=show, party_name="Flux+Gain20%Lose10%", force=force)
