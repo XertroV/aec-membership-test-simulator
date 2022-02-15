@@ -73,7 +73,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 ---
 
 <p align="center">
-    <img width="800" src="aec-test-sim-N100000-m4680-f796-s1649-r24.png" />
+    <img width="800" src="png/aec-test-sim-N100000-m4680-f796-s1649-r24.png" />
     <br>
     <em>Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.7% of the time.</em>
 </p>
@@ -81,7 +81,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 ---
 
 <p align="center">
-    <img width="800" src="aec-test-sim-N100000-m5616-f1264-s1650-r0.png" />
+    <img width="800" src="png/aec-test-sim-N100000-m5616-f1264-s1650-r0.png" />
     <br>
     <em>This distribution shows that the AEC's validation method becomes less reliable as a party *gains* members.<br><strong>Improvement makes life harder! Strength is weakness!</strong></em>
 </p>
@@ -89,7 +89,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 ---
 
 <p align="center">
-    <img width="800" src="aec-test-sim-N100000-m4680-f2340-s1650-r0.png" />
+    <img width="800" src="png/aec-test-sim-N100000-m4680-f2340-s1650-r0.png" />
     <br>
     <em>If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
 </p>
