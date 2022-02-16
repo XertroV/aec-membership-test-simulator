@@ -246,7 +246,7 @@ def name_to_fname_sfx(n: str):
 
 # shuffle members, take 1649, eliminate 24, sample 53, record X failures
 # for trial_ix in range(n_trials):
-def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any=False):
+def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any):
     # generate a list of members with some given non-member rate (i.e. these members will always fail)
     members = list(mk_members(total_members, failure_rate))
 
@@ -264,7 +264,7 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
             reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
         else:
             # the following line will remove n_members_removed indiscriminantly
-            reduced_sample = list(filter_n_members(lambda m: True, membership_sample, n_members_removed))
+            reduced_sample = list(membership_sample[n_members_removed:])
         assert reduced_sample_size == len(reduced_sample)
 
         # perform check (contact member to confirm)
@@ -304,7 +304,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 
     print(f"Running trials --- n_jobs = {SIM_CHUNKS}.")
     with Timer(f"Simulation(N={n_trials})", auto_print=True):
-        trial_chunk_params = (n_trials // SIM_CHUNKS), total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample
+        trial_chunk_params = (n_trials // SIM_CHUNKS), total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any
         results = flatten(trial_pool.starmap(run_trials, repeat(trial_chunk_params, SIM_CHUNKS)))
         for n_failures in results:
             failure_counts[n_failures] += 1
@@ -376,7 +376,8 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 @click.option('-S', '--show', is_flag=True, help='Show the plot when done')
 @click.option('-j', '--jobs', type=int, required=False, help='The number of parallel jobs to run (default: N_CPUS - 1)')
 @click.option('-F', '--force', is_flag=True, help='Run the simulation even if the output files already exist')
-def aec(n_trials, show, jobs, force):
+@click.option('-N', '--non-essential', is_flag=True, help='Also generate non-essential graphs')
+def aec(n_trials, show, jobs, force, non_essential):
     frs = flux_run_spec
     trial_pool = mp.Pool(jobs or SIM_CHUNKS)
     def _run(*args, **kwargs):
@@ -384,54 +385,15 @@ def aec(n_trials, show, jobs, force):
         _kwargs.update(kwargs)
         run(trial_pool, n_trials, *args, **_kwargs)
     _run(default_run_spec, party_name="Flux")
-    _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, True), party_name="Flux")
-    _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
-    _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
-    _run(RunSpec(frs.total_members, 0.14, 1650, frs.n_members_removed), party_name="Flux@0.14")
-    _run(RunSpec(frs.total_members, 0.16, 1650, frs.n_members_removed), party_name="Flux@0.16")
-    _run(RunSpec(frs.total_members, 0.18, 1650, frs.n_members_removed), party_name="Flux@0.18")
+    _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, filter_any=True), party_name="Flux")
     _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
     _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 0), party_name="Flux+Gain20%Lose10%")
     _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 24), party_name="Flux+Gain20%Lose10%")
-    _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), party_name="Flux+Gain100%Lose33%")
-    _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
     _run(RunSpec(frs.total_members, 0.5, 1650, 0), party_name="Flux+HalfBadMembers")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49), party_name="Flux@Thresh+F50")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")
-    _run(RunSpec(1650, 150/1650, 1650, 0), party_name="1650@Thresh")
-    _run(RunSpec(1650, 150/1650, 1650, 25), party_name="1650@Thresh+F25")
-    _run(RunSpec(1650, 150/1650, 1650, 50), party_name="1650@Thresh+F50")
-    _run(RunSpec(1625, 150/1625, 1625, 0), party_name="1625@Thresh")
-    _run(RunSpec(1600, 150/1600, 1600, 25))
-    _run(RunSpec(1650, 0.06, 1650, 0))
-    _run(RunSpec(1650, 0.09, 1650, 0))
-    _run(RunSpec(1650, 0.16, 1650, 0))
-    _run(RunSpec(1650, 0.17, 1650, 0))
-    _run(RunSpec(1650, 150/1650, 1650, 0))
-    _run(RunSpec(1650, 150/1650, 1650, 5))
-    _run(RunSpec(1650, 150/1650, 1650, 18))
-    _run(RunSpec(1650, (150-18)/1650, 1650, 18))
-    _run(RunSpec(1650, 150/1650, 1650, 25))
-    _run(RunSpec(1750, 200/1750, 1650, 25))
-    _run(RunSpec(1850, 150/1650, 1650, 50), party_name="1850@Thresh+F50")
-    _run(RunSpec(1850, 200/1850, 1650, 0))
-    _run(RunSpec(1850, 200/1850, 1650, 25))
-    _run(RunSpec(2000, 150/2000, 1650, 25))
-    _run(RunSpec(2000, 300/2000, 1650, 0))
-    _run(RunSpec(2000, 300/2000, 1650, 5))
-    _run(RunSpec(2000, 300/2000, 1650, 6))
-    _run(RunSpec(2000, 300/2000, 1650, 7))
-    _run(RunSpec(2000, 300/2000, 1650, 8))
-    _run(RunSpec(2000, 300/2000, 1650, 10))
-    _run(RunSpec(2000, 300/2000, 1650, 15))
-    _run(RunSpec(2000, 300/2000, 1650, 25))
-    _run(RunSpec(2000, 400/2000, 1650, 25))
-    _run(RunSpec(2500, 300/2500, 1650, 25))
-    _run(RunSpec(2500, 500/2500, 1650, 25))
-    _run(RunSpec(2500, 1000/2500, 1650, 25))
-    _run(RunSpec(20000, 0.5, 1650, 0))
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-peoples-party-s137-deregistration.pdf
     # Note: no way they were valid with 25 denials to 12 confirmations
@@ -452,6 +414,7 @@ def aec(n_trials, show, jobs, force):
     # add bonus b/c they were at limit of 550
     # 2021
     _run(RunSpec(550 * 91//80, 10/50, 550, 2, 500), party_name="CPP@Measured", farce_extra="SUSPECTED")
+    _run(RunSpec(550 * 91//80, 10/50, 550, 2, 500, True), party_name="CPP@Measured", farce_extra="SUSPECTED")
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-workers-party-s-137-deregistration.pdf
     # ambiguous case b/c there were 41 duplicates but another list was provided. laws were changed between the two lists.
@@ -463,6 +426,7 @@ def aec(n_trials, show, jobs, force):
     # add bonus for hitting limit
     # 2021
     _run(RunSpec(629, 9/44, 550, 11, 500), party_name="SUP@Measured", farce_extra="SUSPECTED")
+    _run(RunSpec(629, 9/44, 550, 11, 500, True), party_name="SUP@Measured", farce_extra="SUSPECTED")
 
     # mb (but unlikely with so many denials): no free tax (https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/statement-of-reasons-the-no-tax-free-electricity.com-refusal.pdf)
     # mb: https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/statement-of-reasons-put-wa-first-party-signed-redacted.pdf
@@ -471,25 +435,72 @@ def aec(n_trials, show, jobs, force):
     # this one is signed by Kalisch...
     # VRP possible farce but has 35% extra members
     _run(RunSpec(732, 13/41, 550, 22, 500), party_name="VRP@Measured", farce_extra="POSSIBLE")
+    _run(RunSpec(732, 13/41, 550, 22, 500, True), party_name="VRP@Measured", farce_extra="POSSIBLE")
 
     # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-australian-affordable-housing-party.pdf
     # possible farce initially
     # note: table of max denials might have been different
     # final list between 511 and 503? avg 507
     _run(RunSpec(550, 2/26, 550, 550-507, 500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+    _run(RunSpec(550, 2/26, 550, 550-507, 500, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
     _run(RunSpec(542, 2/26, 542, 542-507, 500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+    _run(RunSpec(542, 2/26, 542, 542-507, 500, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
 
     # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
     # note: unsure of acceptable number of denials
     _run(RunSpec(708, 10/34, 550, 550-515, 500), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
+    _run(RunSpec(708, 10/34, 550, 550-515, 500, True), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
 
     # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm
     # cheaper petrol party
     _run(RunSpec(595, 8/50, 550, 1, 500), party_name="CPP2013@Measured", farce_extra="SUSPECTED")
+    _run(RunSpec(595, 8/50, 550, 1, 500, True), party_name="CPP2013@Measured", farce_extra="SUSPECTED")
 
     # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm
     # seniors action movement
     _run(RunSpec(578, 5/37, 550, 15, 500), party_name="SAM@Measured", farce_extra="SUSPECTED")
+    _run(RunSpec(578, 5/37, 550, 15, 500, True), party_name="SAM@Measured", farce_extra="SUSPECTED")
+
+    if non_essential:
+        _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
+        _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
+        _run(RunSpec(frs.total_members, 0.14, 1650, frs.n_members_removed), party_name="Flux@0.14")
+        _run(RunSpec(frs.total_members, 0.16, 1650, frs.n_members_removed), party_name="Flux@0.16")
+        _run(RunSpec(frs.total_members, 0.18, 1650, frs.n_members_removed), party_name="Flux@0.18")
+        _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), party_name="Flux+Gain100%Lose33%")
+        _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
+        _run(RunSpec(1650, 150/1650, 1650, 0), party_name="1650@Thresh")
+        _run(RunSpec(1650, 150/1650, 1650, 25), party_name="1650@Thresh+F25")
+        _run(RunSpec(1650, 150/1650, 1650, 50), party_name="1650@Thresh+F50")
+        _run(RunSpec(1625, 150/1625, 1625, 0), party_name="1625@Thresh")
+        _run(RunSpec(1600, 150/1600, 1600, 25))
+        _run(RunSpec(1650, 0.06, 1650, 0))
+        _run(RunSpec(1650, 0.09, 1650, 0))
+        _run(RunSpec(1650, 0.16, 1650, 0))
+        _run(RunSpec(1650, 0.17, 1650, 0))
+        _run(RunSpec(1650, 150/1650, 1650, 0))
+        _run(RunSpec(1650, 150/1650, 1650, 5))
+        _run(RunSpec(1650, 150/1650, 1650, 18))
+        _run(RunSpec(1650, (150-18)/1650, 1650, 18))
+        _run(RunSpec(1650, 150/1650, 1650, 25))
+        _run(RunSpec(1750, 200/1750, 1650, 25))
+        _run(RunSpec(1850, 150/1650, 1650, 50), party_name="1850@Thresh+F50")
+        _run(RunSpec(1850, 200/1850, 1650, 0))
+        _run(RunSpec(1850, 200/1850, 1650, 25))
+        _run(RunSpec(2000, 150/2000, 1650, 25))
+        _run(RunSpec(2000, 300/2000, 1650, 0))
+        _run(RunSpec(2000, 300/2000, 1650, 5))
+        _run(RunSpec(2000, 300/2000, 1650, 6))
+        _run(RunSpec(2000, 300/2000, 1650, 7))
+        _run(RunSpec(2000, 300/2000, 1650, 8))
+        _run(RunSpec(2000, 300/2000, 1650, 10))
+        _run(RunSpec(2000, 300/2000, 1650, 15))
+        _run(RunSpec(2000, 300/2000, 1650, 25))
+        _run(RunSpec(2000, 400/2000, 1650, 25))
+        _run(RunSpec(2500, 300/2500, 1650, 25))
+        _run(RunSpec(2500, 500/2500, 1650, 25))
+        _run(RunSpec(2500, 1000/2500, 1650, 25))
+        _run(RunSpec(20000, 0.5, 1650, 0))
 
 
 if __name__ == "__main__":
