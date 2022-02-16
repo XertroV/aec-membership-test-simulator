@@ -42,8 +42,12 @@ party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/g
 
 Flux failed its recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
 
-<!-- FOI:
+<!--
+FOI:
 - all documents and communications regarding both policy changes and decisions that concern the upper limit of acceptable membership lists.
+- all documents and communications regarding minimising the work of registering parties as relating to the upper limit of acceptable membership lists. example of mention: <https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf>
+  > This is considered to be to a party’s advantage, by minimising the work required of the party in confirming the enrolment status and contact details of additional other members
+- all documents and communications regarding what is and is not in a party's advantage and/or disadvantage in relation to registration procedures and/or membership testing.
 -->
 
 * [AEC's Notice to Flux (with results)](https://xertrov.github.io/aec-membership-test-simulator/docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
@@ -134,16 +138,16 @@ Instead, we only know the number of members that were submitted, which is always
 
 Since parties sometimes *max out* the number of members they may provide, the only reasonable conclusion is that they have *more* members they *could* provide if a more responsible method were used.
 
-Therefore, parties are assumed to have *only 20%* excess capacity in additional members that *could* have been provided.
+Therefore, parties are assumed to have *just enough* excess capacity in additional members to be eligible, and that those extra members *could* have been provided.
 
-For comparison: in Flux's case, we had 3030 additional members (184%) -- excluding those that we could not validate. The AEC is sometimes able to validate members that we cannot, and we have at least 4285 additional members that we could contact with a request for them to update their details.
+For comparison: in Flux's case, we had 3030 additional members (excess capacity of 184%) -- excluding those that we could not validate. The AEC is sometimes able to validate members that we cannot, and we have at least 4285 additional members that we could contact with a request for them to update their details.
 
 What about cases where the member list submitted had a large number of duplicates? It is not safe to assume the absence of a farce in these cases: maintaining membership lists is difficult. In my case, I wrote **thousands of lines** of custom code to assist Flux in managing our member list -- and the proportion of our list that is automatically matched against the electoral roll is proof of this. But, even with multiple checks for duplicates (matching phone numbers, emails, first and last names, etc), still we would occasionally get duplicates. These stragglers were usually found through a manual process before submission. At some point it just isn't worth worrying about. *However*, due to the ambiguity of these cases (there is only 1 case I know of), this document will exclude them.
 
 The two cases are:
 
-1. (Fig 4) [30 June 2021 -- deregistration of Child Protection Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-child-protection-party-s137-deregistration.pdf))
-2. (Fig 5) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf))
+1. (Fig 4) [30 June 2021 -- deregistration of Child Protection Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-child-protection-party-s137-deregistration.pdf)) -- excess capacity of 13.4% required
+2. (Fig 5) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf)) -- excess capacity of 14.4% required
 
 <!--
 Possible more:
@@ -263,7 +267,7 @@ It does not change the fact that she is unable to tell the boundaries of her own
 
 ### Some Dishonesty from the AEC
 
->  In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimising the work required of the party in confirming the enrolment status and contact details of additional other members.
+>  26. In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimising the work required of the party in confirming the enrolment status and contact details of additional other members.
 
 Source <https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf>
 
