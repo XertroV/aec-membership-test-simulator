@@ -252,8 +252,6 @@ def name_to_fname_sfx(n: str):
     return n.lower().strip().replace(' ', '-').replace('(', '').replace(')', '').replace('@', '_')
 
 
-# shuffle members, take 1649, eliminate 24, sample 53, record X failures
-# for trial_ix in range(n_trials):
 def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any):
     # generate a list of members with some given non-member rate (i.e. these members will always fail)
     members = list(mk_members(total_members, failure_rate))
@@ -272,6 +270,7 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
             reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
         else:
             # the following line will remove n_members_removed indiscriminantly
+            # note: it makes little difference -- only in very borderline cases.
             reduced_sample = list(membership_sample[n_members_removed:])
         assert reduced_sample_size == len(reduced_sample)
 
@@ -345,6 +344,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
     aec_nonreality_rate = cum_failed if party_valid else cum_passed
     # this is generous, but it's definitely a farce in these cases
     is_farce = aec_false_neg >= 0.5
+    is_bad_conf = aec_false_neg >= 0.1
     title = \
         run_spec.subtitle_line() \
         + "\n" + " | ".join([
@@ -363,11 +363,18 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
     plt.subplots_adjust(top=0.80)
     plt.legend()
 
-    if is_farce:
-        loc = (n_cols - 2, max_p / 2)
-        bbox = {'facecolor': 'none', 'edgecolor': 'red', 'lw': 3}
-        extra_end = [f"if $N \\gtrsim {total_members}$"] if farce_extra not in {"KNOWN", "CONFIRMED"} else []
-        farce_txt = "\n".join(if_else(farce_extra, [farce_extra], []) + ["FARCE"] + if_else(farce_extra, extra_end, []))
+    loc = (n_cols - 2, max_p / 2)
+    bbox = {'facecolor': 'none', 'edgecolor': 'red', 'lw': 3}
+    def notice_box(farce_or):
+        return "\n".join(if_else(farce_extra, [farce_extra], []) + [farce_or] + if_else(farce_extra, extra_end, []))
+    if is_farce: # or is_bad_conf:
+        farce_txt = None
+        if is_farce:
+            extra_end = [f"if $N \\gtrsim {total_members}$"] if "CONFIRMED" not in farce_extra else []
+            farce_txt = notice_box("FARCE")
+        # elif is_bad_conf:
+        #     farce_txt = notice_box("")
+        assert farce_txt is not None
         plt.text(loc[0], loc[1], farce_txt, ha='right', va='center', color='red', fontweight='black', fontsize=20, bbox=bbox)
 
     fname = run_spec.out_fname(n_trials, party_name, is_farce)
@@ -394,15 +401,17 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _kwargs = dict(show=show, force=force)
         _kwargs.update(kwargs)
         run(trial_pool, n_trials, *args, **_kwargs)
-    _run(default_run_spec, party_name="Flux", farce_extra="CONFIRMED")
-    _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, filter_any=True), party_name="Flux", farce_extra="CONFIRMED")
+    _run(default_run_spec, party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
+    _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, filter_any=True), party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
     _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
     _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0, filter_any=True), party_name="Flux+NoFilter")
     _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 0), party_name="Flux+Gain20%Lose10%")
     _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 24), party_name="Flux+Gain20%Lose10%")
     _run(RunSpec(frs.total_members, 0.5, 1650, 0), party_name="Flux+HalfBadMembers")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
+    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed, filter_any=True), party_name="Flux@Thresh")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49), party_name="Flux@Thresh+F50")
+    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49, filter_any=True), party_name="Flux@Thresh+F50")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99, filter_any=True), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")

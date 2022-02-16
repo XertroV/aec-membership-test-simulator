@@ -28,7 +28,7 @@ Additionally, experimental evidence shows that the confidence of Flux's 2021 mem
 
 The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%. This is an indication of gross negligence or gross incompetence, or both.
 
-*Note: calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3% (i.e., they differ by, at most, 3 parts per 1,000). This is taken to be negligible and a non-critical error.*
+*Note: calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as numerical percentages, the values differ by 0.003 at most). This is taken to be negligible and a non-critical error.*
 
 ## 1. Background Context
 
@@ -93,7 +93,7 @@ grounds; each argument is a *decisive criticism* of the current methodology.
 
 Yesterday (2022-02-14) I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Given that we are **in fact** an eligible party.)
 
-Turns out there was a ~72% chance that the AEC's method would find a false negative.
+Turns out there was a 71.9% chance that the AEC's method would find a false negative.
 
 ### TL;DR: It's rigged.
 
@@ -112,7 +112,7 @@ Parameters are: number of trials in the simulation, the population size of membe
 
 ## 5. Major Findings
 
-In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, and that 17% of members provided will respond "No" -- there is a ~72% chance of the AEC reaching a *false negative* result. In such a case, overall Flux would have over 3,800 members that respond "Yes" (or do not respond). See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>.
+In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, and that 17% of members provided will respond "No" -- there is a 71.9% chance of the AEC reaching a *false negative* result. In such a case, overall Flux would have over 3,800 members that respond "Yes" (or do not respond). See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>.
 
 What if we repeat the exercise? How many membership tests would be required to reach a positive result 90% of the time (i.e., 10% of the time Flux fails every test)?
 
@@ -141,7 +141,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>: Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails ~72% of the time.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>: Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.9% of the time.</em>
 </p>
 
 ---
