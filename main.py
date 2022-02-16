@@ -91,13 +91,15 @@ AEC_TESTING_TABLE = [
     (1651, 60, 9),  # we will subtract 1 later to calc an inclusive range
 ]
 
+# anomaly: https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
+# -- 34 responses required, why would this table ever change? FOI
 OLD_AEC_TESTING_TABLE = [
     (500, 18, 0),
     (503, 26, 1),
-    (511, 32, 2),
+    (511, 32, 2),  # this was 26 responses in 2017 -- sor-australian-affordable-housing-party.pdf
     (519, 37, 3),
     (526, 41, 4),
-    (534, 44, 5),
+    (534, 44, 5),  # 535 used to be 37, ?4?
     (541, 47, 6),
     (548, 50, 7),
     (551, 50, 7),  # we subtract 1 later for upper bound
@@ -255,7 +257,7 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
     return results
 
 
-def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=None, graph_fname=None, show=True, party_name=None, force=False):
+def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=None, graph_fname=None, show=True, party_name=None, force=False, farce_extra=None):
     output_files_exist = any(all(os.path.exists(f'./{ext}/{run_spec.out_fname(n_trials, party_name, is_farce)}.{ext}') for ext in ['png', 'csv']) for is_farce in [True, False])
     if not force and output_files_exist:
         print(f"Output files exist (use --force to overwrite) -- skipping run: {run_spec}")
@@ -332,7 +334,8 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
     if is_farce:
         loc = (n_cols - 2, max_p / 2)
         bbox = {'facecolor': 'none', 'edgecolor': 'red', 'lw': 3}
-        plt.text(loc[0], loc[1], "FARCE", ha='right', va='center', color='red', fontweight='black', fontsize=20, bbox=bbox)
+        farce_txt = "\n".join(if_else(farce_extra, [farce_extra], []) + ["FARCE"] + if_else(farce_extra, [f"if $N \\gtrsim {total_members}$"], []))
+        plt.text(loc[0], loc[1], farce_txt, ha='right', va='center', color='red', fontweight='black', fontsize=20, bbox=bbox)
 
     fname = run_spec.out_fname(n_trials, party_name, is_farce)
     print(f"Writing files out under ./png/{fname}.png (also csv/*.csv)")
@@ -357,8 +360,8 @@ def aec(n_trials, show, jobs, force):
         _kwargs.update(kwargs)
         run(trial_pool, n_trials, *args, **_kwargs)
     _run(default_run_spec, party_name="Flux")
-    # _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
-    # _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
+    _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
+    _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
     _run(RunSpec(frs.total_members, 0.14, 1650, frs.n_members_removed), party_name="Flux@0.14")
     _run(RunSpec(frs.total_members, 0.16, 1650, frs.n_members_removed), party_name="Flux@0.16")
     _run(RunSpec(frs.total_members, 0.18, 1650, frs.n_members_removed), party_name="Flux@0.18")
@@ -369,31 +372,31 @@ def aec(n_trials, show, jobs, force):
     _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
     _run(RunSpec(frs.total_members, 0.5, 1650, 0), party_name="Flux+HalfBadMembers")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
-    # _run(RunSpec(1650, 150/1650, 1650, 0), party_name="1650@Thresh")
-    # _run(RunSpec(1650, 150/1650, 1650, 25), party_name="1650@Thresh+F25")
-    # _run(RunSpec(1625, 150/1625, 1625, 0), party_name="1625@Thresh")
-    # _run(RunSpec(1600, 150/1600, 1600, 25))
-    # _run(RunSpec(1650, 0.06, 1650, 0))
-    # _run(RunSpec(1650, 0.09, 1650, 0))
-    # _run(RunSpec(1650, 0.16, 1650, 0))
-    # _run(RunSpec(1650, 0.17, 1650, 0))
-    # _run(RunSpec(1650, 150/1650, 1650, 0))
-    # _run(RunSpec(1650, 150/1650, 1650, 5))
-    # _run(RunSpec(1650, 150/1650, 1650, 18))
-    # _run(RunSpec(1650, (150-18)/1650, 1650, 18))
-    # _run(RunSpec(1650, 150/1650, 1650, 25))
-    # _run(RunSpec(1750, 200/1750, 1650, 25))
-    # _run(RunSpec(1850, 200/1850, 1650, 0))
-    # _run(RunSpec(1850, 200/1850, 1650, 25))
-    # _run(RunSpec(2000, 150/2000, 1650, 25))
-    # _run(RunSpec(2000, 300/2000, 1650, 0))
-    # _run(RunSpec(2000, 300/2000, 1650, 5))
-    # _run(RunSpec(2000, 300/2000, 1650, 6))
-    # _run(RunSpec(2000, 300/2000, 1650, 7))
-    # _run(RunSpec(2000, 300/2000, 1650, 8))
-    # _run(RunSpec(2000, 300/2000, 1650, 10))
-    # _run(RunSpec(2000, 300/2000, 1650, 15))
-    # _run(RunSpec(2000, 300/2000, 1650, 25))
+    _run(RunSpec(1650, 150/1650, 1650, 0), party_name="1650@Thresh")
+    _run(RunSpec(1650, 150/1650, 1650, 25), party_name="1650@Thresh+F25")
+    _run(RunSpec(1625, 150/1625, 1625, 0), party_name="1625@Thresh")
+    _run(RunSpec(1600, 150/1600, 1600, 25))
+    _run(RunSpec(1650, 0.06, 1650, 0))
+    _run(RunSpec(1650, 0.09, 1650, 0))
+    _run(RunSpec(1650, 0.16, 1650, 0))
+    _run(RunSpec(1650, 0.17, 1650, 0))
+    _run(RunSpec(1650, 150/1650, 1650, 0))
+    _run(RunSpec(1650, 150/1650, 1650, 5))
+    _run(RunSpec(1650, 150/1650, 1650, 18))
+    _run(RunSpec(1650, (150-18)/1650, 1650, 18))
+    _run(RunSpec(1650, 150/1650, 1650, 25))
+    _run(RunSpec(1750, 200/1750, 1650, 25))
+    _run(RunSpec(1850, 200/1850, 1650, 0))
+    _run(RunSpec(1850, 200/1850, 1650, 25))
+    _run(RunSpec(2000, 150/2000, 1650, 25))
+    _run(RunSpec(2000, 300/2000, 1650, 0))
+    _run(RunSpec(2000, 300/2000, 1650, 5))
+    _run(RunSpec(2000, 300/2000, 1650, 6))
+    _run(RunSpec(2000, 300/2000, 1650, 7))
+    _run(RunSpec(2000, 300/2000, 1650, 8))
+    _run(RunSpec(2000, 300/2000, 1650, 10))
+    _run(RunSpec(2000, 300/2000, 1650, 15))
+    _run(RunSpec(2000, 300/2000, 1650, 25))
     _run(RunSpec(2000, 400/2000, 1650, 25))
     _run(RunSpec(2500, 300/2500, 1650, 25))
     _run(RunSpec(2500, 500/2500, 1650, 25))
@@ -419,7 +422,8 @@ def aec(n_trials, show, jobs, force):
     # add 20% bonus b/c they were at limit of 550
     # _run(RunSpec(550*3 * 12//10, 10/50, 550*3, 2*3), party_name="CPP@Measured (Scaled + Limit Bonus)")
     # _run(RunSpec(550*3 * 12//10, 50/550, 550*3, 2*3), party_name="CPP@Threshold (Scaled + Limit Bonus)")
-    _run(RunSpec(550 * 12//10, 10/50, 550, 2, 500), party_name="CPP@Measured (Limit Bonus)")
+    # _run(RunSpec(550 * 12//10, 10/50, 550, 2, 500), party_name="CPP@Measured", farce_extra="SUSPECTED")
+    _run(RunSpec(550 * 91//80, 10/50, 550, 2, 500), party_name="CPP@Measured", farce_extra="SUSPECTED")
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-workers-party-s-137-deregistration.pdf
     # ambiguous case b/c there were 41 duplicates but another list was provided. laws were changed between the two lists.
@@ -431,7 +435,39 @@ def aec(n_trials, show, jobs, force):
     # add 20% bonus for hitting limit
     # _run(RunSpec(550*3 * 12//10, 9/44, 550*3, 11*3), party_name="SUP@Measured (Scaled+Limit Bonus)")
     # _run(RunSpec(550*3 * 12//10, 5/55, 550*3, 11*3), party_name="SUP@Threshold (Scaled+Limit Bonus)")
-    _run(RunSpec(550 * 12//10, 9/44, 550, 11, 500), party_name="SUP@Measured (Limit Bonus)")
+    # _run(RunSpec(550 * 12//10, 9/44, 550, 11, 500), party_name="SUP@Measured", farce_extra="SUSPECTED")
+    # _run(RunSpec(550 * 92//80, 9/44, 550, 11, 500), party_name="SUP@Measured", farce_extra="SUSPECTED")
+    _run(RunSpec(629, 9/44, 550, 11, 500), party_name="SUP@Measured", farce_extra="SUSPECTED")
+
+    # mb (but unlikely with so many denials): no free tax (https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/statement-of-reasons-the-no-tax-free-electricity.com-refusal.pdf)
+    # mb: https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/statement-of-reasons-put-wa-first-party-signed-redacted.pdf
+
+    # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-voter-rights-party-statement-of-reasons.pdf
+    # this one is signed by Kalisch...
+    # VRP possible farce but has 35% extra members
+    _run(RunSpec(732, 13/41, 550, 22, 500), party_name="VRP@Measured", farce_extra="POSSIBLE")
+
+    # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-australian-affordable-housing-party.pdf
+    # possible farce initially
+    # note:
+    # final list between 511 and 503? avg 507
+    _run(RunSpec(550, 2/26, 550, 550-507, 500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+
+    # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
+    # note: unsure of acceptable number of denials
+    _run(RunSpec(708, 10/34, 550, 550-515, 500), party_name="Commies@Measured (Hypo7l)", farce_extra="POSSIBLE")
+
+    # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm
+    # cheaper petrol party
+    _run(RunSpec(595, 8/50, 550, 1, 500), party_name="CPP2013@Measured", farce_extra="SUSPECTED")
+
+    # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm
+    # seniors action movement
+    # _run(RunSpec(550 * 12//10, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
+    # _run(RunSpec(550 * 11//10, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
+    # _run(RunSpec(550 * 43//40, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
+    _run(RunSpec(578, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
+
 
 if __name__ == "__main__":
     aec()

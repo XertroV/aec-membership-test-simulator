@@ -16,11 +16,13 @@ Political parties *without* a parliamentarian must go through a membership test 
 
 This document evaluates the AEC's testing methodology for particular cases and finds that there are real-world situations where the testing methodology has a false negative (improper failure) rate over 50%, and often much higher.
 
+Therefore, it is reasonable to conclude, for those cases, that the methodology is *rigged* and a *farce*.
+
+**Note: I am not accusing the AEC of doing the rigging; just proving that the method *is* rigged.**
+
 To date, there is 1 known incident of a farce and *at least* 2 suspected incidents.
 <!-- There may be many more as the results of most membership tests are not available.
 (An FOI request may solve this.) -->
-
-Therefore, it is reasonable to conclude, for those cases, that the methodology is *rigged* and a *farce*.
 
 ## Background Context
 
@@ -36,7 +38,7 @@ The AEC does not accept lists larger than 1650; there is no chance for a party t
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
 ([mirror](https://xertrov.github.io/aec-membership-test-simulator/docs/party-registration-guide.pdf))
 
-## Flux's 2021 Membership Test -- P(False Negative) = 100%
+## Flux's 2021 Membership Test -- A Known Farse
 
 Flux failed its recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
 
@@ -63,6 +65,8 @@ Turns out there was a ~72% chance that the AEC's method would find a false negat
 
 ## TL;DR: It's fuckin' rigged.
 
+In this document and the associated code and graphs: a *farce* is defined as any case where the chance of a false negative is >= 50%.
+
 ----
 
 ## Running this simulator
@@ -82,7 +86,7 @@ In the case of Flux's recent membership audit, the simulation shows that -- *on 
 
 Moreover, say that Flux is gaining members faster than it is losing them. ('Losing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.* See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20%lose10%.png">Fig 2</a>, [Example 2.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r24-flux+gain20%lose10%.png), [Example 2.2 (Filtered=0)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r0-flux+gain100%lose33%.png), [Example 2.3 (Filtered=24)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r24-flux+gain100%lose33%.png).
 
-## **The system is rigged. It's a farce.**
+### **The system is rigged. It's a farce.**
 
 Finally, there are even more cases where the AEC's method fails spectacularly.
 
@@ -116,6 +120,55 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 </p>
 
 ---
+
+## Suspected Farces
+
+Detecting previous farces is difficult because the AEC does not record the number of members a party *could* offer in support of their validity.
+Instead, we only know the number of members that were submitted, which is always &lt;= 1650.
+
+*Note: these cases occurred prior to the September 2021 increase in required members. Therefore they are judged against the previous requirements -- the test method was practically the same, the only difference being that it was calibrated for membership lists of 500-550 instead of 1500-1650.*
+
+Since parties sometimes *max out* the number of members they may provide, the only reasonable conclusion is that they have *more* members they *could* provide if a more responsible method were used.
+
+Therefore, parties are assumed to have *only 20%* excess capacity in additional members that *could* have been provided.
+
+For comparison: in Flux's case, we had 3030 additional members (184%) -- excluding those that we could not validate. The AEC is sometimes able to validate members that we cannot, and we have at least 4285 additional members that we could contact with a request for them to update their details.
+
+What about cases where the member list submitted had a large number of duplicates? It is not safe to assume the absence of a farce in these cases: maintaining membership lists is difficult. In my case, I wrote **thousands of lines** of custom code to assist Flux in managing our member list -- and the proportion of our list that is automatically matched against the electoral roll is proof of this. But, even with multiple checks for duplicates (matching phone numbers, emails, first and last names, etc), still we would occasionally get duplicates. These stragglers were usually found through a manual process before submission. At some point it just isn't worth worrying about. *However*, due to the ambiguity of these cases (there is only 1 case I know of), this document will exclude them.
+
+The two cases are:
+
+1. (Fig 4) [30 June 2021 -- deregistration of Child Protection Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-child-protection-party-s137-deregistration.pdf))
+2. (Fig 5) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf))
+
+<!--
+Possible more:
+- png/aec-test-sim-FARCE-N500000-m550-f42-s550-r43-aahp_measured-hypothetical.png
+- VRP
+- The Communists
+
+-->
+
+---
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f132-s550-r2-cpp_measured-limit-bonus.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f132-s550-r2-cpp_measured-limit-bonus.png">Fig 4</a>: The deregistration of CPP on 30 June 2021 was likely a farce.</em>
+</p>
+
+---
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f135-s550-r11-sup_measured-limit-bonus.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f135-s550-r11-sup_measured-limit-bonus.png">Fig 5</a>: The deregistration of SUP on 30 June 2021 was likely a farce.</em>
+</p>
+
+---
+
 
 <!-- don't really need this bit. does it really help? -->
 
@@ -165,6 +218,73 @@ I do not think they are honest with themselves regarding these biases.
 
 I'm sure Hampel is a very nice person and does lots of nice things.
 It does not change the fact that she is unable to tell the boundaries of her own incompetence. -->
+
+## Appendix: Definitions
+
+
+**rig** *verb*
+
+[Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/rig)
+> - to arrange an event or amount in a dishonest way
+> - to dishonestly influence or change something in order to get the result that you want
+
+[Wiktionary](https://en.wiktionary.org/wiki/rig#Verb)
+> - To manipulate something dishonestly for personal gain or discriminatory purposes.
+
+---
+
+**rigged** *adjective*
+
+[Wiktionary](https://en.wiktionary.org/wiki/rigged)
+> - Pre-arranged and fixed so that the winner or outcome is decided in advance.
+
+---
+
+**farce** *noun*
+
+[Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/farce)
+> - a situation that is very badly organized or unfair
+> - a ridiculous situation or event, or something considered a waste of time
+
+[Wiktionary](https://en.wiktionary.org/wiki/farce)
+> - A situation abounding with ludicrous incidents.
+> - A ridiculous or empty show.
+
+[Merriam-Webster](https://www.merriam-webster.com/dictionary/farce)
+> - an empty or patently ridiculous act, proceeding, or situation
+
+<!--
+
+## Appendix: CAP 2018
+
+### Some Dishonesty from the AEC
+
+>  In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimising the work required of the party in confirming the enrolment status and contact details of additional other members.
+
+Source <https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf>
+
+Note: this was in 2018. I strongly disagreed then, and I ofc still do now.
+
+### "a lie"
+
+> 24. In respect of the assertion in the application for review that the results of the membership testing conducted by the AEC was a "false and misleading statement [a lie]”, the Commission is satisfied that the methodology developed by the ABS, which was correctly applied in this case, is consistent with the Electoral Act and provides the AEC with a statistical degree of certainty about a party’s number of members.
+> 25. Accordingly, the Commission rejects the assertion that the membership testing conducted by the AEC was a “false and misleading statement [a lie]”,
+
+<https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf>
+
+> [...] the Commission is satisfied that the methodology developed by the ABS [...]
+
+It should never have been, and the ABS should never have put it forward.
+
+It **is** dishonest (or at least incompetent) of the ABS to claim that that the method provides a "statistical degree of certainty about a party’s number of members".
+
+It is *irresponsible* of the AEC to wilfully turn a blind eye to criticisms of their methodology (have they ever had a 3rd party review? FOI).
+
+> [...] and provides the AEC with a statistical degree of certainty about a party’s number of members [...]
+
+This is false, as proven by this document.
+
+-->
 
 ## Appendix: Errors in Feb 13 response to AEC
 
