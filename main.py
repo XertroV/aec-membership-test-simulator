@@ -197,6 +197,10 @@ class RunSpec:
         return min(self.max_list_limit, self._sample_size)
 
     @property
+    def filtered_sample_size(self):
+        return self.sample_size - self.n_members_removed
+
+    @property
     def n_failing_members(self):
         return calc_failing_members_n(self.total_members, self.failure_rate)
 
@@ -206,20 +210,24 @@ class RunSpec:
 
     @property
     def n_sample_real_m(self):
+        if self.filter_any:
+            return round(self.filtered_sample_size * self.n_real_members / self.total_members)
         # filtered members are always removed from real members because they must be assumed to be replaceable (by the party) w/ real members
         return round(self.sample_size * self.n_real_members / self.total_members) - self.n_members_removed
 
     @property
     def n_sample_failing_m(self):
-        return round(self.sample_size * self.n_failing_members / self.total_members)
+        ss = self.filtered_sample_size if self.filter_any else self.sample_size
+        return round(ss * self.n_failing_members / self.total_members)
 
     def subtitle_line(self):
+        assert self.sample_size - self.n_members_removed == self.n_sample_real_m + self.n_sample_failing_m
         return " | ".join([
-            f"N Members = {self.total_members}", #  (Y: {self.n_real_members}, N: {self.n_failing_members})",
+            f"N Members = {self.total_members} (Y: {self.n_real_members}, N: {self.n_failing_members})",
             f"Submitted = {self.sample_size}",
             f"Filtered Out = {self.n_members_removed}",
-            f"Remaining = {self.sample_size - self.n_members_removed}",
-            # f"Sample: (Y: {self.n_sample_real_m}, N: {self.n_sample_failing_m})",
+            # f"Remaining = {self.sample_size - self.n_members_removed}",
+            f"Sample: {self.sample_size - self.n_members_removed} (Y: {self.n_sample_real_m}, N: {self.n_sample_failing_m})",
             f"P(denial) = {self.failure_rate:.3f}",
         ])
 
@@ -393,6 +401,7 @@ def aec(n_trials, show, jobs, force, non_essential):
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49), party_name="Flux@Thresh+F50")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99), party_name="Flux@Thresh+F99")
+    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99, filter_any=True), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-peoples-party-s137-deregistration.pdf
