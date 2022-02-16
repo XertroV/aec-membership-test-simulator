@@ -249,7 +249,7 @@ flux_run_spec = default_run_spec
 
 
 def name_to_fname_sfx(n: str):
-    return n.lower().strip().replace(' ', '-').replace('(', '').replace(')', '').replace('@', '_')
+    return n.lower().strip().replace(' ', '-').replace('(', '').replace(')', '').replace('@', '_').replace('%', '-pct-')
 
 
 def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any):
@@ -375,7 +375,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
     if is_farce: # or is_bad_conf:
         farce_txt = None
         if is_farce:
-            extra_end = [f"if $N \\gtrsim {total_members}$"] if "CONFIRMED" not in farce_extra else []
+            extra_end = [f"if $N \\gtrsim {total_members}$"] if "CONFIRMED" not in (farce_extra or "") else []
             farce_txt = notice_box("FARCE")
         # elif is_bad_conf:
         #     farce_txt = notice_box("")
@@ -421,6 +421,9 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99, filter_any=True), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149, filter_any=True), party_name="Flux@Thresh+F149")
+
+    _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), party_name="Flux+Gain100%Lose33%")
+    _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
 
     if not only_flux:
         # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-peoples-party-s137-deregistration.pdf
@@ -495,8 +498,6 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
             _run(RunSpec(frs.total_members, 0.14, 1650, frs.n_members_removed), party_name="Flux@0.14")
             _run(RunSpec(frs.total_members, 0.16, 1650, frs.n_members_removed), party_name="Flux@0.16")
             _run(RunSpec(frs.total_members, 0.18, 1650, frs.n_members_removed), party_name="Flux@0.18")
-            _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), party_name="Flux+Gain100%Lose33%")
-            _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
             _run(RunSpec(1650, 150/1650, 1650, 0), party_name="1650@Thresh")
             _run(RunSpec(1650, 150/1650, 1650, 25), party_name="1650@Thresh+F25")
             _run(RunSpec(1650, 150/1650, 1650, 50), party_name="1650@Thresh+F50")
