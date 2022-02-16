@@ -258,25 +258,26 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
 
     results = []
     for _ in range(n_trials):
-        # take sample
+        # take sample from full membership list (which can be more that 1650 / the AEC's limit)
+        # the sample size is, at most, the legislative limit (e.g., 1650)
         membership_sample = r.sample(members, sample_size)
 
         # remove n_members_removed true members (this is the worst case for the party).
         #   members can be removed b/c their details couldn't be matched, they're deceased, or b/c they've supported another party's rego.
         #   we always want to remove true members to measure worst case performance of methodology.
-        # why? because that's what happens in a griefing attack (your denying members will be sure not to give you bad details).\
+        # why? because that's what happens in a griefing attack (your fake-members will be sure not to give you bad details).\
         # since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
         if not filter_any:
             reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
         else:
             # the following line will remove n_members_removed indiscriminantly
-            # note: it makes little difference -- only in very borderline cases.
+            # note: it makes little difference -- only in borderline cases.
             reduced_sample = list(membership_sample[n_members_removed:])
         assert reduced_sample_size == len(reduced_sample)
 
         # perform check (contact member to confirm)
         actual_sample = r.sample(reduced_sample, n_to_sample)
-        # count and failures
+        # count failures
         n_failures = sum(0 if m[1] else 1 for m in actual_sample)
 
         # if trial_ix % status_after_trials == 0:

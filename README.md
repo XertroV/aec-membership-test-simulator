@@ -30,6 +30,8 @@ The AEC's claim that their membership tests are conducted to a confidence of 90%
 
 *Note: equivalent calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most) -- e.g., a graph might say the the false negative rate is 11.0%, but the accompanying text says 10.8%. This is taken to be negligible and a non-critical error.*
 
+*Disclosure and context: My roles in The Flux Party (Flux) are: a founder, the deputy leader, the secretary, and the deputy registered officer.*
+
 ## 1. Background Context
 
 Recently (leading up to September 2021), parliamentarians (i.e., the 4 major parties) decided there was just too much competition! That would not do. So, a bunch of changes were made to the Electoral Act. Changes designed to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show. Some of those changes resulted in (as of Feb 2022) the pending deregistration of 12 parties, and the very real deregistration of 9 parties. In practice that is ~40% of parties, gone before the next election. Political elites will claim that this culling, and the subsequent entrenchment of the status quo, is a good thing. That it is making our democracy better. Just wait and watch.
@@ -109,6 +111,35 @@ For arguments, run `./main.py --help`
 
 To add a set of parameters, add a new line in `main.py` under the `aec()` function.
 Parameters are: number of trials in the simulation, the population size of members from which the party can choose a membership list to provide, the failure rate of members confirming their membership when contacted, and the number of members that are filtered out of the list (reasons include: they support the registration of another party, they're deceased, the details cannot be matched against the electoral roll, or duplicate entries).
+
+### Main Simulator Loop
+
+This is the main loop of the simulation.
+It has been run 500,000 times per graph unless otherwise mentioned.
+
+```python
+# take sample from full membership list (which can be more that 1650 / the AEC's limit)
+# the sample size is, at most, the legislative limit (e.g., 1650)
+membership_sample = r.sample(members, sample_size)
+
+# remove n_members_removed true members (this is the worst case for the party).
+#   members can be removed b/c their details couldn't be matched, they're deceased, or b/c they've supported another party's rego.
+#   we always want to remove true members to measure worst case performance of methodology.
+# why? because that's what happens in a griefing attack (your fake-members will be sure not to give you bad details).
+# since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
+if not filter_any:
+    reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
+else:
+    # the following line will remove n_members_removed indiscriminantly
+    # note: it makes little difference -- only in borderline cases.
+    reduced_sample = list(membership_sample[n_members_removed:])
+assert reduced_sample_size == len(reduced_sample)
+
+# perform check (contact member to confirm)
+actual_sample = r.sample(reduced_sample, n_to_sample)
+# count failures
+n_failures = sum(0 if m[1] else 1 for m in actual_sample)
+```
 
 ## 5. Major Findings
 
