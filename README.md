@@ -131,7 +131,7 @@ Moreover, say that Flux is gaining members faster than it is losing them. ('Losi
 
 ### **The system is rigged. It's a farce.**
 
-Finally, there are even more cases where the AEC's method fails spectacularly.
+Finally, there are cases where the AEC's method fails even more spectacularly.
 
 Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x. See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png">Fig 3</a>, and related: [Example 3.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m20000-f10000-s1650-r0.png).
 
