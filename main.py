@@ -61,7 +61,7 @@ def mk_members(total_members, failure_rate):
         yield (n_non_members + i, True)
 
 
-def filter_n_members(f, members, n_to_filter):
+def filter_out_n_members(f, members, n_to_filter):
     n_filtered = 0
     for m in members:
         if f(m) and n_filtered < n_to_filter:
@@ -70,11 +70,11 @@ def filter_n_members(f, members, n_to_filter):
         yield m
 
 
-assert list(filter_n_members(lambda x: x%2 == 0, range(5), 0)) == [0,1,2,3,4]
-assert list(filter_n_members(lambda x: x%2 == 0, range(5), 1)) == [1,2,3,4]
-assert list(filter_n_members(lambda x: x%2 == 0, range(5), 2)) == [1,3,4]
-assert list(filter_n_members(lambda x: x%2 == 0, range(5), 3)) == [1,3]
-assert list(filter_n_members(lambda x: x%2 == 0, range(5), 4)) == [1,3]
+assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 0)) == [0,1,2,3,4]
+assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 1)) == [1,2,3,4]
+assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 2)) == [1,3,4]
+assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 3)) == [1,3]
+assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 4)) == [1,3]
 
 
 AEC_TESTING_TABLE = [
@@ -268,7 +268,7 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
         # why? because that's what happens in a griefing attack (your fake-members will be sure not to give you bad details).\
         # since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
         if not filter_any:
-            reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
+            reduced_sample = list(filter_out_n_members(lambda m: m[1], membership_sample, n_members_removed))
         else:
             # the following line will remove n_members_removed indiscriminantly
             # note: it makes little difference -- only in borderline cases.

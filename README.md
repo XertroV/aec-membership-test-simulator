@@ -128,7 +128,7 @@ membership_sample = r.sample(members, sample_size)
 # why? because that's what happens in a griefing attack (your fake-members will be sure not to give you bad details).
 # since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
 if not filter_any:
-    reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
+    reduced_sample = list(filter_out_n_members(lambda m: m[1], membership_sample, n_members_removed))
 else:
     # the following line will remove n_members_removed indiscriminantly
     # note: it makes little difference -- only in borderline cases.
