@@ -16,7 +16,7 @@ Political parties *without* a parliamentarian must go through a membership test 
 
 This document evaluates the AEC's testing methodology for particular cases and finds that there are real-world situations where the testing methodology has a false negative (improper failure) rate over 50%, and often much higher.
 
-Therefore, it is reasonable to conclude, for those cases, that the methodology is *rigged* and a *farce*.
+Therefore, it is reasonable to conclude, for those cases: the methodology is *rigged* and a *farce*.
 
 **Note: I am not accusing the AEC of doing the rigging; just proving that the method *is* rigged.**
 
@@ -112,13 +112,14 @@ In the case of Flux's recent membership audit, the simulation shows that -- *on 
 
 What if we repeat the exercise? How many membership tests would be required to reach a positive result 90% of the time (i.e., 10% of the time Flux fails every test)?
 
-| Confidence | Tests Required for 1 success (p=0.28) |
+| Confidence | Tests Required for 1 Success (p=0.283) |
 |---|---|
-| 90% | 8 |
+| 80% | 5 |
+| 90% | 7 |
 | 95% | 10 |
-| 99% | 15 |
+| 99% | 14 |
 
-So, 8 complete tests (of 1650 members randomly sampled from Flux's list of 4680) would be required to reach 1 successful test, 90% of the time.
+So, 7 complete tests (of 1650 members randomly sampled from Flux's list of 4680) would be required to reach 1 successful test, 90% of the time.
 
 ### What happens if Flux gains more members?
 
@@ -148,6 +149,13 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20%lose10%.png">Fig 2</a>: This distribution shows that the AEC's validation method becomes less reliable as a party *gains* members.<br><strong>Improvement makes life harder! Strength is weakness!</strong></em>
 </p>
 
+| Confidence | Tests Required for 1 Success (p=0.104) |
+|---|---|
+| 80% | 15 |
+| 90% | 21 |
+| 95% | 28 |
+| 99% | 42 |
+
 ---
 
 <p align="center">
@@ -156,6 +164,13 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
     <em>
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png">Fig 3</a>: If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
 </p>
+
+| Confidence | Tests Required for 1 Success (p=0.0005) |
+|---|---|
+| 80% | 3,219 |
+| 90% | 4,605 |
+| 95% | 5,990 |
+| 99% | 9,209 |
 
 ---
 
@@ -206,6 +221,13 @@ Possible more:
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png">Fig 4</a>: The deregistration of Child Protection Party on 30 June 2021 is suspected to have been a farce.</em>
 </p>
 
+| Confidence | Tests Required for 1 Success (p=0.176) |
+|---|---|
+| 80% | 9 |
+| 90% | 12 |
+| 95% | 16 |
+| 99% | 24 |
+
 ---
 
 <p align="center">
@@ -214,6 +236,13 @@ Possible more:
     <em>
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m629-f129-s550-r11-sup_measured.png">Fig 5</a>: The deregistration of SUP on 30 June 2021 is suspected to have been a farce.</em>
 </p>
+
+| Confidence | Tests Required for 1 Success (p=0.071) |
+|---|---|
+| 80% | 22 |
+| 90% | 32 |
+| 95% | 41 |
+| 99% | 63 |
 
 ---
 
@@ -224,6 +253,14 @@ Possible more:
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m595-f95-s550-r1-cpp2013_measured.png">Fig 6</a>: The refusal to register Cheaper Petrol Party on 7 November 2013 is suspected to have been a farce.</em>
 </p>
 
+
+| Confidence | Tests Required for 1 Success (p=0.435) |
+|---|---|
+| 80% | 3 |
+| 90% | 5 |
+| 95% | 6 |
+| 99% | 9 |
+
 ---
 
 <p align="center">
@@ -232,6 +269,13 @@ Possible more:
     <em>
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png">Fig 7</a>: The refusal to register SAM on 12 November 2010 is suspected to have been a farce.</em>
 </p>
+
+| Confidence | Tests Required for 1 Success (p=0.410) |
+|---|---|
+| 80% | 4 |
+| 90% | 5 |
+| 95% | 6 |
+| 99% | 9 |
 
 ---
 
@@ -297,6 +341,16 @@ It does not change the fact that she is unable to tell the boundaries of her own
 ## Appendix: Definitions
 
 
+**rigged** *adjective*
+
+[Wiktionary](https://en.wiktionary.org/wiki/rigged)
+> - Pre-arranged and fixed so that the winner or outcome is decided in advance.
+
+[Urban Dictionary](https://www.urbandictionary.com/define.php?term=rigged)
+> -  The word rigged is used to describe situations where unfair advantages are given to one side of a conflict.
+
+---
+
 **rig** *verb*
 
 [Cambridge Dictionary](https://dictionary.cambridge.org/dictionary/english/rig)
@@ -305,13 +359,6 @@ It does not change the fact that she is unable to tell the boundaries of her own
 
 [Wiktionary](https://en.wiktionary.org/wiki/rig#Verb)
 > - To manipulate something dishonestly for personal gain or discriminatory purposes.
-
----
-
-**rigged** *adjective*
-
-[Wiktionary](https://en.wiktionary.org/wiki/rigged)
-> - Pre-arranged and fixed so that the winner or outcome is decided in advance.
 
 ---
 
