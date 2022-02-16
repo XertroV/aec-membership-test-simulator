@@ -464,6 +464,7 @@ def aec(n_trials, show, jobs, force):
     # note: table of max denials might have been different
     # final list between 511 and 503? avg 507
     _run(RunSpec(550, 2/26, 550, 550-507, 500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+    _run(RunSpec(542, 2/26, 542, 542-507, 500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
 
     # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
     # note: unsure of acceptable number of denials
