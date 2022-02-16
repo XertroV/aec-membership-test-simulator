@@ -17,8 +17,6 @@ def get_n_trials_req(p):
 
     for i in range(100000):
         conf = stats.binom.sf(0, i, p)
-        if i < 10:
-            print((p, i, conf))
         check_thresh(i, l_conf, 0.8, conf)
         check_thresh(i, l_conf, 0.9, conf)
         check_thresh(i, l_conf, 0.95, conf)

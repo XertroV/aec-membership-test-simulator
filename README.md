@@ -24,11 +24,15 @@ To date, there is 1 known incident of a farce and *at least* 4 suspected inciden
 <!-- There may be many more as the results of most membership tests are not available.
 (An FOI request may solve this.) -->
 
-## Background Context
+Additionally, experimental evidence shows that the confidence of Flux's 2021 membership test was 89.0%, which is less than the limit [previously advertised (90%)](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm).
+
+The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%. This is an indication of gross negligence or gross incompetence, or both.
+
+## 1. Background Context
 
 Recently (leading up to September 2021), parliamentarians (i.e., the 4 major parties) decided there was just too much competition! That would not do. So, a bunch of changes were made to the Electoral Act. Changes designed to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show. Some of those changes resulted in (as of Feb 2022) the pending deregistration of 12 parties, and the very real deregistration of 9 parties. In practice that is ~40% of parties, gone before the next election. Political elites will claim that this culling, and the subsequent entrenchment of the status quo, is a good thing. That it is making our democracy better. Just wait and watch.
 
-## Regular Membership Testing
+## 2. Regular Membership Testing
 
 Every few years, the Australian Electoral Commission (AEC) will check that each political party has enough members according to the legislative requirement. The party must provide a list of 1500 to 1650 names (inclusive) to use as evidence of their eligibility. The AEC will then filter out some names (duplicates, deceased members, etc). That produces a NEW list of <= 1650 names. Then, the AEC will do a statistical sampling of members and will use that to determine whether a party is eligible. Particularly, a small subset of members are selected and contacted, asking for a yes/no confirmation of membership. Non-responses are skipped. A "No" answer counts as a failure -- this is a *membership denial*. In this document and associated code: "failure rate" refers to the rate at which members respond "No".
 
@@ -38,7 +42,7 @@ The AEC does not accept lists larger than 1650; there is no chance for a party t
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
 ([mirror](https://xertrov.github.io/aec-membership-test-simulator/docs/party-registration-guide.pdf))
 
-## Flux's 2021 Membership Test -- A Known Farce
+## 3. Flux's 2021 Membership Test -- A Known Farce
 
 Flux failed its recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
 
@@ -89,13 +93,11 @@ Yesterday (2022-02-14) I was curious about the *actual* statistical properties o
 
 Turns out there was a ~72% chance that the AEC's method would find a false negative.
 
-## TL;DR: It's rigged.
+### TL;DR: It's rigged.
 
 In this document and the associated code and graphs: a *farce* is defined as any case where the chance of a false negative is >= 50%.
 
-----
-
-## Running this simulator
+## 4. Running this simulator
 
 Tested w/ python 3.9 and 3.10. (3.8 did not work.)
 
@@ -106,7 +108,7 @@ For arguments, run `./main.py --help`
 To add a set of parameters, add a new line in `main.py` under the `aec()` function.
 Parameters are: number of trials in the simulation, the population size of members from which the party can choose a membership list to provide, the failure rate of members confirming their membership when contacted, and the number of members that are filtered out of the list (reasons include: they support the registration of another party, they're deceased, the details cannot be matched against the electoral roll, or duplicate entries).
 
-## Major Findings
+## 5. Major Findings
 
 In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, and that 17% of members provided will respond "No" -- there is a ~72% chance of the AEC reaching a *false negative* result. In such a case, overall Flux would have over 3,800 members that respond "Yes" (or do not respond). See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>.
 
@@ -174,7 +176,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 
 ---
 
-## Suspected Farces
+## 6. Suspected Farces
 
 Detecting previous farces is difficult because the AEC does not publish the results of membership tests and, too my knowledge, does not record or ask for the number of members a party *could* offer in support of their validity.
 Instead, we only know the number of members that were submitted, which is always &lt;= 1650 (or the limit in effect at the time), and we only know this when the AEC has published a statement of reasons which is only done when there is a request for review. If a party just gives up, or otherwise misses the deadline, then we don't hear about it and thus cannot evaluate whether a farce occurred.
@@ -278,6 +280,24 @@ Possible more:
 | 99% | 9 |
 
 ---
+
+## 7. Flux's 2021 Membership Test
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png">Fig 7.1</a>: Assuming that 91.9% of the members on Flux's  2021 membership test members will not deny membership when contacted (1500/1650): 500,000 simulations of Flux's membership test show that it has a confidence of 89.0%, which is less than the AEC's [previously advertised](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm) 90%.</em>
+</p>
+
+| Confidence | Tests Required for 1 Success (p=0.890) |
+|---|---|
+| 80% | 4 |
+| 90% | 5 |
+| 95% | 6 |
+| 99% | 9 |
+
+<!-- aec-test-sim-N500000-m1650-f150-s1650-r50-1650_thresh+f50 -->
 
 <!-- ## Potential Farces -->
 
