@@ -403,6 +403,7 @@ def aec(n_trials, show, jobs, force, non_essential):
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99, filter_any=True), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")
+    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149, filter_any=True), party_name="Flux@Thresh+F149")
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-peoples-party-s137-deregistration.pdf
     # Note: no way they were valid with 25 denials to 12 confirmations
