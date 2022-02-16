@@ -38,9 +38,13 @@ The AEC does not accept lists larger than 1650; there is no chance for a party t
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
 ([mirror](https://xertrov.github.io/aec-membership-test-simulator/docs/party-registration-guide.pdf))
 
-## Flux's 2021 Membership Test -- A Known Farse
+## Flux's 2021 Membership Test -- A Known Farce
 
 Flux failed its recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
+
+<!-- FOI:
+- all documents and communications regarding both policy changes and decisions that concern the upper limit of acceptable membership lists.
+-->
 
 * [AEC's Notice to Flux (with results)](https://xertrov.github.io/aec-membership-test-simulator/docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
 * [Our Response](https://xertrov.github.io/aec-membership-test-simulator/docs/Response-to-AEC-rego-20220213.pdf)
@@ -63,7 +67,7 @@ Yesterday (2022-02-14) I was curious about the *actual* statistical properties o
 
 Turns out there was a ~72% chance that the AEC's method would find a false negative.
 
-## TL;DR: It's fuckin' rigged.
+## TL;DR: It's rigged.
 
 In this document and the associated code and graphs: a *farce* is defined as any case where the chance of a false negative is >= 50%.
 
