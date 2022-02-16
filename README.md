@@ -20,7 +20,7 @@ Therefore, it is reasonable to conclude, for those cases, that the methodology i
 
 **Note: I am not accusing the AEC of doing the rigging; just proving that the method *is* rigged.**
 
-To date, there is 1 known incident of a farce and *at least* 2 suspected incidents.
+To date, there is 1 known incident of a farce and *at least* 4 suspected incidents.
 <!-- There may be many more as the results of most membership tests are not available.
 (An FOI request may solve this.) -->
 
@@ -58,9 +58,14 @@ FOI:
 - all policy documents regarding the statistical measures by which the results of a membership test are judged (i.e., the policy documents that are based on ABS recommendations regarding the number of members contacted and the threshold of maximum denials received).
 - all ABS recommendations and associated communications (with the AEC) regarding the AEC's membership testing process.
 - all complaints (including expressions of concern) from anyone outside the AEC regarding the fairness, integrity, and/or validity of the membership testing process; communications regarding such complaints (including but not limited to those between AEC staff, AEC and ABS staff, AEC and APH staff, AEC and parliamentarians, and AEC and parliamentarians' staff); policy documents changed as a result of such complaints; the prior version of each policy document that was changed as a result of such complaints.
-- all documents, including computer code, regarding the mathematical/statistical elements (e.g., foundations, 'working out', justification for certain limits and/or parameters of the method, confidence intervals, how to apply results, etc) of the membership testing procedure held by the AEC.
+- all documents, including computer code and spreadsheets (including embedded formulas), regarding the mathematical/statistical elements (e.g., foundations, 'working out', justification for certain limits and/or parameters of the method, confidence intervals, calculations, how to apply results, etc) of the membership testing procedure held by the AEC, including all past, present, planned, experimental, considered, otherwise never-implemented, and abandoned versions.
 - all 3rd party reviews, audits, or opinions of the AEC's testing procedure that were commissioned by the AEC.
 - all communication with 3rd parties commissioned by the AEC for said reviews, audits, or opinions of the AEC's testing procedure.
+- all documents and communications concerning the reasoning, motivation, and design goals of the membership testing process.
+- all documents and communications regarding the removal of the "Random sample sizes for membership testing" table from the web page http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm which occurred between 2012-05-11 and 2013-07-02, as indicated by:
+  - https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm
+  - https://web.archive.org/web/20130702172124/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm#membership
+- all AEC documents and internal communication regarding concerns about limiting the size of membership lists for the purpose of membership testing.
 -->
 
 * [AEC's Notice to Flux (with results)](https://xertrov.github.io/aec-membership-test-simulator/docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
@@ -105,6 +110,18 @@ Parameters are: number of trials in the simulation, the population size of membe
 
 In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, and that 17% of members provided will respond "No" -- there is a ~72% chance of the AEC reaching a *false negative* result. In such a case, overall Flux would have over 3,800 members that respond "Yes" (or do not respond). See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>.
 
+What if we repeat the exercise? How many membership tests would be required to reach a positive result 90% of the time (i.e., 10% of the time Flux fails every test)?
+
+| Confidence | Tests Required for 1 success |
+|---|---|
+| 90% | 8 |
+| 95% | 10 |
+| 99% | 15 |
+
+So, 8 complete tests (of 1650 members randomly sampled from Flux's list of 4680) would be required to reach 1 successful test, 90% of the time.
+
+### What happens if Flux gains more members?
+
 Moreover, say that Flux is gaining members faster than it is losing them. ('Losing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.* See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20%lose10%.png">Fig 2</a>, [Example 2.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r24-flux+gain20%lose10%.png), [Example 2.2 (Filtered=0)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r0-flux+gain100%lose33%.png), [Example 2.3 (Filtered=24)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r24-flux+gain100%lose33%.png).
 
 ### **The system is rigged. It's a farce.**
@@ -144,8 +161,8 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
 
 ## Suspected Farces
 
-Detecting previous farces is difficult because the AEC does not record the number of members a party *could* offer in support of their validity.
-Instead, we only know the number of members that were submitted, which is always &lt;= 1650.
+Detecting previous farces is difficult because the AEC does not publish the results of membership tests and, too my knowledge, does not record or ask for the number of members a party *could* offer in support of their validity.
+Instead, we only know the number of members that were submitted, which is always &lt;= 1650 (or the limit in effect at the time), and we only know this when the AEC has published a statement of reasons which is only done when there is a request for review. If a party just gives up, or otherwise misses the deadline, then we don't hear about it and thus cannot evaluate whether a farce occurred.
 
 *Note: these cases occurred prior to the September 2021 increase in required members. Therefore they are judged against the previous requirements -- the test method was practically the same, the only difference being that it was calibrated for membership lists of 500-550 instead of 1500-1650.*
 
@@ -153,14 +170,22 @@ Since parties sometimes *max out* the number of members they may provide, the on
 
 Therefore, parties are assumed to have *just enough* excess capacity in additional members to be eligible, and that those extra members *could* have been provided.
 
+### Excess Capacity Explanation
+
+Excess capacity here refers to additional members that, if not for the AEC's limit, a party could provide -- expressed as a percentage of the limit. If a party requires 10% excess capacity, and the limit of a membership list is 1650, then that party must be capable of providing a list of 1815 members that a list of 1650 members is randomly sampled from.
+
 For comparison: in Flux's case, we had 3030 additional members (excess capacity of 184%) -- excluding those that we could not validate. The AEC is sometimes able to validate members that we cannot, and we have at least 4285 additional members that we could contact with a request for them to update their details.
 
 What about cases where the member list submitted had a large number of duplicates? It is not safe to assume the absence of a farce in these cases: maintaining membership lists is difficult. In my case, I wrote **thousands of lines** of custom code to assist Flux in managing our member list -- and the proportion of our list that is automatically matched against the electoral roll is proof of this. But, even with multiple checks for duplicates (matching phone numbers, emails, first and last names, etc), still we would occasionally get duplicates. These stragglers were usually found through a manual process before submission. At some point it just isn't worth worrying about. *However*, due to the ambiguity of these cases (there is only 1 case I know of), this document will exclude them.
 
-The two cases are:
+### The Suspected Farces
 
 1. (Fig 4) [30 June 2021 -- deregistration of Child Protection Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-child-protection-party-s137-deregistration.pdf)) -- excess capacity of 13.4% required
 2. (Fig 5) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf)) -- excess capacity of 14.4% required
+3. (Fig 6) [7 November 2013 -- refusal to register of Cheaper Petrol Party](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm) ([mirror](https://web.archive.org/web/20140124195635/https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm)) -- excess capacity of 8.2% required
+4. (Fig 7) [12 November 2010 -- refusal to register of Seniors United Party](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm) ([mirror](https://web.archive.org/web/20140212151106/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm)) -- excess capacity of 5.1% required
+
+Note, the `@Measured` in the titles of the following graphs indicates that the failure rate is calculated directly from AEC reports of the ratio of membership denials to membership contacts.
 
 <!--
 Possible more:
@@ -176,7 +201,7 @@ Possible more:
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png">Fig 4</a>: The deregistration of CPP on 30 June 2021 is suspected to have been a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png">Fig 4</a>: The deregistration of Child Protection Party on 30 June 2021 is suspected to have been a farce.</em>
 </p>
 
 ---
@@ -189,6 +214,33 @@ Possible more:
 </p>
 
 ---
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m595-f95-s550-r1-cpp2013_measured.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m595-f95-s550-r1-cpp2013_measured.png">Fig 6</a>: The refusal to register Cheaper Petrol Party on 7 November 2013 is suspected to have been a farce.</em>
+</p>
+
+---
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png">Fig 7</a>: The refusal to register SAM on 12 November 2010 is suspected to have been a farce.</em>
+</p>
+
+---
+
+<!-- ## Potential Farces -->
+
+<!--
+## Feedback Between AEC Policy and Party Behavior
+-->
+
+
+
 
 
 <!-- don't really need this bit. does it really help? -->

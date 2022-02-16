@@ -135,6 +135,19 @@ def lookup_aec_testing_parameters(sample_size, members_required: int):
     541 47 6
     548 50 7
     550 50 7
+    https://web.archive.org/web/20110220143705/http://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/registration-tests.htm
+    > The table below is an extract from a table based on a formula provided by the Australian Bureau of Statistics, giving approximately a 10% risk of refusing a party which has 500 members and a 2% risk of registering a party with only 400 members.
+    Eligible membership 	Size of random sample 	Denials permitted 	Confirmations required
+    500 	18 	0 	18
+    505 	21 	1 	20
+    515 	26 	2 	24
+    520 	29 	2 	27
+    525 	32 	3 	29
+    530 	35 	4 	31
+    535 	37 	4 	33
+    540 	40 	5 	35
+    545 	43 	5 	38
+    550 	47 	6 	41
     '''
     testing_ranges = {
         1500: AEC_TESTING_RANGES,
@@ -170,8 +183,8 @@ class RunSpec:
         return self.total_members, self.failure_rate, self.sample_size, self.n_members_removed
 
     def title_line(self, party_name: Optional[str] = None):
-        is_valid = self.total_members * (1 - self.failure_rate) >= self.min_list_limit
-        return f"AEC membership test results PMF (Party {if_else(is_valid, 'IS', 'IS NOT')} eligible)" + if_else(party_name, f" | Based on: {party_name}", "")
+        is_valid = self.n_real_members >= self.min_list_limit
+        return f"AEC membership test results PMF\nParty {if_else(is_valid, 'IS', 'IS NOT')} eligible" + if_else(party_name, f" | Based on: {party_name}", "")
 
     @property
     def max_list_limit(self):
@@ -328,7 +341,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
          ]) \
         # + "\n"
     plt.title(title, fontdict=dict(fontsize=8), linespacing=1.4)
-    plt.subplots_adjust(top=0.83)
+    plt.subplots_adjust(top=0.80)
     plt.legend()
 
     if is_farce:
@@ -419,10 +432,8 @@ def aec(n_trials, show, jobs, force):
     # _run(RunSpec(511*3, 11/511, 511*3, 0), party_name="SBP@Threshold (Scaled)")
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf
-    # add 20% bonus b/c they were at limit of 550
-    # _run(RunSpec(550*3 * 12//10, 10/50, 550*3, 2*3), party_name="CPP@Measured (Scaled + Limit Bonus)")
-    # _run(RunSpec(550*3 * 12//10, 50/550, 550*3, 2*3), party_name="CPP@Threshold (Scaled + Limit Bonus)")
-    # _run(RunSpec(550 * 12//10, 10/50, 550, 2, 500), party_name="CPP@Measured", farce_extra="SUSPECTED")
+    # add bonus b/c they were at limit of 550
+    # 2021
     _run(RunSpec(550 * 91//80, 10/50, 550, 2, 500), party_name="CPP@Measured", farce_extra="SUSPECTED")
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-workers-party-s-137-deregistration.pdf
@@ -432,11 +443,8 @@ def aec(n_trials, show, jobs, force):
     # # _run(RunSpec(550*3 * 12//10, xxx/550, 550*3, xx*3), party_name="AWP@Threshold (Scaled + Limit Bonus)")
 
     # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf
-    # add 20% bonus for hitting limit
-    # _run(RunSpec(550*3 * 12//10, 9/44, 550*3, 11*3), party_name="SUP@Measured (Scaled+Limit Bonus)")
-    # _run(RunSpec(550*3 * 12//10, 5/55, 550*3, 11*3), party_name="SUP@Threshold (Scaled+Limit Bonus)")
-    # _run(RunSpec(550 * 12//10, 9/44, 550, 11, 500), party_name="SUP@Measured", farce_extra="SUSPECTED")
-    # _run(RunSpec(550 * 92//80, 9/44, 550, 11, 500), party_name="SUP@Measured", farce_extra="SUSPECTED")
+    # add bonus for hitting limit
+    # 2021
     _run(RunSpec(629, 9/44, 550, 11, 500), party_name="SUP@Measured", farce_extra="SUSPECTED")
 
     # mb (but unlikely with so many denials): no free tax (https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/statement-of-reasons-the-no-tax-free-electricity.com-refusal.pdf)
@@ -449,13 +457,13 @@ def aec(n_trials, show, jobs, force):
 
     # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-australian-affordable-housing-party.pdf
     # possible farce initially
-    # note:
+    # note: table of max denials might have been different
     # final list between 511 and 503? avg 507
     _run(RunSpec(550, 2/26, 550, 550-507, 500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
 
     # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
     # note: unsure of acceptable number of denials
-    _run(RunSpec(708, 10/34, 550, 550-515, 500), party_name="Commies@Measured (Hypo7l)", farce_extra="POSSIBLE")
+    _run(RunSpec(708, 10/34, 550, 550-515, 500), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
 
     # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm
     # cheaper petrol party
@@ -463,10 +471,7 @@ def aec(n_trials, show, jobs, force):
 
     # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm
     # seniors action movement
-    # _run(RunSpec(550 * 12//10, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
-    # _run(RunSpec(550 * 11//10, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
-    # _run(RunSpec(550 * 43//40, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
-    _run(RunSpec(578, 5/37, 550, 15, 500), party_name="SAM", farce_extra="SUSPECTED")
+    _run(RunSpec(578, 5/37, 550, 15, 500), party_name="SAM@Measured", farce_extra="SUSPECTED")
 
 
 if __name__ == "__main__":
