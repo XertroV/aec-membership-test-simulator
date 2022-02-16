@@ -152,19 +152,19 @@ Possible more:
 ---
 
 <p align="center">
-    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f132-s550-r2-cpp_measured-limit-bonus.png" />
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f132-s550-r2-cpp_measured-limit-bonus.png">Fig 4</a>: The deregistration of CPP on 30 June 2021 was likely a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png">Fig 4</a>: The deregistration of CPP on 30 June 2021 is suspected to have been a farce.</em>
 </p>
 
 ---
 
 <p align="center">
-    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f135-s550-r11-sup_measured-limit-bonus.png" />
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m629-f129-s550-r11-sup_measured.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m660-f135-s550-r11-sup_measured-limit-bonus.png">Fig 5</a>: The deregistration of SUP on 30 June 2021 was likely a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m629-f129-s550-r11-sup_measured.png">Fig 5</a>: The deregistration of SUP on 30 June 2021 is suspected to have been a farce.</em>
 </p>
 
 ---
