@@ -28,7 +28,7 @@ Additionally, experimental evidence shows that the confidence of Flux's 2021 mem
 
 The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%. This is an indication of gross negligence or gross incompetence, or both.
 
-*Note: calculated values given in this document (including graphs) are assumed to have an error of ±0.1% (i.e., 1 part per 1,000). This is taken to be negligible and a non-critical error.*
+*Note: calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3% (i.e., they differ by, at most, 3 parts per 1,000). This is taken to be negligible and a non-critical error.*
 
 ## 1. Background Context
 
