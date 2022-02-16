@@ -21,14 +21,14 @@ Therefore, it is reasonable to conclude, for those cases: the methodology is *ri
 **Note: I am not accusing the AEC of doing the rigging; just proving that the method *is* rigged.**
 
 To date, there is 1 known incident of a farce and *at least* 4 suspected incidents.
-<!-- There may be many more as the results of most membership tests are not available.
+<!-- There may be many more incidents, but the results of most membership tests are not available.
 (An FOI request may solve this.) -->
 
-Additionally, experimental evidence shows that the confidence of Flux's 2021 membership test was 89.0%, which is less than the limit [previously advertised (90%)](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm).
+Additionally, experimental evidence shows that the confidence of The Flux Party's 2021 membership test was 89.0%, which is less than the limit [previously advertised (90%)](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm).
 
-The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%. This is an indication of gross negligence or gross incompetence, or both.
+The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%. This is drastically different to the AEC's claim, and is therefore an indication of gross negligence or gross incompetence, or both.
 
-*Note: calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most). This is taken to be negligible and a non-critical error.*
+*Note: equivalent calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most) -- e.g., a graph might say the the false negative rate is 11.0%, but the accompanying text says 10.8%. This is taken to be negligible and a non-critical error.*
 
 ## 1. Background Context
 
@@ -103,7 +103,7 @@ In this document and the associated code and graphs: a *farce* is defined as any
 
 Tested w/ python 3.9 and 3.10. (3.8 did not work.)
 
-Install python3 deps: `pip3 install matplotlib pandas click`
+Install python3 deps: `pip3 install matplotlib pandas click scipy`
 
 For arguments, run `./main.py --help`
 
@@ -283,7 +283,10 @@ Possible more:
 
 ---
 
-## 7. Flux's 2021 Membership Test Assuming a Threshold (9.19%) Denial Rate
+## 7. Flux's 2021 Membership Test Assuming a Threshold (9.19%) Denial Rate (including worst-case)
+
+Flux is a party that has -- with regards to membership lists -- excess capacity; if filtered members could be replaced, we could provide them.
+Note that filtered members are not replaced
 
 `@Thresh` in these titles indicates a 9.19% denial rate (which is not what was measured during Flux's recent membership test). 9.19% = 150 / 1650.
 
@@ -403,6 +406,8 @@ It does not change the fact that she is unable to tell the boundaries of her own
 
 [Urban Dictionary](https://www.urbandictionary.com/define.php?term=rigged)
 > -  The word rigged is used to describe situations where unfair advantages are given to one side of a conflict.
+
+*Note: Urban Dictionary is included here as Cambridge and Merriam-Webster didn't seem to have appropriate definitions for the adjective.*
 
 ---
 

@@ -290,8 +290,11 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
 
 def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=None, graph_fname=None, show=True, party_name=None, force=False, farce_extra=None):
     output_files_exist = any(all(os.path.exists(f'./{ext}/{run_spec.out_fname(n_trials, party_name, is_farce)}.{ext}') for ext in ['png', 'csv']) for is_farce in [True, False])
+    use_cached_results = False
+
     if not force and output_files_exist:
-        print(f"Output files exist (use --force to overwrite) -- skipping run: {run_spec}")
+        print(f"Output files exist (use --force to overwrite) -- skipping simulation: {run_spec}")
+        use_cached_results = True
         return
 
     print(f"\n# Running {n_trials} rounds for {run_spec} #")
@@ -309,6 +312,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 
     failure_counts = [0] * (n_to_sample + 1)
 
+    # if not use_cached_results:
     print(f"Running trials --- n_jobs = {SIM_CHUNKS}.")
     with Timer(f"Simulation(N={n_trials})", auto_print=True):
         trial_chunk_params = (n_trials // SIM_CHUNKS), total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any
