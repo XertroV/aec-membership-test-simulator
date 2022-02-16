@@ -28,6 +28,8 @@ Additionally, experimental evidence shows that the confidence of Flux's 2021 mem
 
 The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%. This is an indication of gross negligence or gross incompetence, or both.
 
+*Note: calculated values given in this document sometimes differ from graphs by ±0.1% (i.e., 1 part per 1,000). This is assumed to be negligible and a non-critical error.*
+
 ## 1. Background Context
 
 Recently (leading up to September 2021), parliamentarians (i.e., the 4 major parties) decided there was just too much competition! That would not do. So, a bunch of changes were made to the Electoral Act. Changes designed to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show. Some of those changes resulted in (as of Feb 2022) the pending deregistration of 12 parties, and the very real deregistration of 9 parties. In practice that is ~40% of parties, gone before the next election. Political elites will claim that this culling, and the subsequent entrenchment of the status quo, is a good thing. That it is making our democracy better. Just wait and watch.
@@ -167,12 +169,12 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png">Fig 3</a>: If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
 </p>
 
-| Confidence | Tests Required for 1 Success (p=0.0005) |
+| Confidence | Tests Required for 1 Success (p<0.0005) |
 |---|---|
-| 80% | 3,219 |
-| 90% | 4,605 |
-| 95% | 5,990 |
-| 99% | 9,209 |
+| 80% | at least 3,219 |
+| 90% | at least 4,605 |
+| 95% | at least 5,990 |
+| 99% | at least 9,209 |
 
 ---
 
@@ -199,10 +201,10 @@ What about cases where the member list submitted had a large number of duplicate
 
 Since, in the following cases, the excess capacity of the party undergoing testing was not known, these are only *suspected* farces.
 
-1. (Fig 4) [30 June 2021 -- deregistration of Child Protection Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-child-protection-party-s137-deregistration.pdf)) -- excess capacity of 13.4% required
-2. (Fig 5) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf)) -- excess capacity of 14.4% required
-3. (Fig 6) [7 November 2013 -- refusal to register of Cheaper Petrol Party](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm) ([mirror](https://web.archive.org/web/20140124195635/https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm)) -- excess capacity of 8.2% required
-4. (Fig 7) [12 November 2010 -- refusal to register of Seniors United Party](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm) ([mirror](https://web.archive.org/web/20140212151106/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm)) -- excess capacity of 5.1% required
+1. (Fig 6.1) [30 June 2021 -- deregistration of Child Protection Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-child-protection-party-s137-deregistration.pdf)) -- excess capacity of 13.4% required
+2. (Fig 6.2) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf)) -- excess capacity of 14.4% required
+3. (Fig 6.3) [7 November 2013 -- refusal to register of Cheaper Petrol Party](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm) ([mirror](https://web.archive.org/web/20140124195635/https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm)) -- excess capacity of 8.2% required
+4. (Fig 6.4) [12 November 2010 -- refusal to register of Seniors United Party](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm) ([mirror](https://web.archive.org/web/20140212151106/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm)) -- excess capacity of 5.1% required
 
 Note, the `@Measured` in the titles of the following graphs indicates that the failure rate is calculated directly from AEC reports of the ratio of membership denials to membership contacts.
 
@@ -220,7 +222,7 @@ Possible more:
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png">Fig 4</a>: The deregistration of Child Protection Party on 30 June 2021 is suspected to have been a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m625-f125-s550-r2-cpp_measured.png">Fig 6.1</a>: The deregistration of Child Protection Party on 30 June 2021 is suspected to have been a farce.</em>
 </p>
 
 | Confidence | Tests Required for 1 Success (p=0.176) |
@@ -236,7 +238,7 @@ Possible more:
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m629-f129-s550-r11-sup_measured.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m629-f129-s550-r11-sup_measured.png">Fig 5</a>: The deregistration of SUP on 30 June 2021 is suspected to have been a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m629-f129-s550-r11-sup_measured.png">Fig 6.2</a>: The deregistration of SUP on 30 June 2021 is suspected to have been a farce.</em>
 </p>
 
 | Confidence | Tests Required for 1 Success (p=0.071) |
@@ -252,7 +254,7 @@ Possible more:
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m595-f95-s550-r1-cpp2013_measured.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m595-f95-s550-r1-cpp2013_measured.png">Fig 6</a>: The refusal to register Cheaper Petrol Party on 7 November 2013 is suspected to have been a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m595-f95-s550-r1-cpp2013_measured.png">Fig 6.3</a>: The refusal to register Cheaper Petrol Party on 7 November 2013 is suspected to have been a farce.</em>
 </p>
 
 
@@ -269,7 +271,7 @@ Possible more:
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png">Fig 7</a>: The refusal to register SAM on 12 November 2010 is suspected to have been a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png">Fig 6.4</a>: The refusal to register SAM on 12 November 2010 is suspected to have been a farce.</em>
 </p>
 
 | Confidence | Tests Required for 1 Success (p=0.410) |
@@ -281,21 +283,54 @@ Possible more:
 
 ---
 
-## 7. Flux's 2021 Membership Test
+## 7. Flux's 2021 Membership Test Assuming a Threshold (9.19%) Denial Rate
+
+`@Thresh` in these titles indicates a 9.19% denial rate (which is not what was measured during Flux's recent membership test). 9.19% = 150 / 1650.
+
+`+F__` indicates that the number in place of `__` is the number of members that were filtered out (e.g., duplicates, deceased members, etc).
+
+---
 
 <p align="center">
-    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png" />
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N500000-m4680-f425-s1649-r24-flux_thresh.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m578-f78-s550-r15-sam_measured.png">Fig 7.1</a>: Assuming that 91.9% of the members on Flux's  2021 membership test members will not deny membership when contacted (1500/1650): 500,000 simulations of Flux's membership test show that it has a confidence of 89.0%, which is less than the AEC's [previously advertised](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm) 90%.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-N500000-m4680-f425-s1649-r24-flux_thresh.png">Fig 7.1</a>: Assuming that 91.9% of the members (randomly sampled from the full list) on Flux's 2021 membership test will not deny membership when contacted (1500/1650): 500,000 simulations of Flux's membership test show that it has a confidence of 89.0% (i.e., false negative rate of 11.0%), which is less than the AEC's <a href="https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm">previously advertised</a> 90% confidence.</em>
 </p>
 
-| Confidence | Tests Required for 1 Success (p=0.890) |
+---
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f425-s1649-r99-flux_thresh+f99.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f425-s1649-r99-flux_thresh+f99.png">Fig 7.2</a>: Assuming that 91.9% of the members on Flux's  2021 membership test members will not deny membership when contacted (1500/1650), and that 99 members were filtered out instead of 24: 500,000 simulations show that it has a confidence of 49.2%, <strong>which would constitute a farce.</strong> With a membership list of this quality, 4 membership tests would be required for 90% confidence of 1 success.</em>
+</p>
+
+| Confidence | Tests Required for 1 Success (p=0.492) |
 |---|---|
-| 80% | 4 |
-| 90% | 5 |
-| 95% | 6 |
-| 99% | 9 |
+| 80% | 3 |
+| 90% | 4 |
+| 95% | 5 |
+| 99% | 7 |
+
+---
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f425-s1649-r149-flux_thresh+f149.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f425-s1649-r149-flux_thresh+f149.png">Fig 7.3</a>: Assuming that 91.9% of the members on Flux's  2021 membership test members will not deny membership when contacted (1500/1650), and that a worst-case 149 members were filtered out instead of 24: 500,000 simulations show that it has a confidence of just 15.1%, <strong>which would constitute a farce.</strong> With a membership list of this quality, <strong>15 membership tests would be required for 90% confidence of 1 success.</strong></em>
+</p>
+
+| Confidence | Tests Required for 1 Success (p=0.151) |
+|---|---|
+| 80% | 10 |
+| 90% | 15 |
+| 95% | 19 |
+| 99% | 29 |
+
+---
 
 <!-- aec-test-sim-N500000-m1650-f150-s1650-r50-1650_thresh+f50 -->
 

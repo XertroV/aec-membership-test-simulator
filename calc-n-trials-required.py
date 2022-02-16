@@ -25,6 +25,14 @@ def get_n_trials_req(p):
         l_conf = conf
 
     print(r, 'trials req for confidence at p =', p)
+    print(f"""
+| Confidence | Tests Required for 1 Success (p={p:.3f}) |
+|---|---|
+| {r[0][0]:.0%} | {r[0][1]} |
+| {r[1][0]:.0%} | {r[1][1]} |
+| {r[2][0]:.0%} | {r[2][1]} |
+| {r[3][0]:.0%} | {r[3][1]} |
+""")
 
 get_n_trials_req(0.283)
 get_n_trials_req(0.104)
@@ -38,3 +46,8 @@ get_n_trials_req(0.071)
 get_n_trials_req(0.435)
 # sam
 get_n_trials_req(0.410)
+
+# farce threshhold at 100 filtered members
+get_n_trials_req(0.492)
+# farce at 150 filtered members
+get_n_trials_req(0.151)

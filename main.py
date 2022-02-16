@@ -178,9 +178,10 @@ class RunSpec:
     _sample_size: int  # 1_649
     n_members_removed: int  # 24
     min_list_limit: int = 1500
+    filter_any: bool = False
 
     def as_tuple(self):
-        return self.total_members, self.failure_rate, self.sample_size, self.n_members_removed
+        return self.total_members, self.failure_rate, self.sample_size, self.n_members_removed, self.filter_any
 
     def title_line(self, party_name: Optional[str] = None):
         is_valid = self.n_real_members >= self.min_list_limit
@@ -205,6 +206,7 @@ class RunSpec:
 
     @property
     def n_sample_real_m(self):
+        # filtered members are always removed from real members because they must be assumed to be replaceable (by the party) w/ real members
         return round(self.sample_size * self.n_real_members / self.total_members) - self.n_members_removed
 
     @property
@@ -213,10 +215,12 @@ class RunSpec:
 
     def subtitle_line(self):
         return " | ".join([
-            f"N Members = {self.total_members} (Y: {self.n_real_members}, N: {self.n_failing_members})",
-            f"List Sample: (Y: {self.n_sample_real_m}, N: {self.n_sample_failing_m})",
-            f"P(member says 'No') = {self.failure_rate:.3f}",
-            f"Members Filtered Out = {self.n_members_removed}",
+            f"N Members = {self.total_members}", #  (Y: {self.n_real_members}, N: {self.n_failing_members})",
+            f"Submitted = {self.sample_size}",
+            f"Filtered Out = {self.n_members_removed}",
+            f"Remaining = {self.sample_size - self.n_members_removed}",
+            # f"Sample: (Y: {self.n_sample_real_m}, N: {self.n_sample_failing_m})",
+            f"P(denial) = {self.failure_rate:.3f}",
         ])
 
     def out_fname(self, n_trials, party_name: Optional[str], is_farce: bool):
@@ -226,6 +230,7 @@ class RunSpec:
             "aec-test-sim",
             "FARCE" if is_farce else None,
             f"N{n_trials}-m{self.total_members}-f{failing_members}-s{self.sample_size}-r{self.n_members_removed}",
+            "fANY" if self.filter_any else None,
             fname_suffix,
         ])))
         return "-".join(fname_parts)
@@ -241,7 +246,7 @@ def name_to_fname_sfx(n: str):
 
 # shuffle members, take 1649, eliminate 24, sample 53, record X failures
 # for trial_ix in range(n_trials):
-def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample):
+def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any=False):
     # generate a list of members with some given non-member rate (i.e. these members will always fail)
     members = list(mk_members(total_members, failure_rate))
 
@@ -252,8 +257,14 @@ def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_rem
 
         # remove n_members_removed true members (this is the worst case for the party).
         #   members can be removed b/c their details couldn't be matched, they're deceased, or b/c they've supported another party's rego.
-        #   we always want to remove true members to measure worst case performance of methodology
-        reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
+        #   we always want to remove true members to measure worst case performance of methodology.
+        # why? because that's what happens in a griefing attack (your denying members will be sure not to give you bad details).\
+        # since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
+        if not filter_any:
+            reduced_sample = list(filter_n_members(lambda m: m[1], membership_sample, n_members_removed))
+        else:
+            # the following line will remove n_members_removed indiscriminantly
+            reduced_sample = list(filter_n_members(lambda m: True, membership_sample, n_members_removed))
         assert reduced_sample_size == len(reduced_sample)
 
         # perform check (contact member to confirm)
@@ -277,7 +288,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
         return
 
     print(f"\n# Running {n_trials} rounds for {run_spec} #")
-    total_members, failure_rate, sample_size, n_members_removed = run_spec.as_tuple()
+    total_members, failure_rate, sample_size, n_members_removed, filter_any = run_spec.as_tuple()
     reduced_sample_size = sample_size - n_members_removed
     n_to_sample, max_failures = lookup_aec_testing_parameters(reduced_sample_size, run_spec.min_list_limit)
     status_after_trials = n_trials // 10
@@ -373,6 +384,7 @@ def aec(n_trials, show, jobs, force):
         _kwargs.update(kwargs)
         run(trial_pool, n_trials, *args, **_kwargs)
     _run(default_run_spec, party_name="Flux")
+    _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, True), party_name="Flux")
     _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
     _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
     _run(RunSpec(frs.total_members, 0.14, 1650, frs.n_members_removed), party_name="Flux@0.14")
@@ -384,6 +396,7 @@ def aec(n_trials, show, jobs, force):
     _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), party_name="Flux+Gain100%Lose33%")
     _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
     _run(RunSpec(frs.total_members, 0.5, 1650, 0), party_name="Flux+HalfBadMembers")
+    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49), party_name="Flux@Thresh+F50")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99), party_name="Flux@Thresh+F99")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")
