@@ -112,7 +112,7 @@ In the case of Flux's recent membership audit, the simulation shows that -- *on 
 
 What if we repeat the exercise? How many membership tests would be required to reach a positive result 90% of the time (i.e., 10% of the time Flux fails every test)?
 
-| Confidence | Tests Required for 1 success |
+| Confidence | Tests Required for 1 success (p=0.28) |
 |---|---|
 | 90% | 8 |
 | 95% | 10 |
@@ -179,6 +179,8 @@ For comparison: in Flux's case, we had 3030 additional members (excess capacity 
 What about cases where the member list submitted had a large number of duplicates? It is not safe to assume the absence of a farce in these cases: maintaining membership lists is difficult. In my case, I wrote **thousands of lines** of custom code to assist Flux in managing our member list -- and the proportion of our list that is automatically matched against the electoral roll is proof of this. But, even with multiple checks for duplicates (matching phone numbers, emails, first and last names, etc), still we would occasionally get duplicates. These stragglers were usually found through a manual process before submission. At some point it just isn't worth worrying about. *However*, due to the ambiguity of these cases (there is only 1 case I know of), this document will exclude them.
 
 ### The Suspected Farces
+
+Since, in the following cases, the excess capacity of the party undergoing testing was not known, these are only *suspected* farces.
 
 1. (Fig 4) [30 June 2021 -- deregistration of Child Protection Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-child-protection-party-s137-deregistration.pdf)) -- excess capacity of 13.4% required
 2. (Fig 5) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf)) -- excess capacity of 14.4% required
