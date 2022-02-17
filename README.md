@@ -571,4 +571,4 @@ It is worth pointing out that there are similar (though slightly more extreme) p
 </p>
 </blockquote>
 
-*Note, there are some other errors too, like the method mentioned in the *The AEC’s membership test methodology artificially reduces sample size* section uses the random sampling size that was used in Flux's test, but it probably should have been 60 instead of 53. Not really a big deal.*
+Note, there are some other errors too, like the method mentioned in the *The AEC’s membership test methodology artificially reduces sample size* section uses the random sampling size that was used in Flux's test, but it probably should have been 60 instead of 53. Not really a big deal.
