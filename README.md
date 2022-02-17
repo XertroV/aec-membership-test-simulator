@@ -26,7 +26,7 @@ To date, there is 1 known incident of a farce and *at least* 4 suspected inciden
 
 Additionally, experimental evidence shows that the confidence of The Flux Party's 2021 membership test was 89.0%, which is less than the limit [previously advertised (90%)](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm).
 
-The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%. This is drastically different to the AEC's claim, and is therefore an indication of gross negligence or gross incompetence, or both.
+The AEC's claim that their membership tests are conducted to a confidence of 90% are proven false. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): experimental evidence proves that the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%.
 
 *Note: equivalent calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most) -- e.g., a graph might say the the false negative rate is 11.0%, but the accompanying text says 10.8%. This is taken to be negligible and a non-critical error.*
 
@@ -114,7 +114,7 @@ Tested w/ python 3.9 and 3.10. (3.8 did not work.)
 
 Install python3 deps: `pip3 install matplotlib pandas click scipy`
 
-For arguments, run `./main.py --help`
+For arguments, run `./main.py --help` ([source code](main.py))
 
 To add a set of parameters, add a new line in `main.py` under the `aec()` function.
 Parameters are: number of trials in the simulation, the population size of members from which the party can choose a membership list to provide, the failure rate of members confirming their membership when contacted, and the number of members that are filtered out of the list (reasons include: they support the registration of another party, they're deceased, the details cannot be matched against the electoral roll, or duplicate entries).
