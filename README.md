@@ -79,6 +79,13 @@ FOI:
 * [AEC's Notice to Flux (with results)](https://xertrov.github.io/aec-membership-test-simulator/docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
 * [Our Response](https://xertrov.github.io/aec-membership-test-simulator/docs/Response-to-AEC-rego-20220213.pdf)
 
+From the AEC's notice:
+
+> On 7 December 2021, the Party responded to the s 138A Notice by providing a list of
+between 1,500 and 1,650 members of the Party.
+>
+> I am notifying you under s 137(1)(b) of the Electoral Act that the Electoral Commission is considering deregistering the Party, as the Electoral Commission is satisfied on reasonable grounds that the Party does not have at least 1,500 members. A copy of the s 137(1)(b) Notice is enclosed.
+
 Here is an except from the first page of our response, to give you an idea of the gist:
 
 > We have 3 arguments supporting our case. Each argument is *individually* sufficient to show
@@ -95,7 +102,7 @@ grounds; each argument is a *decisive criticism* of the current methodology.
 
 Yesterday (2022-02-14) I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Given that we are **in fact** an eligible party.)
 
-Turns out there was a 71.9% chance that the AEC's method would find a false negative.
+**Turns out there was a 71.9% chance that the AEC's method would find a false negative.**
 
 ### TL;DR: It's rigged.
 
@@ -319,11 +326,11 @@ Possible more:
 Flux is a party that has -- with regards to membership lists -- excess capacity; if filtered members could be replaced, we could provide them.
 Note that filtered members are never replaced in the AEC's method.
 
-Given this, what are the true confidence values for the AEC's test?
+Given this, combined with the artificial limit on sample size, what are the true confidence values for the AEC's test?
 
 As it turns out, it depends on the quality of Flux's membership list. We have a high-quality list -- thanks to a lot of management code written to help with that -- but many parties do not have the skills or resources to do that.
 
-Fig 7.1 shows that the true confidence of the AEC's method -- assuming that Flux's members have `P(denial) = 0.0909` -- was 89.0% for Flux's recent membership test; which is lower than the 90% confidence interval that's been advertised in the past.
+Fig 7.1 shows that, for Flux's recent membership test, the true confidence of the AEC's method -- *assuming that Flux's members have `P(denial) = 0.0909`* -- was **89.0%**; which is lower than the 90% confidence interval that's been advertised in the past. That means that the results of the AEC's test would find Flux ineligible 11% of the time.
 
 Additionally, Fig 7.2 and 7.3 show that, as the number of members filtered out increases, confidence drops -- a lot.
 
@@ -378,11 +385,27 @@ Additionally, Fig 7.2 and 7.3 show that, as the number of members filtered out i
 
 <!-- ## Potential Farces -->
 
-<!--
-## Feedback Between AEC Policy and Party Behavior
--->
 
+## Feedback Loops Between AEC Policy and Party Behavior
 
+To my knowledge, parties typically don't try to build membership to many thousands of members. That's because it's expensive, time consuming, and difficult to manage. Most importantly -- **there's no point when it comes to registration**.
+
+The fact that the AEC has imposed a flawed method for years means that common practices are based around the AEC's policies. When the limit was 550 (and 500 members required), there literally was no point building beyond that b/c it *would not help you* in registering or maintaining registration.
+
+**The AEC must acknowledge that, due to its poor judgement, it has impacted the operations and dynamics of political parties in a way that violates its responsibility of neutrality.**
+
+Additionally, this promoted common practices which meant the political elite could change the legislative requirements **dramatically** to effectively eliminate competition.
+
+If the previous status quo was 550 members, and the AEC promulgated a culture of not going beyond this, and then parliament decides to radically change the limit (there is no reason they could not have done this gradually over, say, 10 years with a small bump each year), at what point do we acknowledge that something is rotten?
+
+The AEC is on record about why it imposes a limit on membership lists used for verification:
+
+>  26. In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimising the work required of the party in confirming the enrolment status and contact details of additional other members.
+
+Source: <https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf>
+
+How about the AEC stop making decisions on behalf of parties?
+Especially when those decisions have been *proven* (by this document) to have systemically disadvantaged non-parliamentary parties, decreased the true confidence of the AEC membership test, are based on falsehoods, and are ultimately a reflection of a condescension and hubris that has no place *running a democracy*.
 
 
 
@@ -547,3 +570,5 @@ The italicized part is not correct. The AEC's method is much better than this --
 It is worth pointing out that there are similar (though slightly more extreme) parameters that do result in a >50% failure rate of the AEC's method. For example a party of 2000 members, 300 of which are malicious, and 15 names filtered has a failure rate of 50.4%.
 </p>
 </blockquote>
+
+*Note, there are some other errors too, like the method mentioned in the *The AEC’s membership test methodology artificially reduces sample size* section uses the random sampling size that was used in Flux's test, but it probably should have been 60 instead of 53. Not really a big deal.*
