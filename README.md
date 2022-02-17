@@ -396,7 +396,7 @@ The fact that the AEC has imposed a flawed method for years means that common pr
 
 Additionally, this promoted common practices which meant the political elite could change the legislative requirements **dramatically** to effectively eliminate competition.
 
-If the previous status quo was 550 members, and the AEC promulgated a culture of not going beyond this, and then parliament decides to radically change the limit (there is no reason they could not have done this gradually over, say, 10 years with a small bump each year), at what point do we acknowledge that something is rotten?
+If the previous status quo was 550 members, do to the AEC promulgating a culture of not going beyond this, and then parliament decides to radically change the limit (there is no reason they could not have done this gradually over, say, 10 years with a small bump each year), at what point do we acknowledge that something is rotten?
 
 The AEC is on record about why it imposes a limit on membership lists used for verification:
 
@@ -469,7 +469,7 @@ It does not change the fact that she is unable to tell the boundaries of her own
 [Urban Dictionary](https://www.urbandictionary.com/define.php?term=rigged)
 > -  The word rigged is used to describe situations where unfair advantages are given to one side of a conflict.
 
-*Note: Urban Dictionary is included here as Cambridge and Merriam-Webster didn't seem to have appropriate definitions for the adjective.*
+*Note: Urban Dictionary is included here as Cambridge and Merriam-Webster didn't seem to have specific definitions for the adjective.*
 
 ---
 
