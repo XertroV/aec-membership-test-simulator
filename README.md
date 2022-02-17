@@ -390,9 +390,9 @@ Additionally, Fig 7.2 and 7.3 show that, as the number of members filtered out i
 
 To my knowledge, parties typically don't try to build membership to many thousands of members. That's because it's expensive, time consuming, and difficult to manage. Most importantly -- **there's no point when it comes to registration**.
 
-The fact that the AEC has imposed a flawed method for years means that common practices are based around the AEC's policies. When the limit was 550 (and 500 members required), there literally was no point building beyond that b/c it *would not help you* in registering or maintaining registration.
+The fact that the AEC has imposed a flawed method for years means that common practices are based around the AEC's policies. When the limit was 550 (and 500 members required), there literally was no point building beyond that because it *would not help you* in registering or maintaining registration.
 
-**The AEC must acknowledge that, due to its poor judgement, it has impacted the operations and dynamics of political parties in a way that violates its responsibility of neutrality.**
+<!-- **The AEC must acknowledge that, due to its poor judgement, it has impacted the operations and dynamics of political parties in a way that violates its responsibility of neutrality.** -->
 
 Additionally, this promoted common practices which meant the political elite could change the legislative requirements **dramatically** to effectively eliminate competition.
 
