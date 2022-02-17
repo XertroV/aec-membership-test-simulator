@@ -314,12 +314,20 @@ Possible more:
 
 ---
 
-## 7. Flux's 2021 Membership Test Assuming a Threshold (9.19%) Denial Rate (including worst-case)
+## 7. Flux's 2021 Membership Test Assuming a Threshold (9.09%) Denial Rate (including worst-case)
 
 Flux is a party that has -- with regards to membership lists -- excess capacity; if filtered members could be replaced, we could provide them.
-Note that filtered members are not replaced
+Note that filtered members are never replaced in the AEC's method.
 
-`@Thresh` in these titles indicates a 9.19% denial rate (which is not what was measured during Flux's recent membership test). 9.19% = 150 / 1650.
+Given this, what are the true confidence values for the AEC's test?
+
+As it turns out, it depends on the quality of Flux's membership list. We have a high-quality list -- thanks to a lot of management code written to help with that -- but many parties do not have the skills or resources to do that.
+
+Fig 7.1 shows that the true confidence of the AEC's method -- assuming that Flux's members have `P(denial) = 0.0909` -- was 89.0% for Flux's recent membership test; which is lower than the 90% confidence interval that's been advertised in the past.
+
+Additionally, Fig 7.2 and 7.3 show that, as the number of members filtered out increases, confidence drops -- a lot.
+
+`@Thresh` in these titles indicates a 9.09% denial rate (which is not what was measured during Flux's recent membership test). 9.09% = 150 / 1650.
 
 `+F__` indicates that the number in place of `__` is the number of members that were filtered out (e.g., duplicates, deceased members, etc).
 
