@@ -34,7 +34,10 @@ The AEC's claim that their membership tests are conducted to a confidence of 90%
 
 ## 1. Background Context
 
-Recently (leading up to September 2021), parliamentarians (i.e., the 4 major parties) decided there was just too much competition! That would not do. So, a bunch of changes were made to the Electoral Act. Changes designed to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show. Some of those changes resulted in (as of Feb 2022) the pending deregistration of 12 parties, and the very real deregistration of 9 parties. In practice that is ~40% of parties, gone before the next election. Political elites will claim that this culling, and the subsequent entrenchment of the status quo, is a good thing. That it is making our democracy better. Just wait and watch.
+Recently (leading up to September 2021), most parliamentarians (i.e., the 4 major parties) decided that we had too many political parties and that this was a problem! It would not do. So, a bunch of changes were made to the Electoral Act. Changes designed to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show. Some of those changes resulted in (as of Feb 2022) the pending deregistration of 12 parties, and the very real deregistration of 9 parties. In practice that is ~40% of parties, gone before the next election. Political elites will claim (and have claimed in Parliament already) that these changes, the culling, and the subsequent entrenchment of the status quo, is a good thing. That it is making our democracy better.
+
+In September 2021, the legislatively required number of members for a political party was increased from 500 to 1500 with little warning and no grace period.
+The AEC's policies -- going back at least a decade -- have encouraged parties not to bother going over 550 members (which are verifiable against the roll).
 
 ## 2. Regular Membership Testing
 
