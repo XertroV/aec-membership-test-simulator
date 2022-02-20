@@ -120,7 +120,7 @@ AEC_TABLE_2017 = [
 #     (537, 42, 5),
 #     (543, 46, 6),
 #     (548, 50, 7),
-#     (550, 50, 7),
+#     (551, 50, 7),  # we subtract 1 later for upper bound
 # ]
 
 # https://web.archive.org/web/20160314113418/http://aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf
@@ -134,7 +134,7 @@ AEC_TABLE_2017 = [
 #     (537, 42, 5),
 #     (543, 46, 6),
 #     (548, 50, 7),
-#     (550, 50, 7),
+#     (551, 50, 7),  # we subtract 1 later for upper bound
 # ]
 
 AEC_TABLE_2012 = [
@@ -146,7 +146,7 @@ AEC_TABLE_2012 = [
     (537, 42, 5),
     (543, 46, 6),
     (548, 50, 7),
-    (550, 50, 7),
+    (551, 50, 7),  # we subtract 1 later for upper bound
 ]
 
 AEC_TABLE_2011 = [
@@ -159,7 +159,7 @@ AEC_TABLE_2011 = [
     (535, 37, 4),
     (540, 40, 5),
     (545, 43, 5),
-    (550, 47, 6),
+    (551, 47, 6),  # we subtract 1 later for upper bound
 ]
 
 def testing_table_to_ranges(testing_table):
@@ -244,10 +244,11 @@ def lookup_aec_testing_parameters(sample_size, testing_std: TestingStandard):
 
     members_required = test_std_to_n_members_required(testing_std)
     testing_ranges = TESTING_RANGE_LOOKUP[testing_std]
+    l, u = 0, 0
     for (l, u, n, x) in testing_ranges:
         if l <= sample_size <= u:
             return (n, x)
-    raise Exception(f"Invalid sample size: {sample_size} -- should be between {members_required} and {members_required * 11 // 10} inclusive")
+    raise Exception(f"Invalid sample size: {sample_size} -- should be between {members_required} and {members_required * 11 // 10} inclusive (last l={l}, last u={u})")
 
 
 assert lookup_aec_testing_parameters(1_626, TestingStandard.SEPT2021) == (53, 7)
@@ -631,6 +632,39 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(1650, 450/1650, 1650, 0), party_name="1200of1650")
         _run(RunSpec(1650, 450/1650, 1650, 150, filter_any=True), party_name="1200of1650+F150")
         _run(RunSpec(1500, 300/1500, 1500, 0), party_name="1200of1500")
+
+        # eval table C2012
+        _run(RunSpec(500, (500-400) / 500, 500, 0, TestingStandard.C2012), party_name="400of500-C2012") # | 18 | 0
+        _run(RunSpec(503, (503-400) / 503, 503, 0, TestingStandard.C2012), party_name="400of503-C2012") # | 26 | 1
+        _run(RunSpec(512, (512-400) / 512, 512, 0, TestingStandard.C2012), party_name="400of512-C2012") # | 30 | 2
+        _run(RunSpec(521, (521-400) / 521, 521, 0, TestingStandard.C2012), party_name="400of521-C2012") # | 34 | 3
+        _run(RunSpec(529, (529-400) / 529, 529, 0, TestingStandard.C2012), party_name="400of529-C2012") # | 38 | 3
+        _run(RunSpec(537, (537-400) / 537, 537, 0, TestingStandard.C2012), party_name="400of537-C2012") # | 42 | 5
+        _run(RunSpec(543, (543-400) / 543, 543, 0, TestingStandard.C2012), party_name="400of543-C2012") # | 46 | 6
+        _run(RunSpec(548, (548-400) / 548, 548, 0, TestingStandard.C2012), party_name="400of548-C2012") # | 50 | 7
+        _run(RunSpec(550, (550-400) / 550, 550, 0, TestingStandard.C2012), party_name="400of550-C2012") # | 50 | 7
+
+        # eval table C2012
+        _run(RunSpec(500, (500-500) / 500, 500, 0, TestingStandard.C2012), party_name="500of500-C2012") # | 18 | 0
+        _run(RunSpec(503, (503-500) / 503, 503, 0, TestingStandard.C2012), party_name="500of503-C2012") # | 26 | 1
+        _run(RunSpec(512, (512-500) / 512, 512, 0, TestingStandard.C2012), party_name="500of512-C2012") # | 30 | 2
+        _run(RunSpec(521, (521-500) / 521, 521, 0, TestingStandard.C2012), party_name="500of521-C2012") # | 34 | 3
+        _run(RunSpec(529, (529-500) / 529, 529, 0, TestingStandard.C2012), party_name="500of529-C2012") # | 38 | 3
+        _run(RunSpec(537, (537-500) / 537, 537, 0, TestingStandard.C2012), party_name="500of537-C2012") # | 42 | 5
+        _run(RunSpec(543, (543-500) / 543, 543, 0, TestingStandard.C2012), party_name="500of543-C2012") # | 46 | 6
+        _run(RunSpec(548, (548-500) / 548, 548, 0, TestingStandard.C2012), party_name="500of548-C2012") # | 50 | 7
+        _run(RunSpec(550, (550-500) / 550, 550, 0, TestingStandard.C2012), party_name="500of550-C2012") # | 50 | 7
+
+        # eval table C2012 - threshold + filtering
+        _run(RunSpec(1100, 50/550, 550, (500-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (503-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (512-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (521-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (529-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (537-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (543-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (548-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-500), TestingStandard.C2012), party_name="550of1100-C2012")
 
         if non_essential:
             _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")

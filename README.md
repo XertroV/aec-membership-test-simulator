@@ -717,7 +717,7 @@ Sources:
 * <https://web.archive.org/web/20120425182026/http://www.aec.gov.au/Parties_and_Representatives/party_registration/guide/forms.htm> (Note: this source includes risk columns)
 
 | Members lodged | Random Sample | Max Denials to Pass | accepting only 400 – risk % | rejecting 500 – risk % |
-|---|---|---| ---|--- |
+|---|---|---|---|---|
 | 500 | 18 | 0 | 1.80 | 0.00 |
 | 503 | 26 | 1 | 1.99 | 1.05 |
 | 512 | 30 | 2 | 2.64 | 3.26 |
@@ -727,6 +727,20 @@ Sources:
 | 543 | 46 | 6 | 2.43 | 6.86 |
 | 548 | 50 | 7 | 2.27 | 6.78 |
 | 550 | 50 | 7 | 2.07 | 8.05 |
+
+### Experimental Eval
+
+| Members lodged <hr> (N_reduced) | Random Sample <hr> (AEC Policy) | Max Denials to Pass <hr> (AEC Policy) | Claimed: accepting only 400 – risk % | Measured risk of accepting 400 <hr> P(denial) = (N-400)/N | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500 <hr> f = 0 (no members filtered) <hr> P(denial) = (N-500)/N | Measured risk of rejecting >500 (Threshold case) <hr> N = 1100 <hr> f = 550 - N_reduced <hr> P(denial) = 50/550 |
+|---|---|---|---|---|---|---|---|
+| 500 | 18 | 0 | 1.80% | 1.7% [fig](png/aec-test-sim-N500000-m500-f100-s500-r0-400of500-c2012.png) | 0.00 | 0.0% [fig](png/aec-test-sim-N500000-m500-f0-s500-r0-500of500-c2012.png) | <strong style="color:maroon;">85.2%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r50-550of1100-c2012.png) |
+| 503 | 26 | 1 | 1.99% | 1.8% [fig](png/aec-test-sim-N500000-m503-f103-s503-r0-400of503-c2012.png) | 1.05 | 0.8% [fig](png/aec-test-sim-N500000-m503-f3-s503-r0-500of503-c2012.png) | <strong style="color:maroon;">85.1%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r48-550of1100-c2012.png) |
+| 512 | 30 | 2 | 2.64% | 2.3% [fig](png/aec-test-sim-N500000-m512-f112-s512-r0-400of512-c2012.png) | 3.26 | 2.8% [fig](png/aec-test-sim-N500000-m512-f12-s512-r0-500of512-c2012.png) | <strong style="color:maroon;">74.6%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r43-550of1100-c2012.png) |
+| 521 | 34 | 3 | 2.86% | 2.5% [fig](png/aec-test-sim-N500000-m521-f121-s521-r0-400of521-c2012.png) | 4.68 | 4.1% [fig](png/aec-test-sim-N500000-m521-f21-s521-r0-500of521-c2012.png) | <strong style="color:maroon;">57.4%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r37-550of1100-c2012.png) |
+| 529 | 38 | 3 | 2.85% | 0.7% [fig](png/aec-test-sim-N500000-m529-f129-s529-r0-400of529-c2012.png) | 5.52 | <strong style="color:maroon;">14.6%</strong> [fig](png/aec-test-sim-N500000-m529-f29-s529-r0-500of529-c2012.png) | <strong style="color:maroon;">41.4%</strong> [fig](png/aec-test-sim-N500000-m1100-f100-s550-r29-550of1100-c2012.png) |
+| 537 | 42 | 5 | 2.60% | 2.2% [fig](png/aec-test-sim-N500000-m537-f137-s537-r0-400of537-c2012.png) | 6.65 | 5.9% [fig](png/aec-test-sim-N500000-m537-f37-s537-r0-500of537-c2012.png) | <strong style="color:maroon;">49.1%</strong> [fig](png/aec-test-sim-N500000-m1100-f100-s550-r21-550of1100-c2012.png) |
+| 543 | 46 | 6 | 2.43% | 2.0% [fig](png/aec-test-sim-N500000-m543-f143-s543-r0-400of543-c2012.png) | 6.86 | 6.0% [fig](png/aec-test-sim-N500000-m543-f43-s543-r0-500of543-c2012.png) | <strong style="color:maroon;">18.9%</strong> [fig](png/aec-test-sim-N500000-m1100-f100-s550-r12-550of1100-c2012.png) |
+| 548 | 50 | 7 | 2.27% | 1.8% [fig](png/aec-test-sim-N500000-m548-f148-s548-r0-400of548-c2012.png) | 6.78 | 5.8% [fig](png/aec-test-sim-N500000-m548-f48-s548-r0-500of548-c2012.png) | <strong style="color:maroon;">11.8%</strong> [fig](png/aec-test-sim-N500000-m1100-f100-s550-r3-550of1100-c2012.png) |
+| 550 | 50 | 7 | 2.07% | 1.6% [fig](png/aec-test-sim-N500000-m550-f150-s550-r0-400of550-c2012.png) | 8.05 | 7.0% [fig](png/aec-test-sim-N500000-m550-f50-s550-r0-500of550-c2012.png) | <strong style="color:maroon;">7.6%</strong> [fig](png/aec-test-sim-N500000-m1100-f100-s550-r0-550of1100-c2012.png) |
 
 ### Circa 2011
 
