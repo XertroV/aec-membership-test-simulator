@@ -402,12 +402,14 @@ Possible more:
 ### Possible Farces
 
 These are cases where the available information regarding the membership test is incomplete, so some assumptions have had to be made.
+Based on AEC measurements, if the party had some minimum number of members (such that it had at least 500 non-denying members), then these cases are farces.
 
 1. [2017-08-09 Affirmation of refusal to register the Australian Affordable Housing Party](https://web.archive.org/web/20210125002714/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-australian-affordable-housing-party.pdf) -- [Figure](png/aec-test-sim-FARCE-N500000-m542-f42-s542-r35-fANY-aahp_measured.png)
 1. [2016-05-04 Set aside of decision to deregister Australian First Party](https://web.archive.org/web/20210412213513/https://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australia-first.pdf) -- [Figure](png/aec-test-sim-FARCE-N500000-m550-f49-s550-r38-fANY-af_2016.png) *Note: this is a farcical situation because, although the party was successful, the confidence in a true positive was only 48.8%. In essence, it was a 50/50 coin-flip.*
 1. [2017-08-09 Refusal to register The Communists](https://web.archive.org/web/20210906200545/https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2017/sor-the-communists.pdf) -- [Figure](png/aec-test-sim-FARCE-N500000-m708-f208-s550-r35-fANY-communists2017_measured.png)
 1. [2018-08-30 Refusal to register Voter Rights Party](https://web.archive.org/web/20220115081534/https://www.aec.gov.au/parties_and_representatives/party_registration/Registration_Decisions/2018/2018-voter-rights-party-statement-of-reasons.pdf) -- [Figure](png/aec-test-sim-FARCE-N500000-m732-f232-s550-r22-fANY-vrp_measured.png)
 1. [2016-08-24 Affirmation of deregistration of the Republican Party of Australia](https://web.archive.org/web/20190412211155/https://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-rpa.pdf) -- [Figure](png/aec-test-sim-FARCE-N500000-m760-f260-s550-r20-fANY-rpa_2016.png)
+
 ## 7. Flux's 2021 Membership Test Assuming a Threshold (9.09%) Denial Rate (including worst-case)
 
 Flux is a party that has -- with regards to membership lists -- excess capacity; if filtered members could be replaced, we could provide them.
