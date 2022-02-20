@@ -634,37 +634,76 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(1500, 300/1500, 1500, 0), party_name="1200of1500")
 
         # eval table C2012
-        _run(RunSpec(500, (500-400) / 500, 500, 0, TestingStandard.C2012), party_name="400of500-C2012") # | 18 | 0
-        _run(RunSpec(503, (503-400) / 503, 503, 0, TestingStandard.C2012), party_name="400of503-C2012") # | 26 | 1
-        _run(RunSpec(512, (512-400) / 512, 512, 0, TestingStandard.C2012), party_name="400of512-C2012") # | 30 | 2
-        _run(RunSpec(521, (521-400) / 521, 521, 0, TestingStandard.C2012), party_name="400of521-C2012") # | 34 | 3
-        _run(RunSpec(529, (529-400) / 529, 529, 0, TestingStandard.C2012), party_name="400of529-C2012") # | 38 | 3
-        _run(RunSpec(537, (537-400) / 537, 537, 0, TestingStandard.C2012), party_name="400of537-C2012") # | 42 | 5
-        _run(RunSpec(543, (543-400) / 543, 543, 0, TestingStandard.C2012), party_name="400of543-C2012") # | 46 | 6
-        _run(RunSpec(548, (548-400) / 548, 548, 0, TestingStandard.C2012), party_name="400of548-C2012") # | 50 | 7
-        _run(RunSpec(550, (550-400) / 550, 550, 0, TestingStandard.C2012), party_name="400of550-C2012") # | 50 | 7
+        _run(RunSpec(500, (500-400) / 500, 500, 0, TestingStandard.C2012), party_name="400of500-C2012")
+        _run(RunSpec(503, (503-400) / 503, 503, 0, TestingStandard.C2012), party_name="400of503-C2012")
+        _run(RunSpec(512, (512-400) / 512, 512, 0, TestingStandard.C2012), party_name="400of512-C2012")
+        _run(RunSpec(521, (521-400) / 521, 521, 0, TestingStandard.C2012), party_name="400of521-C2012")
+        _run(RunSpec(529, (529-400) / 529, 529, 0, TestingStandard.C2012), party_name="400of529-C2012")
+        _run(RunSpec(537, (537-400) / 537, 537, 0, TestingStandard.C2012), party_name="400of537-C2012")
+        _run(RunSpec(543, (543-400) / 543, 543, 0, TestingStandard.C2012), party_name="400of543-C2012")
+        _run(RunSpec(548, (548-400) / 548, 548, 0, TestingStandard.C2012), party_name="400of548-C2012")
+        _run(RunSpec(550, (550-400) / 550, 550, 0, TestingStandard.C2012), party_name="400of550-C2012")
 
         # eval table C2012
-        _run(RunSpec(500, (500-500) / 500, 500, 0, TestingStandard.C2012), party_name="500of500-C2012") # | 18 | 0
-        _run(RunSpec(503, (503-500) / 503, 503, 0, TestingStandard.C2012), party_name="500of503-C2012") # | 26 | 1
-        _run(RunSpec(512, (512-500) / 512, 512, 0, TestingStandard.C2012), party_name="500of512-C2012") # | 30 | 2
-        _run(RunSpec(521, (521-500) / 521, 521, 0, TestingStandard.C2012), party_name="500of521-C2012") # | 34 | 3
-        _run(RunSpec(529, (529-500) / 529, 529, 0, TestingStandard.C2012), party_name="500of529-C2012") # | 38 | 3
-        _run(RunSpec(537, (537-500) / 537, 537, 0, TestingStandard.C2012), party_name="500of537-C2012") # | 42 | 5
-        _run(RunSpec(543, (543-500) / 543, 543, 0, TestingStandard.C2012), party_name="500of543-C2012") # | 46 | 6
-        _run(RunSpec(548, (548-500) / 548, 548, 0, TestingStandard.C2012), party_name="500of548-C2012") # | 50 | 7
-        _run(RunSpec(550, (550-500) / 550, 550, 0, TestingStandard.C2012), party_name="500of550-C2012") # | 50 | 7
+        _run(RunSpec(500, (500-500) / 500, 500, 0, TestingStandard.C2012), party_name="500of500-C2012")
+        _run(RunSpec(503, (503-500) / 503, 503, 0, TestingStandard.C2012), party_name="500of503-C2012")
+        _run(RunSpec(512, (512-500) / 512, 512, 0, TestingStandard.C2012), party_name="500of512-C2012")
+        _run(RunSpec(521, (521-500) / 521, 521, 0, TestingStandard.C2012), party_name="500of521-C2012")
+        _run(RunSpec(529, (529-500) / 529, 529, 0, TestingStandard.C2012), party_name="500of529-C2012")
+        _run(RunSpec(537, (537-500) / 537, 537, 0, TestingStandard.C2012), party_name="500of537-C2012")
+        _run(RunSpec(543, (543-500) / 543, 543, 0, TestingStandard.C2012), party_name="500of543-C2012")
+        _run(RunSpec(548, (548-500) / 548, 548, 0, TestingStandard.C2012), party_name="500of548-C2012")
+        _run(RunSpec(550, (550-500) / 550, 550, 0, TestingStandard.C2012), party_name="500of550-C2012")
 
         # eval table C2012 - threshold + filtering
-        _run(RunSpec(1100, 50/550, 550, (500-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (503-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (512-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (521-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (529-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (537-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (543-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (548-500), TestingStandard.C2012), party_name="550of1100-C2012")
-        _run(RunSpec(1100, 50/550, 550, (550-500), TestingStandard.C2012), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-500), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-503), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-512), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-521), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-529), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-537), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-543), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-548), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-550), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+
+        # eval table SEPT2021 - threshold + filtering
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1500), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1506), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1523), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1543), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1582), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1599), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1562), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1616), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1633), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1647), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 150/1650, 1650, (1650-1650), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+
+        # eval table SEPT2021 risk of rejecting 1500 (P(fail))
+        _run(RunSpec(1500, (1500-1500) / 1500, 1500, 0, TestingStandard.SEPT2021), party_name="1500of1500-SEPT2021")
+        _run(RunSpec(1506, (1506-1500) / 1506, 1506, 0, TestingStandard.SEPT2021), party_name="1500of1506-SEPT2021")
+        _run(RunSpec(1523, (1523-1500) / 1523, 1523, 0, TestingStandard.SEPT2021), party_name="1500of1523-SEPT2021")
+        _run(RunSpec(1543, (1543-1500) / 1543, 1543, 0, TestingStandard.SEPT2021), party_name="1500of1543-SEPT2021")
+        _run(RunSpec(1562, (1562-1500) / 1562, 1562, 0, TestingStandard.SEPT2021), party_name="1500of1562-SEPT2021")
+        _run(RunSpec(1582, (1582-1500) / 1582, 1582, 0, TestingStandard.SEPT2021), party_name="1500of1582-SEPT2021")
+        _run(RunSpec(1599, (1599-1500) / 1599, 1599, 0, TestingStandard.SEPT2021), party_name="1500of1599-SEPT2021")
+        _run(RunSpec(1616, (1616-1500) / 1616, 1616, 0, TestingStandard.SEPT2021), party_name="1500of1616-SEPT2021")
+        _run(RunSpec(1633, (1633-1500) / 1633, 1633, 0, TestingStandard.SEPT2021), party_name="1500of1633-SEPT2021")
+        _run(RunSpec(1647, (1647-1500) / 1647, 1647, 0, TestingStandard.SEPT2021), party_name="1500of1647-SEPT2021")
+        _run(RunSpec(1650, (1650-1500) / 1650, 1650, 0, TestingStandard.SEPT2021), party_name="1500of1650-SEPT2021")
+
+        # eval table SEPT2021 risk of accepting 1200 (P(pass))
+        _run(RunSpec(1500, (1500-1200) / 1500, 1500, 0, TestingStandard.SEPT2021), party_name="1200of1500-SEPT2021")
+        _run(RunSpec(1506, (1506-1200) / 1506, 1506, 0, TestingStandard.SEPT2021), party_name="1200of1506-SEPT2021")
+        _run(RunSpec(1523, (1523-1200) / 1523, 1523, 0, TestingStandard.SEPT2021), party_name="1200of1523-SEPT2021")
+        _run(RunSpec(1543, (1543-1200) / 1543, 1543, 0, TestingStandard.SEPT2021), party_name="1200of1543-SEPT2021")
+        _run(RunSpec(1562, (1562-1200) / 1562, 1562, 0, TestingStandard.SEPT2021), party_name="1200of1562-SEPT2021")
+        _run(RunSpec(1582, (1582-1200) / 1582, 1582, 0, TestingStandard.SEPT2021), party_name="1200of1582-SEPT2021")
+        _run(RunSpec(1599, (1599-1200) / 1599, 1599, 0, TestingStandard.SEPT2021), party_name="1200of1599-SEPT2021")
+        _run(RunSpec(1616, (1616-1200) / 1616, 1616, 0, TestingStandard.SEPT2021), party_name="1200of1616-SEPT2021")
+        _run(RunSpec(1633, (1633-1200) / 1633, 1633, 0, TestingStandard.SEPT2021), party_name="1200of1633-SEPT2021")
+        _run(RunSpec(1647, (1647-1200) / 1647, 1647, 0, TestingStandard.SEPT2021), party_name="1200of1647-SEPT2021")
+        _run(RunSpec(1650, (1650-1200) / 1650, 1650, 0, TestingStandard.SEPT2021), party_name="1200of1650-SEPT2021")
 
         if non_essential:
             _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
