@@ -567,15 +567,16 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         # possible farce initially
         # note: table of max denials might have been different
         # final list between 511 and 503? avg 507
-        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.C2017), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.C2017, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.C2017), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.C2017, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.C2017), party_name="AAHP@Measured", farce_extra="POSSIBLE")
+        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.C2017, True), party_name="AAHP@Measured", farce_extra="POSSIBLE")
+        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.C2017), party_name="AAHP@Measured", farce_extra="POSSIBLE")
+        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.C2017, True), party_name="AAHP@Measured", farce_extra="POSSIBLE")
 
         # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
         # note: unsure of acceptable number of denials
-        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.C2017), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.C2017, True), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        # lots of assumptions here, but possible
+        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.C2017), party_name="Communists2017@Measured", farce_extra="POSSIBLE")
+        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.C2017, True), party_name="Communists2017@Measured", farce_extra="POSSIBLE")
 
         # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm
         # cheaper petrol party
@@ -619,7 +620,7 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
             # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf
             # democrats
             # we assume they have more than 550 members b/c of NSW requirements
-            _run(RunSpec(550, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="POSSIBLE")
+            _run(RunSpec(550, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="SUSPECTED")
             _run(RunSpec(586, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="SUSPECTED")
 
         # check 98% confidence of not registering a party with only 400 members
