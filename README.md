@@ -692,21 +692,21 @@ Sources:
 
 Sources:
 * Page 33 of <https://web.archive.org/web/20160314113418/http://aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf>
-* Page 32 of <https://web.archive.org/web/20140212032435/http://www.aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf>
-* <https://web.archive.org/web/20130208013723/http://aec.gov.au/Parties_and_Representatives/party_registration/guide/forms.htm#table>
-* <https://web.archive.org/web/20120425182026/http://www.aec.gov.au/Parties_and_Representatives/party_registration/guide/forms.htm>
+* Page 32 of <https://web.archive.org/web/20140212032435/http://www.aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf> (Note: this source includes risk columns)
+* <https://web.archive.org/web/20130208013723/http://aec.gov.au/Parties_and_Representatives/party_registration/guide/forms.htm#table> (Note: this source includes risk columns)
+* <https://web.archive.org/web/20120425182026/http://www.aec.gov.au/Parties_and_Representatives/party_registration/guide/forms.htm> (Note: this source includes risk columns)
 
-| Members lodged | Random Sample | Max Denials to Pass |
-|---|---|---|
-| 500 | 18 | 0 |
-| 503 | 26 | 1 |
-| 512 | 30 | 2 |
-| 521 | 34 | 3 |
-| 529 | 38 | 3 |
-| 537 | 42 | 5 |
-| 543 | 46 | 6 |
-| 548 | 50 | 7 |
-| 550 | 50 | 7 |
+| Members lodged | Random Sample | Max Denials to Pass | accepting only 400 – risk % | rejecting 500 – risk % |
+|---|---|---| ---|--- |
+| 500 | 18 | 0 | 1.80 | 0.00 |
+| 503 | 26 | 1 | 1.99 | 1.05 |
+| 512 | 30 | 2 | 2.64 | 3.26 |
+| 521 | 34 | 3 | 2.86 | 4.68 |
+| 529 | 38 | 3 | 2.85 | 5.52 |
+| 537 | 42 | 5 | 2.60 | 6.65 |
+| 543 | 46 | 6 | 2.43 | 6.86 |
+| 548 | 50 | 7 | 2.27 | 6.78 |
+| 550 | 50 | 7 | 2.07 | 8.05 |
 
 ### Circa 2011
 
