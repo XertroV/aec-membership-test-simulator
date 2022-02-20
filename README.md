@@ -235,7 +235,8 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>: Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.9% of the time. <strong>This is the real-world analysis of Flux's membership test.</strong></em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>: Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.9% of the time. <strong>This is the real-world analysis of Flux's membership test.</strong><br>
+        Note: Flux submitted 1649 members due to an off-by-one error (the spreadsheet had 1650 rows, including a row for the headings).</em>
 </p>
 
 ---
