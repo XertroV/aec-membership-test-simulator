@@ -514,11 +514,12 @@ With the AEC's existing policies, and on the assumption that Flux is a valid par
 
 With currently measured values (based on AEC results), it would take (on average) 7 repeated trials for Flux to have 1 successful membership test. So this is not a problem that can be solved by repeating the membership test.
 
-At least 5 past cases have been identified with farcical properties.
-That is: the AEC's test had a confidence of less than 50% provided that those parties had additional members that AEC policy prevented the party submitting.
-All 5 cases required less than 15% additional members -- i.e., the membership test was a farce for all cases if N ≥ 630. *Note that all 5 cases predate the September 2021 change to membership requirements; at the time the required number of members was 500.*
+At least 5 past cases have been identified with farcical properties -- they are *suspected* farces -- and at least 5 additional cases have incomplete information but may be farcical.
 
-<!-- don't really need this bit. does it really help? -->
+That is: in these cases the AEC's test had a confidence of less than 50% provided that those parties had additional members (which the party would have been prevented from submitting only due to AEC policy).
+All 5 suspected cases required less than 15% additional members -- i.e., the membership test was a farce for all cases if N ≥ 630. *Note that all 5 cases predate the September 2021 change to membership requirements; at the time the required number of members was 500.*
+
+<!-- don't really need this next bit. does it really help? -->
 
 <!--
 ## Appendix: Some State ECs are Worse
