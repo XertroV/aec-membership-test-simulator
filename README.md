@@ -646,7 +646,7 @@ This is false, as proven by this document.
 
 Note: the first column of these tables ("Members lodged", "Eligible membership") is the reduced membership list after filtering out e.g., duplicates, members supporting the registration of other parties, deceased members, etc.
 
-It is ["AEC Policy"](https://web.archive.org/web/20140220005415/http://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/registration-tests.htm) that lists are no more than 1.1x the legislative limit (e.g., a maximum of 550 prior to September 2021, and 1650 after September 2021).
+It is ["AEC Policy"](https://web.archive.org/web/20140220005415/http://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/registration-tests.htm) that lists are no more than 1.1x the legislative limit (e.g., a maximum of 550 prior to September 2021, and 1650 after September 2021). That is: lists with more members than this are rejected.
 
 ### September 2021 to February 2022
 
@@ -685,7 +685,7 @@ Sources:
 | 548 | 50 | 7 |
 | 550 | 50 | 7 |
 
-### Circa 2012 - 2016
+### Circa 2012 to 2016
 
 Sources:
 * Page 33 of <https://web.archive.org/web/20160314113418/http://aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf>
