@@ -11,6 +11,23 @@
     2022-02-15 to 2022-02-20
 </p>
 
+## TOC
+
+1. [Background Context](#1-background-context)
+2. [Regular Membership Testing](#2-regular-membership-testing)
+3. [Flux’s 2021 Membership Test – A Known Farce](#3-fluxs-2021-membership-test--a-known-farce)
+4. [Analysis Methodology](#4-analysis-methodology)
+5. [Major Findings](#5-major-findings)
+6. [Suspected Farces](#6-suspected-farces)
+7. [Flux’s 2021 Membership Test Assuming a Threshold (9.09%) Denial Rate (including worst-case)](#7-fluxs-2021-membership-test-assuming-a-threshold-909-denial-rate-including-worst-case)
+8. [Feedback Loops Between AEC Policy and Party Behavior](#8-feedback-loops-between-aec-policy-and-party-behavior)
+9. [Conclusion](#9-conclusion)
+10. [Appendix: Definitions](#appendix-definitions)
+11. [Appendix: AEC Membership Testing Tables](#appendix-aec-membership-testing-tables)
+12. [Appendix: Errors in Feb 13 response to AEC](#appendix-errors-in-feb-13-response-to-aec)
+
+## Abstract / Executive Summary
+
 In Australia, to register a political party you need a minimum number of members.
 Federally, that's *usually* 1500 (as of September 2021) -- the Australian Electoral Commission (AEC) will conduct membership tests to verify this minimum.
 Political parties *with* a parliamentarian have no minimum membership limit and are not tested.
