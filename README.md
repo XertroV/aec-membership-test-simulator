@@ -8,7 +8,7 @@
     <em>Max Kaye</em>
     <!-- (Philosopher) -->
     <br>
-    2022-02-15 -- 2022-02-20
+    2022-02-15 to 2022-02-20
 </p>
 
 In Australia, to register a political party you need a minimum number of members.
@@ -32,7 +32,7 @@ The Flux Party's recent 2021 membership test is analysed in multiple ways:
 
 * **Measured case**: a 17% membership denial rate -- as measured by the AEC during this membership test.
 * **More extreme -- but realistic -- cases**: These are more extreme cases than the measured case, but it is an assumption of *all* cases that the party is eligible under the Electoral Act.
-* **Threshold case**: the assumption that 9.09% of any membership list submitted will result in membership denials. I *suspect* this is what is used for calculating the maximum number of denials for the AEC's table (given [advertised confidences](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm)).
+* **Threshold case**: the assumption that 9.09% of any membership list submitted will result in membership denials. I *suspect* this is an AEC assumption used for calculating the maximum number of denials for [the AEC's table (given their advertised confidences)](https://web.archive.org/web/20120511194720/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm).
 
 Experimental evidence shows that the *measured* confidence of The Flux Party's 2021 membership test was **just 28.3%**. This is despite *the experimental assumption* that Flux has more than the legislatively required number of members.
 
@@ -40,9 +40,11 @@ Experimental evidence shows that the AEC's confidence of the *threshold* case wa
 
 **Experimental evidence proves that the AEC's claim** that their membership tests are conducted to a confidence of 90% **is false**. In actual fact, for a party that is capable of providing a list of 1,650 members wherein exactly 1,500 members will not deny membership (and 150 will): **the worst-case confidence of the AEC's membership test is just 15.1%, indicating a false negative rate of 84.9%.**
 
-In other cases, where a party is capable of providing 1,500 members that will not deny membership (with no limit on the number of members that will deny membership), **the lower-bound on the confidence of the AEC's method is 0%.**
+In other cases, where a party is capable of providing 1,500 members that will not deny membership (with no limit on the number of members that will deny membership), **the lower-bound on the confidence of the AEC's method is 0%.** That is: it fails 100% of the time for certain valid parties.
 
-*Note: equivalent calculated values given in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most) -- e.g., a graph might say the the false negative rate is 11.0%, but the accompanying text says 10.8%. This is taken to be negligible and a non-critical error.*
+This is not a theoretical problem. It has been happening and continues to happen. The AEC has thus compromised the integrity of our political process. The ABS has been complicit. Political elites have exploited this.
+
+*Note: equivalent calculated values in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most). e.g., a graph might say the the false negative rate is 11.0%, but the accompanying text says 10.8%. This is taken to be negligible and a non-critical error.*
 
 <!-- *Disclosure and context: My roles in The Flux Party (Flux) are: a founder, the deputy leader, the secretary, and the deputy registered officer.* -->
 
@@ -95,7 +97,7 @@ FOI:
 - all AEC documents and internal communication regarding concerns about limiting the size of membership lists for the purpose of membership testing.
 -->
 
-* [AEC's Notice to Flux (with results)](https://xertrov.github.io/aec-membership-test-simulator/docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
+* [AEC's Notice to Flux (with test results)](https://xertrov.github.io/aec-membership-test-simulator/docs/BDLPN0-aec-flux-jan-13_unencrypted.pdf)
 * [Our Response](https://xertrov.github.io/aec-membership-test-simulator/docs/Response-to-AEC-rego-20220213.pdf)
 
 From the AEC's notice (note that the AEC **refuses** membership lists with more than 1650 members):
@@ -131,8 +133,9 @@ In this document and the associated code and graphs: a *farce* is defined as any
 
 The code associated with this document produces statistical graphs (of the Probability Mass Function, specifically) based on 500,000 simulations of the AEC's method.
 
-For each simulation, the number of failures is recorded as the output. Subsequently, these results are normalized to give the probability of X failures for the given input parameters. These probabilities are then graphed, with the x-axis showing the number of failures, and the y-axis showing `P(x = X)` -- i.e., the probability of a membership test having a certain number of failures.
-As the AEC has limits on the number of membership denials based on the reduced membership list, the bars in these PMFs are colored blue or orange to indicate a pass or a failure. In cases where the party *does* meet legislative requirements, the blue bars (`P(success)`) should *always* sum to `> 0.9`. If `P(success) < 0.5`, the case is deemed a *farce* and marked as such.
+For each simulation, the number of failures is recorded as the output. Subsequently, these results are normalized to give the probability of X failures for the given input parameters.
+These probabilities are then graphed, with the x-axis showing the number of failures, and the y-axis showing `P(x = X)` -- i.e., the probability of a membership test having a certain number of failures (membership denials).
+As the AEC has limits on the acceptable number of membership denials based on the reduced membership list, the bars in these PMFs are colored blue or orange to indicate a pass or a failure. In cases where the party *does* meet legislative requirements, the blue bars (`P(success)`) should *always* sum to `> 0.9`. If `P(success) < 0.5`, the case is deemed a *farce* and marked as such.
 
 The simulation is initialized with a membership list -- a list of N members where each member has a `failure_rate` chance (e.g., 0.0909) of responding "No" (i.e., a membership denial).
 
@@ -605,6 +608,88 @@ It is *irresponsible* of the AEC to wilfully turn a blind eye to criticisms of t
 This is false, as proven by this document.
 
 -->
+
+## Appendix: AEC Membership Testing Tables
+
+Note: the first column of these tables ("Members lodged", "Eligible membership") is the reduced membership list after filtering out e.g., duplicates, members supporting the registration of other parties, deceased members, etc.
+
+It is ["AEC Policy"](https://web.archive.org/web/20140220005415/http://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/registration-tests.htm) that lists are no more than 1.1x the legislative limit (e.g., a maximum of 550 prior to September 2021, and 1650 after September 2021).
+
+### September 2021 to February 2022
+
+Source: Page 24 of <https://web.archive.org/web/20220206003633/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf>
+
+| Members lodged | Random sample size | Maximum denials to pass |
+|---|---|---|
+| 1,500 | 18 | 0 |
+| 1,506 | 27 | 1 |
+| 1,523 | 33 | 2 |
+| 1,543 | 38 | 3 |
+| 1,562 | 42 | 4 |
+| 1,582 | 46 | 5 |
+| 1,599 | 50 | 6 |
+| 1,616 | 53 | 7 |
+| 1,633 | 57 | 8 |
+| 1,647 | 60 | 9 |
+| 1,650 | 60 | 9 |
+
+### Circa 2017 to September 2021
+
+Sources:
+* Page 26 of <https://web.archive.org/web/20210409193623/https://aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf>
+* <https://web.archive.org/web/20200320074933/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf>
+
+
+| Members lodged | Random Sample | Max Denials to Pass |
+|---|---|---|
+| 500 | 18 | 0 |
+| 503 | 26 | 1 |
+| 511 | 32 | 2 |
+| 519 | 37 | 3 |
+| 526 | 41 | 4 |
+| 534 | 44 | 5 |
+| 541 | 47 | 6 |
+| 548 | 50 | 7 |
+| 550 | 50 | 7 |
+
+### Circa 2012 - 2016
+
+Sources:
+* Page 33 of <https://web.archive.org/web/20160314113418/http://aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf>
+* Page 32 of <https://web.archive.org/web/20140212032435/http://www.aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf>
+* <https://web.archive.org/web/20130208013723/http://aec.gov.au/Parties_and_Representatives/party_registration/guide/forms.htm#table>
+* <https://web.archive.org/web/20120425182026/http://www.aec.gov.au/Parties_and_Representatives/party_registration/guide/forms.htm>
+
+| Members lodged | Random Sample | Max Denials to Pass |
+|---|---|---|
+| 500 | 18 | 0 |
+| 503 | 26 | 1 |
+| 512 | 30 | 2 |
+| 521 | 34 | 3 |
+| 529 | 38 | 3 |
+| 537 | 42 | 5 |
+| 543 | 46 | 6 |
+| 548 | 50 | 7 |
+| 550 | 50 | 7 |
+
+### Circa 2011
+
+Source: <https://web.archive.org/web/20110220143705/http://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/registration-tests.htm>
+
+> The table below is an extract from a table based on a formula provided by the Australian Bureau of Statistics, giving approximately a 10% risk of refusing a party which has 500 members and a 2% risk of registering a party with only 400 members.
+
+| Eligible membership | Size of random sample | Denials permitted | Confirmations required |
+|---|---|---|---|
+| 500 | 18 | 0 | 18 |
+| 505 | 21 | 1 | 20 |
+| 515 | 26 | 2 | 24 |
+| 520 | 29 | 2 | 27 |
+| 525 | 32 | 3 | 29 |
+| 530 | 35 | 4 | 31 |
+| 535 | 37 | 4 | 33 |
+| 540 | 40 | 5 | 35 |
+| 545 | 43 | 5 | 38 |
+| 550 | 47 | 6 | 41 |
 
 ## Appendix: Errors in Feb 13 response to AEC
 

@@ -78,7 +78,7 @@ assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 3)) == [1,3]
 assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 4)) == [1,3]
 
 
-AEC_TESTING_TABLE = [
+AEC_TABLE_2021 = [
     (1500, 18, 0),
     (1506, 27, 1),
     (1523, 33, 2),
@@ -92,9 +92,12 @@ AEC_TESTING_TABLE = [
     (1651, 60, 9),  # we will subtract 1 later to calc an inclusive range
 ]
 
-# anomaly: https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
-# -- 34 responses required, why would this table ever change? FOI
-OLD_AEC_TESTING_TABLE = [
+### ~~anomaly: https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf~~
+### ~~-- 34 responses required, why would this table ever change? FOI~~
+# https://web.archive.org/web/20200320074933/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf
+# https://web.archive.org/web/20210409193623/https://aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf
+# 2017 - 2020
+AEC_TABLE_2017 = [
     (500, 18, 0),
     (503, 26, 1),
     (511, 32, 2),  # this was 26 responses in 2017 -- sor-australian-affordable-housing-party.pdf
@@ -106,7 +109,47 @@ OLD_AEC_TESTING_TABLE = [
     (551, 50, 7),  # we subtract 1 later for upper bound
 ]
 
-EVEN_OLDER_AEC_TABLE = [
+# https://web.archive.org/web/20170521182536/http://www.aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf
+# same as 2020
+# AEC_TABLE_2017 = [
+#     (500, 18, 0),
+#     (503, 26, 1),
+#     (512, 30, 2),
+#     (521, 34, 3),
+#     (529, 38, 3),
+#     (537, 42, 5),
+#     (543, 46, 6),
+#     (548, 50, 7),
+#     (550, 50, 7),
+# ]
+
+# https://web.archive.org/web/20160314113418/http://aec.gov.au/Parties_and_Representatives/Party_Registration/files/party-registration-guide.pdf
+# same as 2014
+# AEC_TABLE_2016 = [
+#     (500, 18, 0),
+#     (503, 26, 1),
+#     (512, 30, 2),
+#     (521, 34, 3),
+#     (529, 38, 3),
+#     (537, 42, 5),
+#     (543, 46, 6),
+#     (548, 50, 7),
+#     (550, 50, 7),
+# ]
+
+AEC_TABLE_2012 = [
+    (500, 18, 0),
+    (503, 26, 1),
+    (512, 30, 2),
+    (521, 34, 3),
+    (529, 38, 3),
+    (537, 42, 5),
+    (543, 46, 6),
+    (548, 50, 7),
+    (550, 50, 7),
+]
+
+AEC_TABLE_2011 = [
     (500, 18, 0),
     (505, 21, 1),
     (515, 26, 2),
@@ -122,31 +165,35 @@ EVEN_OLDER_AEC_TABLE = [
 def testing_table_to_ranges(testing_table):
     return list((lower, upper - 1, n, x) for ((lower, n, x), (upper, _, _)) in zip(testing_table, testing_table[1:]))
 
-# AEC_TESTING_RANGES = list((lower, upper - 1, n, x) for ((lower, n, x), (upper, _, _)) in zip(AEC_TESTING_TABLE, AEC_TESTING_TABLE[1:]))
-# OLD_AEC_TESTING_RANGES = list((lower, upper - 1, n, x) for ((lower, n, x), (upper, _, _)) in zip(OLD_AEC_TESTING_TABLE, OLD_AEC_TESTING_TABLE[1:]))
-# EVEN_OLDER_AEC_TABLE = list((lower, upper - 1, n, x) for ((lower, n, x), (upper, _, _)) in zip(EVEN_OLDER_AEC_TABLE, EVEN_OLDER_AEC_TABLE[1:]))
-AEC_TESTING_RANGES = testing_table_to_ranges(AEC_TESTING_TABLE)
-OLD_AEC_TESTING_RANGES = testing_table_to_ranges(OLD_AEC_TESTING_TABLE)
-EVEN_OLDER_AEC_RANGES = testing_table_to_ranges(EVEN_OLDER_AEC_TABLE)
+# AEC_RANGE_2021 = list((lower, upper - 1, n, x) for ((lower, n, x), (upper, _, _)) in zip(AEC_TABLE_2021, AEC_TABLE_2021[1:]))
+# AEC_RANGE_2017 = list((lower, upper - 1, n, x) for ((lower, n, x), (upper, _, _)) in zip(AEC_TABLE_2017, AEC_TABLE_2017[1:]))
+# AEC_TABLE_2011 = list((lower, upper - 1, n, x) for ((lower, n, x), (upper, _, _)) in zip(AEC_TABLE_2011, AEC_TABLE_2011[1:]))
+AEC_RANGE_2021 = testing_table_to_ranges(AEC_TABLE_2021)
+AEC_RANGE_2017 = testing_table_to_ranges(AEC_TABLE_2017)
+AEC_RANGE_2012 = testing_table_to_ranges(AEC_TABLE_2012)
+AEC_RANGE_2011 = testing_table_to_ranges(AEC_TABLE_2011)
 
 
 class TestingStandard(Enum):
     SEPT2021 = 1
-    RECENT500 = 2
-    OLD500 = 3
+    C2017 = 2
+    C2012 = 3
+    C2011 = 4
 
 
 TESTING_RANGE_LOOKUP = {
-    TestingStandard.SEPT2021: AEC_TESTING_RANGES,
-    TestingStandard.RECENT500: OLD_AEC_TESTING_RANGES,
-    TestingStandard.OLD500: EVEN_OLDER_AEC_RANGES,
+    TestingStandard.SEPT2021: AEC_RANGE_2021,
+    TestingStandard.C2017: AEC_RANGE_2017,
+    TestingStandard.C2012: AEC_RANGE_2012,
+    TestingStandard.C2011: AEC_RANGE_2011,
 }
 
 
 TESTING_N_REQUIRED_LOOKUP = {
     TestingStandard.SEPT2021: 1500,
-    TestingStandard.RECENT500: 500,
-    TestingStandard.OLD500: 500,
+    TestingStandard.C2017: 500,
+    TestingStandard.C2012: 500,
+    TestingStandard.C2011: 500,
 }
 
 
@@ -492,8 +539,8 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-child-protection-party-s137-deregistration.pdf
         # add bonus b/c they were at limit of 550
         # 2021
-        _run(RunSpec(550 * 91//80, 10/50, 550, 2, TestingStandard.RECENT500), party_name="CPP@Measured", farce_extra="SUSPECTED")
-        _run(RunSpec(550 * 91//80, 10/50, 550, 2, TestingStandard.RECENT500, True), party_name="CPP@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(550 * 91//80, 10/50, 550, 2, TestingStandard.C2017), party_name="CPP@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(550 * 91//80, 10/50, 550, 2, TestingStandard.C2017, True), party_name="CPP@Measured", farce_extra="SUSPECTED")
 
         # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-workers-party-s-137-deregistration.pdf
         # ambiguous case b/c there were 41 duplicates but another list was provided. laws were changed between the two lists.
@@ -504,8 +551,8 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf
         # add bonus for hitting limit
         # 2021
-        _run(RunSpec(629, 9/44, 550, 11, TestingStandard.RECENT500), party_name="SUP@Measured", farce_extra="SUSPECTED")
-        _run(RunSpec(629, 9/44, 550, 11, TestingStandard.RECENT500, True), party_name="SUP@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(629, 9/44, 550, 11, TestingStandard.C2017), party_name="SUP@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(629, 9/44, 550, 11, TestingStandard.C2017, True), party_name="SUP@Measured", farce_extra="SUSPECTED")
 
         # mb (but unlikely with so many denials): no free tax (https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/statement-of-reasons-the-no-tax-free-electricity.com-refusal.pdf)
         # mb: https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/statement-of-reasons-put-wa-first-party-signed-redacted.pdf
@@ -513,40 +560,40 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-voter-rights-party-statement-of-reasons.pdf
         # this one is signed by Kalisch...
         # VRP possible farce but has 35% extra members
-        _run(RunSpec(732, 13/41, 550, 22, TestingStandard.RECENT500), party_name="VRP@Measured", farce_extra="POSSIBLE")
-        _run(RunSpec(732, 13/41, 550, 22, TestingStandard.RECENT500, True), party_name="VRP@Measured", farce_extra="POSSIBLE")
+        _run(RunSpec(732, 13/41, 550, 22, TestingStandard.C2017), party_name="VRP@Measured", farce_extra="POSSIBLE")
+        _run(RunSpec(732, 13/41, 550, 22, TestingStandard.C2017, True), party_name="VRP@Measured", farce_extra="POSSIBLE")
 
         # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-australian-affordable-housing-party.pdf
         # possible farce initially
         # note: table of max denials might have been different
         # final list between 511 and 503? avg 507
-        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.RECENT500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.RECENT500, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.RECENT500), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.RECENT500, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.C2017), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        _run(RunSpec(550, 2/26, 550, 550-507, TestingStandard.C2017, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.C2017), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        _run(RunSpec(542, 2/26, 542, 542-507, TestingStandard.C2017, True), party_name="AAHP@Measured (Hypothetical)", farce_extra="POSSIBLE")
 
         # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2017/sor-the-communists.pdf
         # note: unsure of acceptable number of denials
-        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.RECENT500), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
-        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.RECENT500, True), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.C2017), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
+        _run(RunSpec(708, 10/34, 550, 550-515, TestingStandard.C2017, True), party_name="Commies@Measured (Hypothetical)", farce_extra="POSSIBLE")
 
         # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm
         # cheaper petrol party
-        _run(RunSpec(595, 8/50, 550, 1, TestingStandard.OLD500), party_name="CPP2013@Measured", farce_extra="SUSPECTED")
-        _run(RunSpec(595, 8/50, 550, 1, TestingStandard.RECENT500), party_name="CPP2013@Measured with newer testing table", farce_extra="SUSPECTED")
-        _run(RunSpec(595, 8/50, 550, 1, TestingStandard.OLD500, True), party_name="CPP2013@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(595, 8/50, 550, 1, TestingStandard.C2012), party_name="CPP2013@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(595, 8/50, 550, 1, TestingStandard.C2017), party_name="CPP2013@Measured with newer testing table", farce_extra="SUSPECTED")
+        _run(RunSpec(595, 8/50, 550, 1, TestingStandard.C2012, True), party_name="CPP2013@Measured", farce_extra="SUSPECTED")
 
         # https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm
         # seniors action movement
-        _run(RunSpec(578, 5/37, 550, 15, TestingStandard.OLD500), party_name="SAM@Measured", farce_extra="SUSPECTED")
-        _run(RunSpec(578, 5/37, 550, 15, TestingStandard.OLD500, True), party_name="SAM@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(578, 5/37, 550, 15, TestingStandard.C2011), party_name="SAM@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(578, 5/37, 550, 15, TestingStandard.C2011, True), party_name="SAM@Measured", farce_extra="SUSPECTED")
 
 
         # check 98% confidence of not registering a party with only 400 members
         # note: seems to pan out
-        _run(RunSpec(550, 150/550, 550, 0, TestingStandard.RECENT500), party_name="400of550")
-        _run(RunSpec(550, 150/550, 550, 50, TestingStandard.RECENT500, filter_any=True), party_name="400of550+F50")
-        _run(RunSpec(500, 100/500, 500, 0, TestingStandard.RECENT500), party_name="400of500")
+        _run(RunSpec(550, 150/550, 550, 0, TestingStandard.C2017), party_name="400of550")
+        _run(RunSpec(550, 150/550, 550, 50, TestingStandard.C2017, filter_any=True), party_name="400of550+F50")
+        _run(RunSpec(500, 100/500, 500, 0, TestingStandard.C2017), party_name="400of500")
         _run(RunSpec(1650, 450/1650, 1650, 0), party_name="1200of1650")
         _run(RunSpec(1650, 450/1650, 1650, 150, filter_any=True), party_name="1200of1650+F150")
         _run(RunSpec(1500, 300/1500, 1500, 0), party_name="1200of1500")
