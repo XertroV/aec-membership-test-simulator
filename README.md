@@ -204,7 +204,7 @@ n_failures = sum(0 if m[1] else 1 for m in actual_sample)
 
 ## 5. Major Findings
 
-In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, and that 17% of members provided will respond "No" -- there is a 71.9% chance of the AEC reaching a *false negative* result. In such a case, overall Flux would have over 3,800 members that respond "Yes" (or do not respond). See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>.
+In the case of Flux's recent membership audit, the simulation shows that -- *on the assumption that Flux is an eligible party*, and that 17% of members provided will respond "No" -- there is a 71.9% chance of the AEC reaching a *false negative* result. In such a case, overall Flux would have over 3,800 members that respond "Yes" (or do not respond). See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 5.1</a>.
 
 What if we repeat the exercise? How many membership tests would be required to reach a positive result 90% of the time (i.e., 10% of the time Flux fails every test)?
 
@@ -219,13 +219,13 @@ So, 7 complete tests (of 1650 members randomly sampled from Flux's list of 4680)
 
 ### What happens if Flux gains more members?
 
-Moreover, say that Flux is gaining members faster than it is losing them. ('Losing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.* See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20-pct-lose10-pct-.png">Fig 2</a>, [Example 2.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r24-flux+gain20-pct-lose10-pct-.png), [Example 2.2 (Filtered=0)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r0-flux+gain100-pct-lose33-pct-.png), [Example 2.3 (Filtered=24)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r24-flux+gain100-pct-lose33-pct-.png).
+Moreover, say that Flux is gaining members faster than it is losing them. ('Losing' members means that they will now answer "No" but do not revoke their membership.) It turns out that this makes the AEC's methodology *less likely to succeed.* See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20-pct-lose10-pct-.png">Fig 5.2</a>, [Example 5.2.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r24-flux+gain20-pct-lose10-pct-.png), [Example 5.2.2 (Filtered=0)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r0-flux+gain100-pct-lose33-pct-.png), [Example 5.2.3 (Filtered=24)](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m9360-f2354-s1650-r24-flux+gain100-pct-lose33-pct-.png).
 
 ### **The system is rigged. It's a farce.**
 
 Finally, there are cases where the AEC's method fails even more spectacularly.
 
-Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x. See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png">Fig 3</a>, and related: [Example 3.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m20000-f10000-s1650-r0.png).
+Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's consideration of involuntary deregistration) respond "No" -- the AEC's method fails 100% of the time in this case, even though Flux would exceed the legislative requirement by 1.56x. See <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png">Fig 5.3</a>, and related: [Example 5.3.1](https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m20000-f10000-s1650-r0.png).
 
 ---
 
@@ -235,7 +235,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 1</a>: Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.9% of the time. <strong>This is the real-world analysis of Flux's membership test.</strong><br>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f796-s1649-r24-flux.png">Fig 5.1</a>: Even though an assumption of this simulation is that Flux is an eligible political party, the AEC's method fails 71.9% of the time. <strong>This is the real-world analysis of Flux's membership test.</strong><br>
         Note: Flux submitted 1649 members due to an off-by-one error (the spreadsheet had 1650 rows, including a row for the headings).</em>
 </p>
 
@@ -247,7 +247,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20-pct-lose10-pct-.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20-pct-lose10-pct-.png">Fig 2</a>: This distribution shows that the AEC's validation method becomes less reliable as a party *gains* members.<br>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m5616-f1264-s1650-r0-flux+gain20-pct-lose10-pct-.png">Fig 5.2</a>: This distribution shows that the AEC's validation method becomes less reliable as a party *gains* members.<br>
         <strong>Improvement makes life harder! Strength is weakness!</strong></em>
 </p>
 
@@ -265,7 +265,7 @@ Say 50% of Flux's 4680 members submitted (as part of our objection to the AEC's 
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png">Fig 3</a>: If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f2340-s1650-r0-flux+halfbadmembers.png">Fig 5.3</a>: If we assume that Flux provides 4680 members but only 50% of them will respond "Yes" or not respond -- indicating 2340 valid members and indicating that Flux is an eligible party -- the AEC's method fails 100% of the time.</em>
 </p>
 
 | Confidence | Tests Required for 1 Success (p<0.0005) |
