@@ -15,7 +15,7 @@
 
 1. [Background Context](#1-background-context)
 2. [Regular Membership Testing](#2-regular-membership-testing)
-3. [Flux’s 2021 Membership Test – A Known Farce](#3-fluxs-2021-membership-test--a-known-farce)
+3. [Flux’s 2021 Membership Test – A Known Farce](#3-fluxs-2021-membership-test-a-known-farce)
 4. [Analysis Methodology](#4-analysis-methodology)
 5. [Major Findings](#5-major-findings)
 6. [Suspected Farces](#6-suspected-farces)
@@ -82,7 +82,7 @@ The AEC does not accept lists larger than 1650; there is no chance for a party t
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
 ([mirror](https://xertrov.github.io/aec-membership-test-simulator/docs/party-registration-guide.pdf))
 
-## 3. Flux's 2021 Membership Test -- A Known Farce
+## 3. Flux's 2021 Membership Test: A Known Farce
 
 Flux failed its recent membership test. The only problem? We have at least 4680 members whose details have been matched against the electoral roll. It is the AEC's imposition of 1650 members maximum that is the problem.
 
