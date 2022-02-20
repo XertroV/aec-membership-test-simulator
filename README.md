@@ -405,7 +405,7 @@ Possible more:
     <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m586-f86-s550-r24-fANY-democrats_2016.png" />
     <br>
     <em>
-        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m586-f86-s550-r24-fANY-democrats_2016.png">Fig 6.5</a>: The affirmation of the decision to deregister of the Australian Democrats on 1 March 2016 is suspected to have been a farce.</em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m586-f86-s550-r24-fANY-democrats_2016.png">Fig 6.5</a>: The affirmation of the decision to deregister of the Australian Democrats on 1 March 2016 is suspected to have been a farce. Note: this uses the AEC measured <code>P(denial)</code>, as with graphs including <code>@Measured</code>.</em>
 </p>
 
 | Confidence | Tests Required for 1 Success (p=0.237) |
