@@ -519,6 +519,8 @@ At least 5 past cases have been identified with farcical properties -- they are 
 That is: in these cases the AEC's test had a confidence of less than 50% provided that those parties had additional members (which the party would have been prevented from submitting only due to AEC policy).
 All 5 suspected cases required less than 15% additional members -- i.e., the membership test was a farce for all cases if N ≥ 630. *Note that all 5 cases predate the September 2021 change to membership requirements; at the time the required number of members was 500.*
 
+**It has thus been found that the AEC's method is rigged and a farce, and that there is sufficient evidence to back this up.**
+
 <!-- don't really need this next bit. does it really help? -->
 
 <!--
