@@ -691,7 +691,7 @@ Source: Page 24 of <https://web.archive.org/web/20220206003633/https://www.aec.g
 
 #### Experimental Eval
 
-| Members lodged <hr> (N_reduced) | Measured risk of accepting 1200 <hr> N = N_reduced <hr> P(denial) = (N-1200)/N | Measured risk of rejecting 1500 <hr> N = N_reduced <hr> f = 0 (no members filtered) <hr> P(denial) = (N-1500)/N | Measured risk of rejecting ≥ 1500 (Threshold case) <hr> N = 3300 <hr> f = 1650 - N_reduced <hr> P(denial) = 150/1650 |
+| Members lodged; <br> (N_reduced) | Measured risk of accepting 1200; <br> N = N_reduced; <br> P(denial) = (N-1200)/N | Measured risk of rejecting 1500; <br> N = N_reduced; <br> f = 0 (no members filtered); <br> P(denial) = (N-1500)/N | Measured risk of rejecting ≥ 1500 (Threshold case); <br> N = 3300; <br> f = 1650 - N_reduced; <br> P(denial) = 150/1650 |
 |---|---|---|---|
 | 1,500 | 1.8% [fig](png/aec-test-sim-N500000-m1500-f300-s1500-r0-1200of1500-sept2021.png) | 0.0% [fig](png/aec-test-sim-N500000-m1500-f0-s1500-r0-1500of1500-sept2021.png) | <strong style="color:red;">82.2%</strong> [fig](png/aec-test-sim-FARCE-N500000-m3300-f300-s1650-r150-fANY-1500of3300-sept2021.png) |
 | 1,506 | 1.6% [fig](png/aec-test-sim-N500000-m1506-f306-s1506-r0-1200of1506-sept2021.png) | 0.5% [fig](png/aec-test-sim-N500000-m1506-f6-s1506-r0-1500of1506-sept2021.png) | <strong style="color:red;">72.0%</strong> [fig](png/aec-test-sim-FARCE-N500000-m3300-f300-s1650-r144-fANY-1500of3300-sept2021.png) |
@@ -746,7 +746,7 @@ Sources:
 
 #### Experimental Eval
 
-| Members lodged <hr> (N_reduced) | Claimed: accepting only 400 – risk % | Measured risk of accepting 400 <hr> P(denial) = (N-400)/N | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500 <hr> f = 0 (no members filtered) <hr> P(denial) = (N-500)/N | Measured risk of rejecting ≥ 500 (Threshold case) <hr> N = 1100 <hr> f = 550 - N_reduced <hr> P(denial) = 50/550 |
+| Members lodged; <br> (N_reduced) | Claimed: accepting only 400 – risk % | Measured risk of accepting 400; <br> P(denial) = (N-400)/N | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500; <br> f = 0 (no members filtered); <br> P(denial) = (N-500)/N | Measured risk of rejecting ≥ 500 (Threshold case); <br> N = 1100; <br> f = 550 - N_reduced; <br> P(denial) = 50/550 |
 |---|---|---|---|---|---|
 | 500 | 1.80% | 1.7% [fig](png/aec-test-sim-N500000-m500-f100-s500-r0-400of500-c2012.png) | 0.00% | 0.0% [fig](png/aec-test-sim-N500000-m500-f0-s500-r0-500of500-c2012.png) | <strong style="color:red;">82.3%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r50-fANY-550of1100-c2012.png) |
 | 503 | 1.99% | 1.8% [fig](png/aec-test-sim-N500000-m503-f103-s503-r0-400of503-c2012.png) | 1.05% | 0.8% [fig](png/aec-test-sim-N500000-m503-f3-s503-r0-500of503-c2012.png) | <strong style="color:red;">70.1%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r47-fANY-550of1100-c2012.png) |
