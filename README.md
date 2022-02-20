@@ -158,9 +158,9 @@ The simulation is initialized with a membership list -- a list of N members wher
 
 Each simulation proceeds thus:
 
-1. randomly sample `sample_size` members from a party's membership list. `sample_size` is the maximum allowable by the AEC.
-2. filter out `n_members_removed` members (e.g., 24 members were filtered out of Flux's most recent membership test). This is the "*reduced* membership list" mentioned above.
-3. randomly sample `n_to_sample` members. `n_to_sample` is based on the AEC's published tables of sample sizes and the acceptable number of denials (these are dependant on the size of the reduced membership list).
+1. randomly sample, without replacement, `sample_size` many members from a party's membership list. `sample_size` is the maximum allowable by the AEC.
+2. filter out `n_members_removed` many members (e.g., 24 members were filtered out of Flux's most recent membership test). This is the "*reduced* membership list" mentioned above.
+3. randomly sample, without replacement, `n_to_sample` many members. `n_to_sample` is based on the AEC's published tables of sample sizes and the acceptable number of denials (these are dependant on the size of the reduced membership list).
 4. count the number of failing members.
 
 These results are compared against:
@@ -189,6 +189,8 @@ For arguments, run `./main.py --help` ([source code](main.py))
 
 To add a set of parameters, add a new line in `main.py` under the `aec()` function.
 Parameters are: number of trials in the simulation, the population size of members from which the party can choose a membership list to provide, the failure rate of members confirming their membership when contacted, and the number of members that are filtered out of the list (reasons include: they support the registration of another party, they're deceased, the details cannot be matched against the electoral roll, or duplicate entries).
+
+Tables of confidence are generated via [`calc-n-trials-required.py`](calc-n-trials-required.py).
 
 ### Main Simulator Loop
 
