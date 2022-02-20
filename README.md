@@ -15,7 +15,7 @@
 
 1. [Background Context](#1-background-context)
 2. [Regular Membership Testing](#2-regular-membership-testing)
-3. [Flux’s 2021 Membership Test – A Known Farce](#3-fluxs-2021-membership-test-a-known-farce)
+3. [Flux’s 2021 Membership Test: A Known Farce](#3-fluxs-2021-membership-test-a-known-farce)
 4. [Analysis Methodology](#4-analysis-methodology)
 5. [Major Findings](#5-major-findings)
 6. [Suspected Farces](#6-suspected-farces)
