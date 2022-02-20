@@ -484,7 +484,8 @@ Additionally, Fig 7.2 and 7.3 show that, as the number of members filtered out i
 # other cases
 
 - TNL 2021, confidence: 86.6% - png/aec-test-sim-N500000-m550-f30-s550-r27-fANY-tnl_2021.png
->
+
+-->
 
 ## 8. Feedback Loops Between AEC Policy and Party Behavior
 
