@@ -56,3 +56,6 @@ get_n_trials_req(0.151)
 # exactly 0.5 confidence
 get_n_trials_req(0.5)
 get_n_trials_req(0.89)
+
+# australian democrats
+get_n_trials_req(0.237)

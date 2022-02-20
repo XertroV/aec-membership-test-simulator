@@ -20,11 +20,11 @@ This document evaluates the AEC's testing methodology for particular cases and f
 
 Therefore, it is reasonable to conclude, for those cases: the methodology is *rigged* and a *farce*.
 
-If something is *rigged* and a *farce* -- based on the definitions included and cited in the appendix -- then it is an *unfair, empty act*, done *for show* where the *outcome is already known*. This document proves that the current method has, effectively, predetermined outcomes for many situations.
+If something is *rigged* and a *farce* -- based on the definitions included and cited in the appendix -- then it is an *unfair, empty act*, done *for show* where the *outcome is already known*. This document proves that the current method has unfair and predetermined outcomes for many situations.
 
 **Note: I am not accusing the AEC of doing the rigging; just proving that the method *is* rigged.**
 
-To date, there is 1 known incident of a farce and *at least* 4 suspected incidents.
+To date, there is 1 known incident of a farce and *at least* 5 suspected incidents.
 <!-- There may be many more incidents, but the results of most membership tests are not available.
 (An FOI request may solve this.) -->
 
@@ -42,7 +42,7 @@ Experimental evidence shows that the AEC's confidence of the *threshold* case wa
 
 In other cases, where a party is capable of providing 1,500 members that will not deny membership (with no limit on the number of members that will deny membership), **the lower-bound on the confidence of the AEC's method is 0%.** That is: it fails 100% of the time for certain valid parties.
 
-This is not a theoretical problem. It has been happening and continues to happen. The AEC has thus compromised the integrity of our political process. The ABS has been complicit. Political elites have exploited this.
+This is not a theoretical problem. It has been happening and continues to happen. The AEC has been enforcing a policy that compromises the integrity of our political process. The ABS has been complicit. Political elites have exploited this.
 
 *Note: equivalent calculated values in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most). e.g., a graph might say the the false negative rate is 11.0%, but the accompanying text says 10.8%. This is taken to be negligible and a non-critical error.*
 
@@ -303,6 +303,8 @@ Since, in the following cases, the excess capacity of the party undergoing testi
 2. (Fig 6.2) [9 March 2021 -- deregistration of Seniors United Party under s 137(6)](https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf) ([mirror](docs/statement-of-reasons-seniors-united-party-of-australia-s137-deregistration.pdf)) -- excess capacity of 14.4% required
 3. (Fig 6.3) [7 November 2013 -- refusal to register of Cheaper Petrol Party](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm) ([mirror](https://web.archive.org/web/20140124195635/https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2013/5204.htm)) -- excess capacity of 8.2% required
 4. (Fig 6.4) [12 November 2010 -- refusal to register of Seniors Action Movement](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm) ([mirror](https://web.archive.org/web/20140212151106/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm)) -- excess capacity of 5.1% required
+5. (Fig 6.5) [1 March 2016 -- deregistration of the Australian Democrats](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf) ([mirror](https://web.archive.org/web/20170303052846/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf)) -- excess capacity of 6.5% required
+
 
 Note, the `@Measured` in the titles of the following graphs indicates that the failure rate is calculated directly from AEC reports of the ratio of membership denials to membership contacts.
 
@@ -381,6 +383,22 @@ Possible more:
 
 ---
 
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m586-f86-s550-r24-fANY-democrats_2016.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m586-f86-s550-r24-fANY-democrats_2016.png">Fig 6.5</a>: The affirmation of the decision to deregister of the Australian Democrats on 1 March 2016 is suspected to have been a farce.</em>
+</p>
+
+| Confidence | Tests Required for 1 Success (p=0.237) |
+|---|---|
+| 80% | 6 |
+| 90% | 9 |
+| 95% | 12 |
+| 99% | 18 |
+
+---
+
 ## 7. Flux's 2021 Membership Test Assuming a Threshold (9.09%) Denial Rate (including worst-case)
 
 Flux is a party that has -- with regards to membership lists -- excess capacity; if filtered members could be replaced, we could provide them.
@@ -452,6 +470,11 @@ Additionally, Fig 7.2 and 7.3 show that, as the number of members filtered out i
 
 <!-- ## Potential Farces -->
 
+<!--
+# other cases
+
+- TNL 2021, confidence: 86.6% - png/aec-test-sim-N500000-m550-f30-s550-r27-fANY-tnl_2021.png
+>
 
 ## 8. Feedback Loops Between AEC Policy and Party Behavior
 
@@ -482,9 +505,9 @@ With the AEC's existing policies, and on the assumption that Flux is a valid par
 
 With currently measured values (based on AEC results), it would take (on average) 7 repeated trials for Flux to have 1 successful membership test. So this is not a problem that can be solved by repeating the membership test.
 
-At least 4 past cases have been identified with farcical properties.
+At least 5 past cases have been identified with farcical properties.
 That is: the AEC's test had a confidence of less than 50% provided that those parties had additional members that AEC policy prevented the party submitting.
-All 4 cases required less than 15% additional members -- i.e., the membership test was a farce for all cases if N ≥ 630. *Note that all 4 cases predate the September 2021 change to membership requirements; at the time the required number of members was 500.*
+All 5 cases required less than 15% additional members -- i.e., the membership test was a farce for all cases if N ≥ 630. *Note that all 5 cases predate the September 2021 change to membership requirements; at the time the required number of members was 500.*
 
 <!-- don't really need this bit. does it really help? -->
 

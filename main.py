@@ -588,6 +588,39 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(578, 5/37, 550, 15, TestingStandard.C2011), party_name="SAM@Measured", farce_extra="SUSPECTED")
         _run(RunSpec(578, 5/37, 550, 15, TestingStandard.C2011, True), party_name="SAM@Measured", farce_extra="SUSPECTED")
 
+        if non_essential:
+            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/the-new-liberals-statement-of-reasons.pdf
+            # TLN 2021
+            # max confidence of 86.6%
+            _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017), party_name="TNL@2021", farce_extra="POSSIBLE")
+            _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017, filter_any=True), party_name="TNL@2021", farce_extra="POSSIBLE")
+
+            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australia-first.pdf
+            # 512-521 members after filtering
+            # max confidence 64.1% (only checked fANY)
+            _run(RunSpec(550, 3/34, 550, 29, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
+            # possible farce
+            _run(RunSpec(550, 3/34, 550, 38, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
+
+            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-rpa.pdf
+            # note: party rep did not mention having more than 550 members in AEC report (N unknown)
+            _run(RunSpec(550, 13/38, 550, 20, TestingStandard.C2012, filter_any=True), party_name="RPA@2016", farce_extra="POSSIBLE")
+            _run(RunSpec(760, 13/38, 550, 20, TestingStandard.C2012, filter_any=True), party_name="RPA@2016", farce_extra="POSSIBLE")
+
+            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-dlp.pdf
+            # DLP
+            # 42 / 540 contacted
+            # review successful
+            # note: should not have succeeded based on measured P(denial)
+            _run(RunSpec(550, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
+            # confidence 61.1%
+            _run(RunSpec(568, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
+
+            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf
+            # democrats
+            # we assume they have more than 550 members b/c of NSW requirements
+            _run(RunSpec(550, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="POSSIBLE")
+            _run(RunSpec(586, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="SUSPECTED")
 
         # check 98% confidence of not registering a party with only 400 members
         # note: seems to pan out
