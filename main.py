@@ -666,6 +666,17 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(1100, 50/550, 550, (550-548), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 50/550, 550, (550-550), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
 
+        # eval table C2012 - p(denial) = 0.2 + filtering
+        _run(RunSpec(1100, 0.2, 550, (550-500), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-503), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-512), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-521), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-529), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-537), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-543), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-548), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-550), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+
         # eval table SEPT2021 - threshold + filtering
         _run(RunSpec(3300, 150/1650, 1650, (1650-1500), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
         _run(RunSpec(3300, 150/1650, 1650, (1650-1506), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
@@ -678,6 +689,19 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(3300, 150/1650, 1650, (1650-1633), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
         _run(RunSpec(3300, 150/1650, 1650, (1650-1647), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
         _run(RunSpec(3300, 150/1650, 1650, (1650-1650), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+
+        # eval table SEPT2021 - p(denial)=0.2 + filtering
+        _run(RunSpec(3300, 0.2, 1650, (1650-1500), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1506), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1523), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1543), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1582), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1599), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1562), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1616), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1633), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1647), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
+        _run(RunSpec(3300, 0.2, 1650, (1650-1650), TestingStandard.SEPT2021, filter_any=True), party_name="1500of3300-SEPT2021")
 
         # eval table SEPT2021 risk of rejecting 1500 (P(fail))
         _run(RunSpec(1500, (1500-1500) / 1500, 1500, 0, TestingStandard.SEPT2021), party_name="1500of1500-SEPT2021")
