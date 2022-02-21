@@ -766,7 +766,8 @@ In the [2016 RPA statement of reasons](https://web.archive.org/web/2019041221115
 >
 > [Footnote 4:] According to the ABS, testing a sample of 38 from a list of 530 carried with it a 2.72% risk that the AEC could end up accepting a party that had only 400 members, and a 6.17% risk that the AEC could end up rejecting a party that had 500 members.
 
-So there was a typo at some point, but the AEC actually used the typo to judge party membership. So a party with between 529 and 536 members during this period, with 4 denials, would have been wrongly denied **even by the AEC's own methodology**. Also, the footnote values don't match the table...
+So there was a typo at some point, but the AEC actually used the typo to judge party membership. So a party with between 529 and 536 members during this period, with 4 denials, would have been wrongly denied **even by the AEC's own methodology**.
+Also, the footnote values don't match the previously advertised values in the table... is that just because it's calculated for 530 instead of 529? Or did the AEC get an updated table in 2016 and those risk values changed? If they did change, why? (It's not like the maths changed, right?)
 
 The [2016 Australian Democrats statement of reasons](https://web.archive.org/web/20170303052846/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf) confirms 34 contacts for a list of 526 with maximum 3 denials.
 
