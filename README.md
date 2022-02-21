@@ -768,6 +768,12 @@ In the [2016 RPA statement of reasons](https://web.archive.org/web/2019041221115
 
 So there was a typo at some point, but the AEC actually used the typo to judge party membership. So a party with between 529 and 536 members during this period, with 4 denials, would have been wrongly denied **even by the AEC's own methodology**. Also, the footnote values don't match the table...
 
+The [2016 Australian Democrats statement of reasons](https://web.archive.org/web/20170303052846/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf) confirms 34 contacts for a list of 526 with maximum 3 denials.
+
+> According to the sampling methodology, as applied to a list of 526 names, if four or more people denied membership then the AEC could conclude that the party did not have 500 members.<sup>3</sup>
+>
+> [Footnote 3:] According to the ABS, testing a sample of 34 from a list of 526 carried with it a 2.30% risk that the AEC could end up accepting a party that had only 400 members, and a 8.53% risk that the AEC could end up rejecting a party that had 500 members.
+
 #### Experimental Eval
 
 | Members lodged; <br> (N_reduced) | Claimed: accepting only 400 – risk % | Measured risk of accepting 400; <br> P(denial) = (N-400)/N; | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500; <br> P(denial) = (N-500)/N; <br> f = 0 (no members filtered); | Measured risk of rejecting ≥ 500;<br>(Threshold case); <br> P(denial) = 50/550 = 9.09%; <br> N = 1100; <br> f = 550 - N_reduced; | Measured risk of rejecting ≥ 500; <br> P(denial) = 20%; <br> N = 1100; <br> f = 550 - N_reduced |
