@@ -759,6 +759,15 @@ Sources:
 | 548 | 50 | 7 | 2.27 | 6.78 |
 | 550 | 50 | 7 | 2.07 | 8.05 |
 
+**Note:** It seems likely that `max denials to pass`=3 for the `members lodged`=529 row is a typo -- it should probably be `4`, however, in all source documents it was `3`.
+In the [2016 RPA statement of reasons](https://web.archive.org/web/20190412211155/https://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-rpa.pdf), a list of 530 lead to 38 contacts, and 4 or more denials was a fail (so `max denials to pass`=3).
+
+> According to the sampling methodology, as applied to a list of 530 names, if four or more people denied membership then the AEC could conclude that the party did not have 500 members.<sup>4</sup>
+>
+> [Footnote 4:] According to the ABS, testing a sample of 38 from a list of 530 carried with it a 2.72% risk that the AEC could end up accepting a party that had only 400 members, and a 6.17% risk that the AEC could end up rejecting a party that had 500 members.
+
+So there was a typo at some point, but the AEC actually used the typo to judge party membership. So a party with between 529 and 536 members during this period, with 4 denials, would have been wrongly denied **even by the AEC's own methodology**. Also, the footnote values don't match the table...
+
 #### Experimental Eval
 
 | Members lodged; <br> (N_reduced) | Claimed: accepting only 400 – risk % | Measured risk of accepting 400; <br> P(denial) = (N-400)/N; | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500; <br> P(denial) = (N-500)/N; <br> f = 0 (no members filtered); | Measured risk of rejecting ≥ 500;<br>(Threshold case); <br> P(denial) = 50/550 = 9.09%; <br> N = 1100; <br> f = 550 - N_reduced; | Measured risk of rejecting ≥ 500; <br> P(denial) = 20%; <br> N = 1100; <br> f = 550 - N_reduced |
