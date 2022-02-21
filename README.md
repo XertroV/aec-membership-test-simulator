@@ -63,6 +63,8 @@ This is not a theoretical problem. It has been happening and continues to happen
 
 *Note: equivalent calculated values in this document (including graphs) are assumed to have a combined, codependent error of ±0.3 percentage points (i.e., as values, they differ by 0.003 at most). e.g., a graph might say the the false negative rate is 11.0%, but the accompanying text says 10.8%. This is taken to be negligible and a non-critical error.*
 
+Additionally, the AEC mistakenly enforced a testing table with a typo for 4 years -- it's unknown if they ever noticed before the table was updated. (See [Appendix: AEC Membership Testing Tables / Circa 2012 to 2016](#circa-2012-to-2016))
+
 <!-- *Disclosure and context: My roles in The Flux Party (Flux) are: a founder, the deputy leader, the secretary, and the deputy registered officer.* -->
 
 ## 1. Background Context
@@ -760,7 +762,7 @@ Sources:
 | 550 | 50 | 7 | 2.07 | 8.05 |
 
 **Note:** It seems likely that `max denials to pass`=3 for the `members lodged`=529 row is a typo -- it should probably be `4`, however, in all source documents it was `3`.
-In the [2016 RPA statement of reasons](https://web.archive.org/web/20190412211155/https://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-rpa.pdf), a list of 530 lead to 38 contacts, and 4 or more denials was a fail (so `max denials to pass`=3).
+In the [2016 RPA statement of reasons](https://web.archive.org/web/20190412211155/https://aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-rpa.pdf), a list of 530 lead to 38 contacts, and 4 or more denials was a fail (so `max denials to pass`=3). This typo has been enforced. (How many times? Only the AEC knows.)
 
 > According to the sampling methodology, as applied to a list of 530 names, if four or more people denied membership then the AEC could conclude that the party did not have 500 members.<sup>4</sup>
 >
