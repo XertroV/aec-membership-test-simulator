@@ -72,13 +72,13 @@ Additionally, the AEC mistakenly enforced a testing table with a typo for 4 year
 Recently (leading up to September 2021), most parliamentarians (i.e., the 4 major parties) decided that we had too many political parties and that this was a problem! It would not do. So, a bunch of changes were made to the Electoral Act. Changes designed to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show. Some of those changes resulted in (as of Feb 2022) the pending deregistration of 12 parties, and the very real deregistration of 9 parties. In practice that is ~40% of parties, gone before the next election. Political elites will claim (and have claimed in Parliament already) that these changes, the culling, and the subsequent entrenchment of the status quo, is a good thing. That it is making our democracy better.
 
 In September 2021, the legislatively required number of members for a political party was increased from 500 to 1500 with little warning and no grace period.
-The AEC's policies -- going back at least a decade -- have encouraged parties not to bother going over 550 members (which are verifiable against the roll).
+The AEC's policies -- going back at least a decade -- have encouraged parties not to bother going over 1.1x the legislative limit (i.e., previously 550, now 1650) with regards to their number of members that are verifiable against the roll. (Submitting more than this is pointless and makes registration harder.)
 
 ## 2. Regular Membership Testing
 
 Every few years, the Australian Electoral Commission (AEC) will check that each political party has enough members according to the legislative requirement. The party must provide a list of 1500 to 1650 names (inclusive) to use as evidence of their eligibility. The AEC will then filter out some names (duplicates, deceased members, etc). That produces a NEW list of ≤ 1650 names. Then, the AEC will do a statistical sampling of members and will use that to determine whether a party is eligible. Particularly, a small subset of members are selected and contacted, asking for a yes/no confirmation of membership. Non-responses are skipped. A "No" answer counts as a failure -- this is a *membership denial*. In this document and associated code: "failure rate" refers to the rate at which members respond "No".
 
-The AEC does not accept lists larger than 1650; there is no chance for a party to replace any of those filtered members; that filtering process increases the chance of false negatives (when list length is limited + excluding duplicates); parties are not told which members were filtered (even those which are deceased) so they cannot be proactively removed; and, finally, the standard of statistical evaluation is to assume that the list of 1650 members were *the only members* of the party. Zero consideration is given beyond this (outside the chance to respond). How many parties have been wrongly denied registration? Nobody knows.
+The AEC does not accept lists larger than 1650; there is no chance for a party to replace any of those filtered members; that filtering process increases the chance of false negatives (when list length is limited + excluding duplicates); parties are not told which members were filtered (even those which are deceased) so they cannot be proactively removed; and, finally, the standard of statistical evaluation is to assume that the list of 1650 members were *the only members* of the party. Zero consideration is given beyond this, outside the chance to respond -- a tactic that has, historically, performed poorly except by the grace of the AEC. How many parties have been wrongly denied registration due to this artificial limit? Nobody knows.
 
 [The method is detailed on pages 23 and 24 of "Guide for registering a
 party".](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/guide/files/party-registration-guide.pdf)
@@ -140,7 +140,7 @@ grounds; each argument is a *decisive criticism* of the current methodology.
 
 (Note: there are at least two non-critical errors in our response -- the AEC has already been informed. See the end of the doc for what was sent to the AEC re those errors.)
 
-Yesterday (2022-02-14) I was curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Given that we are **in fact** an eligible party.)
+I became curious about the *actual* statistical properties of the AEC's process. How likely would it have been for us to succeed? (Given that we are **in fact** an eligible party.)
 
 **Turns out there was a 71.9% chance that the AEC's method would find a false negative.**
 
