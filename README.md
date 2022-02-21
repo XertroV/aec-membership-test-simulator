@@ -152,21 +152,21 @@ The code associated with this document produces statistical graphs (of the Proba
 
 For each simulation, the number of failures is recorded as the output. Subsequently, these results are normalized to give the probability of X failures for the given input parameters.
 These probabilities are then graphed, with the x-axis showing the number of failures, and the y-axis showing `P(x = X)` -- i.e., the probability of a membership test having a certain number of failures (membership denials).
-As the AEC has limits on the acceptable number of membership denials based on the reduced membership list, the bars in these PMFs are colored blue or orange to indicate a pass or a failure. In cases where the party *does* meet legislative requirements, the blue bars (`P(success)`) should *always* sum to `> 0.9`. If `P(success) < 0.5`, the case is deemed a *farce* and marked as such.
+As the AEC has limits on the acceptable number of membership denials based on the reduced membership list, the bars in these PMFs are colored blue or orange to indicate a pass or a failure. In cases where the party *does* meet legislative requirements, the blue bars (`P(success)`) should, according to [AEC Policy](https://web.archive.org/web/20120423231216/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/registration-tests.htm), *always* sum to `> 0.9`. Where `P(success) < 0.5`, the case is deemed a *farce* and marked as such.
 
 The simulation is initialized with a membership list -- a list of N members where each member has a `failure_rate` chance (e.g., 0.0909) of responding "No" (i.e., a membership denial).
 
 Each simulation proceeds thus:
 
 1. randomly sample, without replacement, `sample_size` many members from a party's membership list. `sample_size` is the maximum allowable by the AEC.
-2. filter out `n_members_removed` many members (e.g., 24 members were filtered out of Flux's most recent membership test). This is the "*reduced* membership list" mentioned above.
-3. randomly sample, without replacement, `n_to_sample` many members. `n_to_sample` is based on the AEC's published tables of sample sizes and the acceptable number of denials (these are dependant on the size of the reduced membership list).
+2. filter out `n_members_removed` many members (e.g., 24 members were filtered out of Flux's most recent membership test). This results in the "*reduced* membership list" mentioned above.
+3. randomly sample, without replacement, `n_to_sample` many members from the reduced membership list. `n_to_sample` is based on the AEC's published tables of sample sizes and the acceptable number of denials (these are dependant on the size of the reduced membership list).
 4. count the number of failing members.
 
 These results are compared against:
 
 1. AEC published confidence claims
-2. Reality
+2. Reality (note: after the main body of this paper, there is [Appendix: AEC Membership Testing Tables](#appendix-aec-membership-testing-tables) which measures the confidence of published AEC membership testing tables)
 
 ### Reason for this analysis method
 
