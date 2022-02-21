@@ -149,6 +149,18 @@ AEC_TABLE_2012 = [
     (551, 50, 7),  # we subtract 1 later for upper bound
 ]
 
+AEC_TABLE_2012_CORRECTED = [
+    (500, 18, 0),
+    (503, 26, 1),
+    (512, 30, 2),
+    (521, 34, 3),
+    (529, 38, 4),  # max denials fixed
+    (537, 42, 5),
+    (543, 46, 6),
+    (548, 50, 7),
+    (551, 50, 7),  # we subtract 1 later for upper bound
+]
+
 AEC_TABLE_2011 = [
     (500, 18, 0),
     (505, 21, 1),
@@ -171,6 +183,7 @@ def testing_table_to_ranges(testing_table):
 AEC_RANGE_2021 = testing_table_to_ranges(AEC_TABLE_2021)
 AEC_RANGE_2017 = testing_table_to_ranges(AEC_TABLE_2017)
 AEC_RANGE_2012 = testing_table_to_ranges(AEC_TABLE_2012)
+AEC_RANGE_2012_CORRECTED = testing_table_to_ranges(AEC_TABLE_2012_CORRECTED)
 AEC_RANGE_2011 = testing_table_to_ranges(AEC_TABLE_2011)
 
 
@@ -179,6 +192,7 @@ class TestingStandard(Enum):
     C2017 = 2
     C2012 = 3
     C2011 = 4
+    C2012Corrected = 5
 
 
 TESTING_RANGE_LOOKUP = {
@@ -186,6 +200,7 @@ TESTING_RANGE_LOOKUP = {
     TestingStandard.C2017: AEC_RANGE_2017,
     TestingStandard.C2012: AEC_RANGE_2012,
     TestingStandard.C2011: AEC_RANGE_2011,
+    TestingStandard.C2012Corrected: AEC_RANGE_2012_CORRECTED,
 }
 
 
@@ -194,6 +209,7 @@ TESTING_N_REQUIRED_LOOKUP = {
     TestingStandard.C2017: 500,
     TestingStandard.C2012: 500,
     TestingStandard.C2011: 500,
+    TestingStandard.C2012Corrected: 500,
 }
 
 
@@ -639,6 +655,7 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(512, (512-400) / 512, 512, 0, TestingStandard.C2012), party_name="400of512-C2012")
         _run(RunSpec(521, (521-400) / 521, 521, 0, TestingStandard.C2012), party_name="400of521-C2012")
         _run(RunSpec(529, (529-400) / 529, 529, 0, TestingStandard.C2012), party_name="400of529-C2012")
+        _run(RunSpec(529, (529-400) / 529, 529, 0, TestingStandard.C2012Corrected), party_name="400of529-C2012-Corrected")
         _run(RunSpec(537, (537-400) / 537, 537, 0, TestingStandard.C2012), party_name="400of537-C2012")
         _run(RunSpec(543, (543-400) / 543, 543, 0, TestingStandard.C2012), party_name="400of543-C2012")
         _run(RunSpec(548, (548-400) / 548, 548, 0, TestingStandard.C2012), party_name="400of548-C2012")
@@ -650,6 +667,7 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(512, (512-500) / 512, 512, 0, TestingStandard.C2012), party_name="500of512-C2012")
         _run(RunSpec(521, (521-500) / 521, 521, 0, TestingStandard.C2012), party_name="500of521-C2012")
         _run(RunSpec(529, (529-500) / 529, 529, 0, TestingStandard.C2012), party_name="500of529-C2012")
+        _run(RunSpec(529, (529-500) / 529, 529, 0, TestingStandard.C2012Corrected), party_name="500of529-C2012-Corrected")
         _run(RunSpec(537, (537-500) / 537, 537, 0, TestingStandard.C2012), party_name="500of537-C2012")
         _run(RunSpec(543, (543-500) / 543, 543, 0, TestingStandard.C2012), party_name="500of543-C2012")
         _run(RunSpec(548, (548-500) / 548, 548, 0, TestingStandard.C2012), party_name="500of548-C2012")
@@ -661,6 +679,7 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(1100, 50/550, 550, (550-512), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 50/550, 550, (550-521), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 50/550, 550, (550-529), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 50/550, 550, (550-529), TestingStandard.C2012Corrected, filter_any=True), party_name="550of1100-C2012-Corrected")
         _run(RunSpec(1100, 50/550, 550, (550-537), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 50/550, 550, (550-543), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 50/550, 550, (550-548), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
@@ -672,6 +691,7 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(1100, 0.2, 550, (550-512), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 0.2, 550, (550-521), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 0.2, 550, (550-529), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
+        _run(RunSpec(1100, 0.2, 550, (550-529), TestingStandard.C2012Corrected, filter_any=True), party_name="550of1100-C2012-Corrected")
         _run(RunSpec(1100, 0.2, 550, (550-537), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 0.2, 550, (550-543), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
         _run(RunSpec(1100, 0.2, 550, (550-548), TestingStandard.C2012, filter_any=True), party_name="550of1100-C2012")
