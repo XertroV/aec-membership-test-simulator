@@ -749,6 +749,15 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(1647, (1647-1200) / 1647, 1647, 0, TestingStandard.SEPT2021), party_name="1200of1647-SEPT2021")
         _run(RunSpec(1650, (1650-1200) / 1650, 1650, 0, TestingStandard.SEPT2021), party_name="1200of1650-SEPT2021")
 
+        # huh, a recent one:
+        # https://archive.fo/QnKTx
+        # claimed griefing attack -- note that submitting a list with 333 members not on the roll is messy (NMVP could have validated them, even tho that's a shit tonne of work without automation)
+        # there should be 333 members filtered but that puts it outside AEC limits, so put it at 150
+        # if they really do have 4250 members tho, even with a ~64% denial rate they'd have 1500 valid members
+        _run(RunSpec(1650 + 2600, 333/1650, 1650, 150, TestingStandard.SEPT2021), party_name="NMVP2021@Measured")
+        _run(RunSpec(1650 + 2600, 333/1650, 1650, 0, TestingStandard.SEPT2021), party_name="NMVP2021@Measured+NoFiltered")
+
+
         if non_essential:
             _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
             _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
