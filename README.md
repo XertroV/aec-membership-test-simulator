@@ -778,7 +778,7 @@ The [2016 Australian Democrats statement of reasons](https://web.archive.org/web
 #### Experimental Eval
 
 **Note:** The row with `members lodged`=`529 (corrected)` corrects the erronous `max denials to pass` from `3` to `4`.
-The AEC did not pick up on this error for at least 4 years.
+The AEC did not pick up on this error for at least 4 years (if they ever did).
 
 | Members lodged; <br> (N_reduced) | Claimed: accepting only 400 – risk % | Measured risk of accepting 400; <br> P(denial) = (N-400)/N; | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500; <br> P(denial) = (N-500)/N; <br> f = 0 (no members filtered); | Measured risk of rejecting ≥ 500;<br>(Threshold case); <br> P(denial) = 50/550 = 9.09%; <br> N = 1100; <br> f = 550 - N_reduced; | Measured risk of rejecting ≥ 500; <br> P(denial) = 20%; <br> N = 1100; <br> f = 550 - N_reduced |
 |---|---|---|---|---|---|---|
