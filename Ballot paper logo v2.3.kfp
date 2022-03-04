@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pdfpreflight version="13.0">
+	<package>
+		<id3>eba4c1a49ed4e84b53bbfda08e584a6b</id3>
+		<pdfxoutintentlist>
+		</pdfxoutintentlist>
+		<iccprofilelist>
+		</iccprofilelist>
+		<ccpolicies>
+		</ccpolicies>
+		<occdsetups>
+		</occdsetups>
+		<curves>
+		</curves>
+		<fspolicies>
+		</fspolicies>
+		<resources>
+		</resources>
+		<conditions>
+			<condition>
+				<id1>Cb7e1f9b817e6dc8f9c1be5188a102e6e</id1>
+				<id2>C18cac20bfc85e53141f4fa8ddf92ecd2</id2>
+				<id3>9f17aed34f979a1171ec874160730a44</id3>
+				<id4>f80f4993060206ae874148143140357d</id4>
+				<name></name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::CSCOLOR</group>
+					<token>CSCOLOR::ObjectIs100_Black</token>
+					<operator>OP::is_not_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>Cabf95b76371d726516e1ca27477a0c6e</id1>
+				<id2>C34085e2ba06f3ee0ed4830f368443778</id2>
+				<id3>16a945a16f7c4e562cc8eca95436b629</id3>
+				<id4>329fc3dfadad792c73b38b87c9b92f94</id4>
+				<name></name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::PAGE</group>
+					<token>PAGE::TrimBoIsSameAsBleedBox</token>
+					<operator>OP::is_not_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C03fdc5a9c5b5c0fa9069e1e5026f498e</id1>
+				<id2>C1729ebd978594861366f73b160eeff3f</id2>
+				<id3>4fe037af3c8adc1e184f935b3d49783b</id3>
+				<id4>264cc4761bb10f65a1c80bee2beadd86</id4>
+				<name></name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::CSTEXT</group>
+					<token>CSTEXT::Textsize</token>
+					<operator>OP::greater_or_equal</operator>
+					<data>
+						<num>
+							<value>0</value>
+							<tolerance></tolerance>
+						</num>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>Ca65753621b0e8c94ba05b39c3d299383</id1>
+				<id2>Cfbe9a4c93677b56a3fda862dcd8f3aca</id2>
+				<id3>c5bc4b897e5c0137e14a6af0fd5292c9</id3>
+				<id4>30b835886a5cbd0d20796925200cadd0</id4>
+				<name></name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::CSTEXT</group>
+					<token>CSTEXT::NegFontSizeUsed</token>
+					<operator>OP::is_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C81d84ef58477ba3aa323cffe87c6eeb7</id1>
+				<id2>C75d545eac7dfa5c2ceb6b252502118a6</id2>
+				<id3>1d93b1083f0cad528d1e787e65ef2277</id3>
+				<id4>e7a9f0b0ed9b328a7623fe648464cc5e</id4>
+				<name> (Copy 39)</name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::CSGST_S</group>
+					<token>CSGST_S::LineWidth</token>
+					<operator>OP::less_or_equal</operator>
+					<data>
+						<num>
+							<value>0.25</value>
+							<tolerance>0</tolerance>
+						</num>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C7be9d0c1262d51be3a9a5cd7405d9c9b</id1>
+				<id2>C0777ff652c900df401c0b25f39511aec</id2>
+				<id3>e490605df3532a89f9bd8f59c46bf5b3</id3>
+				<id4>6c04f05b0e029e89cd5b543b351c57ea</id4>
+				<name></name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::DOC</group>
+					<token>DOC::Filesize</token>
+					<operator>OP::greater</operator>
+					<data>
+						<num>
+							<value>5000000</value>
+							<tolerance>0</tolerance>
+						</num>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>Cab90548075f1061539f3a94cfcdf76c4</id1>
+				<id2>C77b4c0ee5d1f79bdf8dd15d65b1767b6</id2>
+				<id3>92ce59a11f6d10f078ec6b8223a0f764</id3>
+				<id4>389624e382c91944af2ddcc9f25b8453</id4>
+				<name> (Copy 52)</name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::ACROFORM</group>
+					<token>ACROFORM::InsideBleedOrTrimBox</token>
+					<operator>OP::is_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C1352ceea3bfea2cd37c6aca677578d4a</id1>
+				<id2>Cdb9ae2b70292f204fcae47b398cd801c</id2>
+				<id3>95f87b05f4033c50d56e150acfc0255c</id3>
+				<id4>cc4b814892eb37e77fe53e865d217203</id4>
+				<name> (Copy 52)</name>
+				<comment></comment>
+				<flags user_units="1" edit="1" visible="1"></flags>
+				<atom>
+					<group>Group::ANNOT</group>
+					<token>ANNOT::InsideBleedOrTrimBox</token>
+					<operator>OP::is_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C1297bc6226d82ae158bfe530c8b4f325</id1>
+				<id2>C209a6304f453703671d54eb30d02d553</id2>
+				<id3>ee304d255f1ed71229c6b3ca42dca50f</id3>
+				<id4>1954efb69d86f989113be97235585c0d</id4>
+				<name>CC_AnnotTypeNotTrapNet</name>
+				<comment>CC_AnnotTypeNotTrapNet</comment>
+				<flags user_units="1" edit="1" visible="1" dict="1"></flags>
+				<atom>
+					<group>Group::ANNOT</group>
+					<token>ANNOT::AnnotaIsOfType</token>
+					<operator>OP::unequal</operator>
+					<data>
+						<text>
+							<value>TrapNet</value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>Cc000177c7df7c17bb1f2c09f2465711e</id1>
+				<id2>Ce78ba1956ef1720f0895f02f5f126ebc</id2>
+				<id3>981d1c4a006171152de451e8c064a962</id3>
+				<id4>822c61c97b2cf6b3ab9c3005b286dc07</id4>
+				<name>CC_ObjectIsAnImage</name>
+				<comment>CC_ObjectIsAnImage</comment>
+				<flags user_units="1" edit="1" visible="1" dict="1"></flags>
+				<atom>
+					<group>Group::CONTSTM</group>
+					<token>CONTSTM::IsImage</token>
+					<operator>OP::is_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C017656c4d0d7798f69f08d7c278e301a</id1>
+				<id2>Cf740c60329cbc2fa2586cfba0f8f2309</id2>
+				<id3>a7ded5bf648d7fdf29c5eefeadc8b6fe</id3>
+				<id4>5ae041ffdc549eeb89d61f940ad0db97</id4>
+				<name>CC_FilledObjectNotSetToKnockOut</name>
+				<comment>CC_FilledObjectNotSetToKnockOut</comment>
+				<flags user_units="1" edit="1" visible="1" dict="1"></flags>
+				<atom>
+					<group>Group::CSGST_F</group>
+					<token>CSGST_F::isOverPrintEnabledFill</token>
+					<operator>OP::is_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C0a232cd22f66ad04de758703ad2b7c00</id1>
+				<id2>C88b69f226f026ea12fa8f575237fd38d</id2>
+				<id3>ff7560c0428ed7a1afdb840b084d2cad</id3>
+				<id4>4a742aed3d953aabe2342638b178d783</id4>
+				<name>CC_StrokedObjectNotSetToKnockOut</name>
+				<comment>CC_StrokedObjectNotSetToKnockOut</comment>
+				<flags user_units="1" edit="1" visible="1" dict="1"></flags>
+				<atom>
+					<group>Group::CSGST_S</group>
+					<token>CSGST_S::isOverPrintEnabledStroke</token>
+					<operator>OP::is_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C1e86d58482edc103ba6362b7d6282452</id1>
+				<id2>C74ea7bca2ebdf4ac32e4588914ca892a</id2>
+				<id3>efef3698243c7e00753680808ba25194</id3>
+				<id4>24625932b876745ea5c6d2de3b632b85</id4>
+				<name>CC_UsesDevicergb</name>
+				<comment>CC_UsesDevicergb</comment>
+				<flags user_units="1" edit="1" visible="1" dict="1"></flags>
+				<atom>
+					<group>Group::CSCOLOR</group>
+					<token>CSCOLOR::isDeviceRGB</token>
+					<operator>OP::is_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>Cbdeb0622f99df05c3ccd2c1138aab08d</id1>
+				<id2>C5c8fcb5247b93f7e9247c77407bff0e8</id2>
+				<id3>308790be1927dae40bd2a80c65d17871</id3>
+				<id4>d1ff539f085d469a749a775a9186d564</id4>
+				<name>CC_PageHasCropboxDefinedExplicitly</name>
+				<comment>CC_PageHasCropboxDefinedExplicitly</comment>
+				<flags user_units="1" edit="1" visible="1" dict="1"></flags>
+				<atom>
+					<group>Group::PAGE</group>
+					<token>PAGE::HasCropBox</token>
+					<operator>OP::is_embedded</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+			<condition>
+				<id1>C90cb89bddd00cd0179974e8d2400b776</id1>
+				<id2>C2a1590dc255f8d4c68b385270817707b</id2>
+				<id3>14759492e1024919c0aa0f8242e7ddf7</id3>
+				<id4>1e14a0d83539f880ba4c2bf8a759f518</id4>
+				<name>CC_CropboxNotEqualMediabox</name>
+				<comment>CC_CropboxNotEqualMediabox</comment>
+				<flags user_units="1" edit="1" visible="1" dict="1"></flags>
+				<atom>
+					<group>Group::PAGE</group>
+					<token>PAGE::CropBoIsSameAsMediaBox</token>
+					<operator>OP::is_not_true</operator>
+					<data>
+						<text>
+							<value></value>
+						</text>
+					</data>
+				</atom>
+			</condition>
+		</conditions>
+		<rules>
+			<rule>
+				<id1>Rcaf50b1fc2e66be717518a1e49004dca</id1>
+				<id2>R8c0a3a3e382b06afbe8566a369310484</id2>
+				<id3>7ad3e8b971aa41a37e79b1515814b6b2</id3>
+				<id4>a71dfde2883862c78509683bd5335e2d</id4>
+				<name>Colour other than 100% black used</name>
+				<comment>Elements must be 100% black within this document. This condition can sometimes be triggered by the inclusion of colour profiles or elements that are white.</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>Cb7e1f9b817e6dc8f9c1be5188a102e6e</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>R5ba3e9978b95d8caad3c9f8b97676203</id1>
+				<id2>R90bc016a5462068f2836aad5340c4d18</id2>
+				<id3>2d8d2885ec0c98a8b49a722ed3e8970d</id3>
+				<id4>c357b94f0d1e1edad669c69f6d01b52b</id4>
+				<name>Bleed used</name>
+				<comment>Bleed must not be used within this document.</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>Cabf95b76371d726516e1ca27477a0c6e</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>Rd8af06b734a067e22fc95a14ba9776ef</id1>
+				<id2>Rf9090ded6ebf57da65872394fc20867a</id2>
+				<id3>4c6856edb37710243aa02a93086f9ae4</id3>
+				<id4>a764fe1592ef26225db8366127d1b7db</id4>
+				<name>Live text used</name>
+				<comment>Live text must not be used within this document. All text should be converted to outlines.</comment>
+				<flags analysis="17" condition_logic="1" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>C03fdc5a9c5b5c0fa9069e1e5026f498e</condition>
+					<condition>Ca65753621b0e8c94ba05b39c3d299383</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>R752c242d96850cf575c8d5c205984562</id1>
+				<id2>R474366734f5726dc64466e90985a440c</id2>
+				<id3>fe36457adbbcdaadd90ec48eacd43218</id3>
+				<id4>046f58658294da94b49f9e4a5011901d</id4>
+				<name>Line weight less than 0.5pt used</name>
+				<comment>Line weight less than 0.5 pt may cause problems when printing.</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="2" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>C81d84ef58477ba3aa323cffe87c6eeb7</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>R6b6ab300106e4b41911fd3e407e66c7b</id1>
+				<id2>Rc3580eb9dd5633fed6afc98064907358</id2>
+				<id3>e56d4586b6cf05bc8c93ce871a8fbbc8</id3>
+				<id4>693d82a89dad10b718469c9693449a69</id4>
+				<name>File size is above 5 MB</name>
+				<comment>The size of this document must not exceed 5 megabytes.</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>C7be9d0c1262d51be3a9a5cd7405d9c9b</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>R56b2d449a7ad892e5fa8a7765012be47</id1>
+				<id2>R0853afcaead1bcf1dd1b0aabb1bec4dc</id2>
+				<id3>c4b84ac2208170931b339fc655b0ea87</id3>
+				<id4>a75684e9eefa4d15cc3e24955caede75</id4>
+				<name>Interactive form field used</name>
+				<comment>Interactive form fields must not be used within this document.</comment>
+				<flags analysis="21" condition_logic="0" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>Cab90548075f1061539f3a94cfcdf76c4</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>Re076c8e4a95860c392b2f225fa4bab39</id1>
+				<id2>R2df1757bba4ad04e4abe2dbaeecaf052</id2>
+				<id3>43416cc554bf98d49583f536e978c7c9</id3>
+				<id4>b1dec6abd80c1427a20ae5aa91afd6c5</id4>
+				<name>Annotation used</name>
+				<comment>Annotations must not be used within this document.</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>C1352ceea3bfea2cd37c6aca677578d4a</condition>
+					<condition>C1297bc6226d82ae158bfe530c8b4f325</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>R2925446a95c4955df10cb11f92453f5e</id1>
+				<id2>R0f4e2e9871d518dee445ca672562b158</id2>
+				<id3>d9b10c9cf138a47991b7eb767dee1e1e</id3>
+				<id4>1718f8d9d9a6232133a8904a97fb1464</id4>
+				<name>Raster image used</name>
+				<comment>Raster images must not be used within this document.</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>Cc000177c7df7c17bb1f2c09f2465711e</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>Re7de1eef733b4acbc522aafc7ab41434</id1>
+				<id2>Rade046e8900f7a35b51e95ef5b5c9ed3</id2>
+				<id3>657e3327e4e47df28ff091fd38f64f91</id3>
+				<id4>e47b2383d4186087011df8d0fceb8f04</id4>
+				<name>Overprint used</name>
+				<comment>Fills and strokes must not set to overprint within this document.</comment>
+				<flags analysis="17" condition_logic="1" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>C017656c4d0d7798f69f08d7c278e301a</condition>
+					<condition>C0a232cd22f66ad04de758703ad2b7c00</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>R6b8ddf3687a9ec6ff8f237db848a8da1</id1>
+				<id2>Redffc1632a97a1db3961c0b37e3325dd</id2>
+				<id3>dd167a16e46edb0d1edc29a7da5daefe</id3>
+				<id4>cdadbaaa44dec00aecdf834f01d88b74</id4>
+				<name>Object uses RGB</name>
+				<comment>Elements must be 100% black in a CMYK colour space within this document.</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="0" edit="1" visible="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>C1e86d58482edc103ba6362b7d6282452</condition>
+				</conditions>
+			</rule>
+			<rule>
+				<id1>R962dc905b0419e6c00e31dd3d43929ec</id1>
+				<id2>Rf2099120c5019a11607bc90a40f068b3</id2>
+				<id3>905ba3e688d32243f73d1816355ed222</id3>
+				<id4>990ddf04ecb709baf831f8bb4db2276a</id4>
+				<name>R_6_CropBoxnotequalMediaBox</name>
+				<comment>R_6_CropBoxnotequalMediaBox</comment>
+				<flags analysis="17" condition_logic="0" ignore_objects="0" edit="1" visible="1" dict="1"></flags>
+				<report_no_match></report_no_match>
+				<conditions>
+					<condition>Cbdeb0622f99df05c3ccd2c1138aab08d</condition>
+					<condition>C90cb89bddd00cd0179974e8d2400b776</condition>
+				</conditions>
+			</rule>
+		</rules>
+		<rulesets>
+			<ruleset>
+				<id1>S40fd082316d812bb5b1fd16595482b9a</id1>
+				<id2>S2243efeb7de2366037f16dc3c78307a0</id2>
+				<id3>caa69b956812287e36287e3bc01bcec2</id3>
+				<id4>773a622de15a80ae53c35d5841894920</id4>
+				<name>SSS_RULESET_DEF_NAME</name>
+				<comment>SSS_RULESET_DEF_NAME</comment>
+				<flags edit="1" visible="1" dict="1"></flags>
+				<rules>
+					<rule check_severity="3" check_timing="2">Rcaf50b1fc2e66be717518a1e49004dca</rule>
+					<rule check_severity="3" check_timing="2">R5ba3e9978b95d8caad3c9f8b97676203</rule>
+					<rule check_severity="3" check_timing="2">Rd8af06b734a067e22fc95a14ba9776ef</rule>
+					<rule check_severity="2" check_timing="2">R752c242d96850cf575c8d5c205984562</rule>
+					<rule check_severity="3" check_timing="2">R6b6ab300106e4b41911fd3e407e66c7b</rule>
+					<rule check_severity="3" check_timing="2">R56b2d449a7ad892e5fa8a7765012be47</rule>
+					<rule check_severity="3" check_timing="2">Re076c8e4a95860c392b2f225fa4bab39</rule>
+					<rule check_severity="3" check_timing="2">R2925446a95c4955df10cb11f92453f5e</rule>
+					<rule check_severity="3" check_timing="2">Re7de1eef733b4acbc522aafc7ab41434</rule>
+					<rule check_severity="3" check_timing="2">R6b8ddf3687a9ec6ff8f237db848a8da1</rule>
+					<rule check_severity="3" check_timing="2">R962dc905b0419e6c00e31dd3d43929ec</rule>
+				</rules>
+			</ruleset>
+		</rulesets>
+		<fixups>
+		</fixups>
+		<fixupsets>
+		</fixupsets>
+		<actions>
+		</actions>
+		<profiles>
+			<profile>
+				<id1>P46bc23f4e05425afb916a495c48bcb8c</id1>
+				<id2>Pbed2b8c8326ff92a1c84d6937c462655</id2>
+				<id3>71ef88910c31bec8251453844ceea5c2</id3>
+				<id4>6c62d99263f2b5c8e9bd12ebb867b0d8</id4>
+				<name>Ballot paper logo v2.3</name>
+				<comment>Confirm party logo document conforms to rules for ballot paper printing</comment>
+				<flags edit="1" visible="1"></flags>
+				<metalist>
+					<metadata>
+						<metakey>author</metakey>
+						<metavalue>Australian Electoral Commission</metavalue>
+					</metadata>
+				</metalist>
+				<creation>D:20160314224857+10&apos;00&apos;</creation>
+				<modification>D:20160408020631+10&apos;00&apos;</modification>
+				<pdfstd>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond></outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+				</pdfstd>
+				<pdfstdemb>
+					<pdfx convert="0"></pdfx>
+					<pdfa convert="0"></pdfa>
+					<pdfe convert="0"></pdfe>
+					<outcond></outcond>
+					<trapped>0</trapped>
+					<oioptions>0</oioptions>
+					<afrelationship set_relationship="0"></afrelationship>
+				</pdfstdemb>
+				<wizard>
+					<check name="PRCWzDocu_Damaged" check_severity="0">
+					</check>
+					<check name="PRCWzPage_SizeIsNot" check_severity="0">
+						<data name="Height">10</data>
+						<data name="Orientation">0</data>
+						<data name="Tolerance">0.1</data>
+						<data name="UnitLength">PRCUIWzPage_MeasurementUnitMillimeter_long</data>
+						<data name="Width">10</data>
+					</check>
+					<check name="PRCWzPage_NumPages" check_severity="0">
+						<data name="Number">1</data>
+						<data name="Operator">PRCUIWzPage_NumPagesMoreThan_long</data>
+					</check>
+					<check name="PRCWzPage_OnePageEmpty" check_severity="0">
+						<data name="IgnoreOutsideBoxes">0</data>
+					</check>
+					<check name="PRCWzRend_Transparency" check_severity="0">
+					</check>
+					<check name="PRCWzRend_Halftone" check_severity="0">
+					</check>
+					<check name="PRCWzRend_Curve" check_severity="0">
+					</check>
+				</wizard>
+				<rulesets>
+					<ruleset>S40fd082316d812bb5b1fd16595482b9a</ruleset>
+				</rulesets>
+				<fixupsets>
+				</fixupsets>
+			</profile>
+		</profiles>
+		<metaprofs>
+		</metaprofs>
+		<profgroups>
+		</profgroups>
+	</package>
+</pdfpreflight>
