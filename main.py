@@ -606,6 +606,13 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(578, 5/37, 550, 15, TestingStandard.C2011), party_name="SAM@Measured", farce_extra="SUSPECTED")
         _run(RunSpec(578, 5/37, 550, 15, TestingStandard.C2011, True), party_name="SAM@Measured", farce_extra="SUSPECTED")
 
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-democratic-labour-party.pdf
+        # DLP on 7th March 2022
+        _run(RunSpec(1650, 14/(14+28), 1650, (37+21+3+17), TestingStandard.SEPT2021, True), party_name="DLP@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(2000, 14/(14+28), 1650, (37+21+3+17), TestingStandard.SEPT2021, True), party_name="DLP@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(2500, 14/(14+28), 1650, (37+21+3+17), TestingStandard.SEPT2021, True), party_name="DLP@Measured", farce_extra="SUSPECTED")
+        _run(RunSpec(2250, 14/(14+28), 1650, (37+21+3+17), TestingStandard.SEPT2021, True), party_name="DLP@Measured", farce_extra="SUSPECTED")
+
         if non_essential:
             # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/the-new-liberals-statement-of-reasons.pdf
             # TLN 2021
