@@ -878,3 +878,5 @@ Math symbols:
 ≥
 ±
  -->
+
+<img src="https://maxkaye.s3.wasabisys.com/upload/aec-gh-pixel.png" />
