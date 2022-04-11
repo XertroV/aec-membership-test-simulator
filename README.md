@@ -609,13 +609,35 @@ Here is a brief analysis of the insanity of the above:
   Of course, the AEC has never published anything to support this claim, and neither has the ABS.
   It's a party's word against the AEC's, but the AEC is also the adjudicator.
   Hmm.
-* The document cited to support point 29 is for a different testing procedure -- did Ms Reid's expert statistical knowledge inform her that the methods were comparable and that nothing substantial had changed? We may never know. At least, the AEC won't volunteer such information. Why should they? It doesn't really matter, after all, does it?
-* The document cited to support point 29 has an AEC reference of LEX967: the "LEX" seems to indicate that it's associated with a Freedom of Information request. At least, that's the only place I've ever seen it. It's also notable that TODO search aec archive for mentions
+* The document cited to support point 29 is for a different testing procedure -- did Ms Reid's expert statistical knowledge inform her that the methods were comparable and that nothing substantial had changed? We may never know. At least, the AEC won't volunteer such information. Why should they? After all, it doesn't really matter whether the commission responsible for maintaining our democracy is rational, reasonable, or even knows early high-school maths, does it? If it did matter, surely we would have noticed by now.
+<!-- * The document cited to support point 29 has an AEC reference of LEX967: the "LEX" seems to indicate that it's associated with a Freedom of Information request. At least, that's the only place I've ever seen it. It's also notable that TODO search aec archive for mentions CUT -->
 * The document cited to support point 29 says:
-  > The Commission noted that
+  > 8. [...] The Commission noted that this methodology was the same as the sampling methodology recommended byt the Australian Bureau of Statistics ('ABS'). The Commission concluded that the methodology was appropriate for the purpose of membership testing, including because it was rational, fair and practical in all the circumstances."
 
+  So, the Commission, to argue for their *conclusion*, cites another time they claimed, also without reason, a similar conclusion for a different method.
+  Well, we have seen both claims proven false, here, haven't we?
 
+  This sort of evasion is to be expected.
+  A different reason was given by the AEC in 2018 -- that example is cited in [9. Feedback Loops Between AEC Policy and Party Behavior](#9-feedback-loops-between-aec-policy-and-party-behavior).
+* > 30. I consider that the membership testing results outlined above provide a more robust method [...] than a statement provided by the party.
 
+  Yes, indeed that is your educated opinion as a statistician, I'm sure.
+
+  As it turns out, there is nothing that a party could say that would change the AEC's mind.
+  That is dangerous.
+  If the AEC is wrong, how will they know?
+  They have no method.
+  No error correction.
+  Watch and see.
+
+### What should we have expected from this second membership test?
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f1730-s1650-r64-flux-second-test.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f1730-s1650-r64-flux-second-test.png">Fig 8.1</a>: Despite being eligible under the Electoral Act, Flux could never have passed the AEC's test. In this case, the AEC's method has a failure rate > 99.996%. In the AEC's words, this test is "rational, fair and practical in all the circumstances". What a joke.</em>
+</p>
 
 ## 9. Feedback Loops Between AEC Policy and Party Behavior
 
@@ -631,7 +653,7 @@ If *the previous status quo was 550 members due to the AEC* promulgating a cultu
 
 The AEC is on record about why it imposes a limit on membership lists used for verification:
 
-> &emsp; 26. In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimizing the work required of the party in confirming the enrolment status and contact details of additional other members.
+> 26. In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimizing the work required of the party in confirming the enrolment status and contact details of additional other members.
 
 Source: <https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf> ([mirror](https://web.archive.org/web/20190403114018/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf))
 
