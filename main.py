@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+from collections import namedtuple
 from enum import Enum
 import multiprocessing as mp
 from dataclasses import dataclass
@@ -7,20 +8,24 @@ from itertools import dropwhile, repeat, takewhile
 from multiprocessing import pool
 import os
 import sys
-from time import perf_counter
-from typing import Any, Optional, Union
+from time import perf_counter, sleep
+from typing import Any, NamedTuple, Optional, Union
 from matplotlib.cbook import flatten
-# import numpy as np
+from numpy import sqrt
+import numpy as np
 import pandas as pd
 # import scipy as sp
-# import scipy.stats as stats
-import random as r
+import scipy.stats as stats
+import random as pyrand
+import numpy.random as npr
 import matplotlib.pyplot as plt
 import click
 
 
-SIM_CHUNKS = max(1, mp.cpu_count() - 1)
+N_CPUS = mp.cpu_count()
+SIM_CHUNKS = max(1, N_CPUS - 1)
 
+CONFIDENCE_ALPHA = 0.95
 
 class Timer():
     def __init__(self, timer_name=None, auto_print=False):
@@ -57,18 +62,23 @@ def mk_members(total_members, failure_rate):
     n_non_members = calc_failing_members_n(total_members, failure_rate)
     n_members = total_members - n_non_members
     for i in range(n_non_members):
-        yield (i, False)
+        # yield (i, False)
+        yield False
     for i in range(n_members):
-        yield (n_non_members + i, True)
+        # yield (n_non_members + i, True)
+        yield True
 
 
 def filter_out_n_members(f, members, n_to_filter):
     n_filtered = 0
+    res = []
     for m in members:
-        if f(m) and n_filtered < n_to_filter:
+        if n_filtered < n_to_filter and f(m):
             n_filtered += 1
             continue
-        yield m
+        # yield m
+        res.append(m)
+    return res
 
 
 assert list(filter_out_n_members(lambda x: x%2 == 0, range(5), 0)) == [0,1,2,3,4]
@@ -356,41 +366,115 @@ class RunSpec:
         return "-".join(fname_parts)
 
 
-default_run_spec = RunSpec(total_members=4_680, failure_rate=0.17, _sample_size=1_649, n_members_removed=24)
-flux_run_spec = default_run_spec
+StatMinMax = namedtuple('StatMinMax', ['statistic', 'minmax'])
 
 
 def name_to_fname_sfx(n: str):
     return n.lower().strip().replace(' ', '-').replace('(', '').replace(')', '').replace('@', '_').replace('%', '-pct-')
 
 
+def fmt_precise_float(val):
+    pm_str = f"{val:.3f}"
+    for pot in range(-3, -9, -1):  # pot = power of ten
+        limit = 5 * 10 ** pot
+        if not (val < limit): # if this is False, given current limit, val would show as all zeros or otherwise have significant rounding errors
+            break
+        # indirectly construct format string via f-strings
+        pm_str = f"{{val:.{-1*(pot-1):d}f}}".format(val=val)
+    return pm_str
+
+
+def fmt_stat(smm):
+    return fmt_precise_float(smm.statistic)
+
+
+def fmt_minmax_confidence_interval(smm, mpl_err=False):
+    # when absolute error (e.g., smm=(1, (0.9, 1.1))) then take the average of the difference for plus-minus err value
+    plus_minus = (smm.minmax[1] - smm.minmax[0]) / 2
+    if mpl_err:
+        # mpl error for value `v` is (-low, +high), like (0.11, 0.12) means a range from v-0.11 to v+0.12
+        # mpl error values are always positive -- so let's just average them
+        plus_minus = (smm.minmax[1] + smm.minmax[0]) / 2
+    # pm_str = f"{plus_minus:.3f}"
+    # for pot in range(-3, -9, -1):  # pot = power of ten
+    #     limit = 5 * 10 ** pot
+    #     if not (plus_minus < limit): # if this is False, given current limit, plus_minus would show as all zeros or otherwise have significant rounding errors
+    #         break
+    #     # indirectly construct format string via f-strings
+    #     pm_str = f"{{pm:.{-1*(pot-1):d}f}}".format(pm=plus_minus)
+    return f"\\pm {fmt_precise_float(plus_minus)}"
+
+
+def fmt_stat_minmax(smm, mpl_err=False):
+    return f"{fmt_stat(smm)} {fmt_minmax_confidence_interval(smm, mpl_err=mpl_err)}"
+
+
+def calc_normalized_errors(results: list[int]):
+    max_value = max(results)
+    res = []
+    for x in range(0, max_value + 2):  # add 2 so we have at least one zero col on end -- matches other behavior
+        binary_results = [1 if r == x else 0 for r in results]
+        mean, _, _ = stats.bayes_mvs(binary_results, alpha=CONFIDENCE_ALPHA)
+        if np.isnan(mean.statistic):
+            # nan means all values were the same, so take the first value from binary_results
+            assert len(binary_results) > 100 and all(x == binary_results[0] for x in binary_results)
+            mean = StatMinMax(binary_results[0], (0, 0))
+        v = mean.statistic
+        _mean = StatMinMax(v, (v - mean.minmax[0], mean.minmax[1] - v))
+        res.append(_mean)
+    return res
+
+
 def run_trials(n_trials, total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any):
     # generate a list of members with some given non-member rate (i.e. these members will always fail)
-    members = list(mk_members(total_members, failure_rate))
+    members = np.asarray(list(mk_members(total_members, failure_rate)), 'b')
+    npr.shuffle(members)
+
+    # to avoid issues with the RNG, use PCG64DXSM which works well in parallel environments + instantiate new generators since they seed from OS randomness (a CSPRNG)
+    r = npr.Generator(npr.PCG64DXSM())
+
+    def sample_from(xs: list[bool], n_samples, **kwargs):
+        # python random is like 2x slower
+        # # return pyrand.sample(xs, n_samples)
+        # numpy random much faster
+        # // ~~shuffle = False b/c we shuffle members right after they're generated~~
+        # shuffling: doesn't take much time, good to do, avoids issues with `membership_sample[n_members_removed:]`
+        return r.choice(xs, n_samples, replace=False, shuffle=True)
 
     results = []
     for _ in range(n_trials):
+        npr.shuffle(members)
+        assert len(members) == total_members
         # take sample from full membership list (which can be more that 1650 / the AEC's limit)
         # the sample size is, at most, the legislative limit (e.g., 1650)
-        membership_sample = r.sample(members, sample_size)
+        membership_sample = sample_from(members, sample_size, replace=False, shuffle=True)
+        # membership_sample = pyrand.sample(members, sample_size)
 
-        # remove n_members_removed true members (this is the worst case for the party).
-        #   members can be removed b/c their details couldn't be matched, they're deceased, or b/c they've supported another party's rego.
-        #   we always want to remove true members to measure worst case performance of methodology.
-        # why? because that's what happens in a griefing attack (your fake-members will be sure not to give you bad details).\
-        # since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
+
+        # remove n_members_removed from the party list (these are filtered members).
+        # If `filter_any == False` then only members that will respond "yes" will be removed (this is the worst case for the party).
+        # - note: this usually makes little-to-no difference
+        # - members can be removed b/c their details couldn't be matched, they're deceased, or b/c they've supported another party's rego.
+        # - we usually want to remove true members to measure worst case performance of methodology.
+        # why?
+        # - if the party has excess members, then filtered members *could* be replaced with other valid members
+        #   - if the party had a way to pro-actively filter these members out, the party would (so as to submit a higher quality list)
+        # - because that's what happens in a griefing attack (your fake-members will be sure not to give you bad details).
+        #   - since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
         if not filter_any:
-            reduced_sample = list(filter_out_n_members(lambda m: m[1], membership_sample, n_members_removed))
+            reduced_sample = list(filter_out_n_members(lambda m: m, membership_sample, n_members_removed))
         else:
-            # the following line will remove n_members_removed indiscriminantly
+            # the following line will remove n_members_removed indiscriminantly since `membership_sample` is shuffled.
             # note: it makes little difference -- only in borderline cases.
-            reduced_sample = list(membership_sample[n_members_removed:])
+            reduced_sample = membership_sample[n_members_removed:]
+        # print(reduced_sample_size, reduced_sample.size)
         assert reduced_sample_size == len(reduced_sample)
 
         # perform check (contact member to confirm)
-        actual_sample = r.sample(reduced_sample, n_to_sample)
+        actual_sample = sample_from(reduced_sample, n_to_sample, replace=False, shuffle=True)
+        # actual_sample = pyrand.sample(reduced_sample, n_to_sample)
         # count failures
-        n_failures = sum(0 if m[1] else 1 for m in actual_sample)
+        n_failures = sum(0 if m else 1 for m in actual_sample)
 
         # if trial_ix % status_after_trials == 0:
         #     pct_done = trial_ix / n_trials
@@ -422,36 +506,111 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 
     # init results list of zeros -- failure count is index in list
     failure_counts = [0] * (n_to_sample + 1)
+    _results = []
+    _pf_results = []
 
     # if not use_cached_results:
     print(f"Running trials --- n_jobs = {SIM_CHUNKS}.")
     with Timer(f"Simulation(N={n_trials})", auto_print=True):
-        trial_chunk_params = (n_trials // SIM_CHUNKS), total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any
-        results = flatten(trial_pool.starmap(run_trials, repeat(trial_chunk_params, SIM_CHUNKS)))
+        trial_chunk_params = (n_trials // SIM_CHUNKS + 1), total_members, failure_rate, sample_size, n_members_removed, reduced_sample_size, n_to_sample, filter_any
+        if trial_pool is None:
+            results = run_trials(*trial_chunk_params)
+        else:
+            results = flatten(trial_pool.starmap(run_trials, repeat(trial_chunk_params, SIM_CHUNKS)))
         for n_failures in results:
             failure_counts[n_failures] += 1
+            _results.append(n_failures)
+            _pf_results.append(0 if n_failures > max_failures else 1)
 
     ys_w_tail = list(c / n_trials for c in failure_counts)
     raw_ys = list(list(dropwhile(lambda y: y == 0, ys_w_tail[::-1]))[::-1]) + [0]
     max_p = max(raw_ys)
     n_cols = len(raw_ys)
     xs = list(range(n_cols))
-    ys_passed = list(raw_ys[i] if i <= max_failures else 0 for i in xs)
-    ys_failed = list(raw_ys[i] if i > max_failures else 0 for i in xs)
-    _cum_passed = sum(ys_passed)
-    cum_passed = (1 - sum(ys_failed) + _cum_passed) / 2  # average to avoid small floating point errors
-    cum_failed = 1 - cum_passed  # by definition -- ensures they add to 1
-    pass_l = f'$P(pass)$ = {cum_passed:.3f}'
-    fail_l = f'$P(fail)$ = {cum_failed:.3f}'
-    df = pd.DataFrame(data={pass_l: ys_passed, fail_l: ys_failed}, index=xs)
+    # Old code:
+    # # ys_passed = list(raw_ys[i] if i <= max_failures else 0 for i in xs)
+    # # ys_failed = list(raw_ys[i] if i > max_failures else 0 for i in xs)
+    # # _cum_passed = sum(ys_passed)
+    # # cum_passed = (1 - sum(ys_failed) + _cum_passed) / 2  # average to avoid small floating point errors
+    # # cum_failed = 1 - cum_passed  # by definition -- ensures they add to 1
+
+    pf_mean, pf_var, pf_sd = stats.bayes_mvs(_pf_results, alpha=CONFIDENCE_ALPHA)
+    if np.isnan(pf_mean.statistic):
+        # either: all fail or all success -- the first result of _pf_results will tell us
+        pf_mean = StatMinMax(_pf_results[0], (0.0, 0.0))
+    pf_confidence_plus_minus = (pf_mean.minmax[1] - pf_mean.minmax[0]) / 2
+    pf_sem = stats.sem(_pf_results, nan_policy='raise')
+    print(f"P/F: P(pass) w/ Confidence {CONFIDENCE_ALPHA:.2f}:\n"
+        f"{pf_mean.statistic:.3f} +- {pf_confidence_plus_minus:.3f} -- {pf_mean}\n"
+        f"SEM: {pf_sem}"
+    )
+
+    pass_l = f'$P(pass) = {fmt_stat_minmax(pf_mean)}$'
+    fail_smm = StatMinMax(1 - pf_mean.statistic, (1 - pf_mean.minmax[1], 1 - pf_mean.minmax[0]))
+    fail_l = f'$P(fail) = {fmt_stat_minmax(fail_smm)}$'
+
+    cum_passed = pf_mean.statistic
+    cum_failed = 1 - cum_passed
+
+    ys_with_error_bars = calc_normalized_errors(_results)
+    def ys_pf(did_pass):
+        zero_entry = StatMinMax(0, (0, 0))
+        # xor of argument did_pass and the condition for failure
+        pred = lambda x, y: y if (did_pass ^ (x > max_failures)) else zero_entry
+        return [pred(x,y) for x,y in enumerate(ys_with_error_bars)]
+    ys_passed_w_err = ys_pf(True)
+    ys_failed_w_err = ys_pf(False)
+
+    print("sum:", sum(y[0] for y in ys_with_error_bars), len(_pf_results), len(ys_with_error_bars))
+    assert 0.0000000001 > abs(1 - sum(y[0] for y in ys_with_error_bars))
+
+    print("\n".join(fmt_stat_minmax(y, mpl_err=True) for y in ys_with_error_bars))
+
+    # assert that previous results and new results are very close (within calculated error)
+    for old_y, (new_y, new_y_err) in zip(raw_ys, ys_with_error_bars):
+        try:
+            assert abs(old_y - new_y) <= new_y_err[0]
+        except AssertionError as e:
+            print(f"old:{old_y}, new:{new_y} +- {new_y_err}")
+            print(f"\n\n  >> TRYING 2x ERROR <<")
+            print(f"PRESS ENTER TO CONFIRM")
+            input(">")
+            assert abs(old_y - new_y) <= 2 * new_y_err[0]
+
+    # df = pd.DataFrame(data={pass_l: ys_passed, fail_l: ys_failed}, index=xs)
+    df2 = pd.DataFrame(data={pass_l: [y[0] for y in ys_passed_w_err], fail_l: [y[0] for y in ys_failed_w_err]}, index=xs)
+    df2_full = pd.DataFrame(data={
+        pass_l: [y[0] for y in ys_passed_w_err],
+        fail_l: [y[0] for y in ys_failed_w_err],
+        'P(X=x)': [y[0] for y in ys_with_error_bars],
+        'err_lower': [y[1][0] for y in ys_with_error_bars],
+        'err_upper': [y[1][1] for y in ys_with_error_bars],
+    }, index=xs)
+
+    std_err_mean = stats.sem(_results, nan_policy='raise')
+    # std_dev = stats.tstd(_results, (0, None), (False, True))  # we get this from bayes_mvs
+    bayes_mvs = stats.bayes_mvs(_results, alpha=CONFIDENCE_ALPHA)
+    # stats_data = {
+    #     'std_err_mean': std_err_mean,
+    #     'std_dev': std_dev,
+    #     'iqr': iqr,
+    #     'bayes_mvs': bayes_mvs,
+    # }
+    # print(stats_data)
+
 
     # draw data
-    df.plot.bar(stacked=True, figsize=(8, 5))
-    plt.xlabel('AEC Contact -- Membership Denials')
-    plt.ylabel("$P(x = X)$")
+    scale_up = 1.25
+    df2.plot.bar(stacked=True, figsize=(8.4*scale_up, 5*scale_up))
+    plt.errorbar(xs, [y[0] for y in ys_with_error_bars], yerr=np.transpose([y[1] for y in ys_with_error_bars]), fmt='k_', ecolor='black', capsize=3)
+    # df2.plot.bar(stacked=True, figsize=(8*scale_up, 5*scale_up), yerr=[])
+    label_fd = dict(fontsize=10 * scale_up)
+    plt.xlabel('Membership Denials during AEC Test', fontdict=label_fd)
+    plt.ylabel("$P(X = x$ membership denials$)$", fontdict=label_fd)  # \n(The probability that we observe $x$ membership denials)")
+    plt.ylim(0)
 
     # set a title if one was passed
-    plt.suptitle(graph_title or run_spec.title_line(party_name))
+    plt.suptitle(graph_title or run_spec.title_line(party_name), fontsize=12*scale_up)
     party_valid = n_real_members >= run_spec.min_list_limit
     aec_false_neg = cum_failed if party_valid else 0
     aec_false_pos = 0 if party_valid else cum_passed
@@ -459,13 +618,16 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
     aec_nonreality_rate = cum_failed if party_valid else cum_passed
     # this is generous, but it's definitely a farce in these cases
     is_farce = aec_false_neg >= 0.5
-    is_bad_conf = aec_false_neg >= 0.1
+    is_bad_conf = aec_false_neg >= 0.1  # if the AEC test has worse accuracy than claimed
     title = \
         run_spec.subtitle_line() \
         + "\n" + " | ".join([
             f"Simulations = {n_trials}",
-            f"Party {if_else(party_valid, 'IS', 'IS NOT')} valid (if filtered members are valid)",
-            f"Exhaustive test, $N \\leq {run_spec.max_list_limit}$, would: {if_else(pass_expected, 'Pass', 'Fail')}",
+            f"Party {if_else(party_valid, 'IS', 'IS NOT')} eligible",
+            f"Exhaustive test (limit $N \\leq {run_spec.max_list_limit}$) would: {if_else(pass_expected, 'Pass', 'Fail')}",
+            f"$\\bar{{x}} = {fmt_stat(bayes_mvs[0])}$",
+            f"$\\sigma_x = {fmt_stat(bayes_mvs[2])}$",
+            f"$\\sigma_\\bar{{x}} = {std_err_mean:.3f}$",
             # f"P(AEC false neg) = {aec_false_neg:.1%}",
             # f"P(AEC false pos) = {aec_false_pos:.1%}",
         ]) \
@@ -474,12 +636,14 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
             f"P(Conflict: AEC Method $\\longleftrightarrow$ Reality) = {aec_nonreality_rate:.1%}",
          ]) \
         # + "\n"
-    plt.title(title, fontdict=dict(fontsize=8), linespacing=1.4)
-    plt.subplots_adjust(top=0.80)
+    plt.title(title, fontdict=dict(fontsize=8*scale_up), linespacing=1.4)
+    plt.tight_layout(pad=2*scale_up)
+    # plt.subplots_adjust(top=1-(0.2/scale_up))
+    plt.subplots_adjust(top=0.8)
     plt.legend()
 
     loc = (n_cols - 2, max_p / 2)
-    bbox = {'facecolor': 'none', 'edgecolor': 'red', 'lw': 3}
+    bbox = {'facecolor': '#ffffff70', 'edgecolor': 'red', 'lw': 3}
     def notice_box(farce_or):
         return "\n".join(if_else(farce_extra, [farce_extra], []) + [farce_or] + if_else(farce_extra, extra_end, []))
     if is_farce: # or is_bad_conf:
@@ -494,13 +658,16 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 
     fname = run_spec.out_fname(n_trials, party_name, is_farce)
     print(f"Writing files out under ./png/{fname}.png (also csv/*.csv)")
-    plt.savefig(f"png/{fname}.png", dpi=200)
-    df.to_csv(f"csv/{fname}.csv")
+    plt.savefig(f"png/{fname}.png", dpi=400)
+    df2_full.to_csv(f"csv/{fname}.csv")
     if show:
         plt.show()
     plt.close()
     print("Done\n")
 
+default_run_spec = RunSpec(total_members=4_680, failure_rate=0.17, _sample_size=1_649, n_members_removed=24)
+flux_run_spec = default_run_spec
+flux_second_run_spec = RunSpec(total_members=4_680, failure_rate=17/(17+29), _sample_size=1_650, n_members_removed=18+12+34, testing_std=TestingStandard.SEPT2021)
 
 @click.command()
 @click.option('-T', '--n-trials', default=10_000, type=int, help='The number of simulations to run when building distribution')
@@ -509,20 +676,38 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 @click.option('-F', '--force', is_flag=True, help='Run the simulation even if the output files already exist')
 @click.option('-N', '--non-essential', is_flag=True, help='Also generate non-essential graphs')
 @click.option('--only-flux', is_flag=True, help='Only generate essential Flux graphs')
-def aec(n_trials, show, jobs, force, non_essential, only_flux):
+@click.option('--only-flux-real', is_flag=True, help='Only generate Flux graphs based on actual AEC tests')
+def aec(n_trials, show, jobs, force, non_essential, only_flux, only_flux_real):
+    global SIM_CHUNKS
     frs = flux_run_spec
-    trial_pool = mp.Pool(jobs or SIM_CHUNKS)
+    f2rs = flux_second_run_spec
+    jobs = jobs or SIM_CHUNKS
+    SIM_CHUNKS = jobs
+    trial_pool = mp.Pool(jobs)
     def _run(*args, **kwargs):
         _kwargs = dict(show=show, force=force)
         _kwargs.update(kwargs)
-        run(trial_pool, n_trials, *args, **_kwargs)
-    _run(default_run_spec, party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
+        run(trial_pool if jobs > 1 else None, n_trials, *args, **_kwargs)
+
+    _run(flux_run_spec, party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
+    _run(flux_second_run_spec, party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
     _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, filter_any=True), party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
+    _run(RunSpec(f2rs.total_members, f2rs.failure_rate, f2rs._sample_size, f2rs.n_members_removed, filter_any=True), party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
+
+    if only_flux_real:
+        return
+
     _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
     _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0, filter_any=True), party_name="Flux+NoFilter")
+
+    _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
+    _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0, filter_any=True), party_name="Flux+NoFilter")
+
     _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 0), party_name="Flux+Gain20%Lose10%")
     _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 24), party_name="Flux+Gain20%Lose10%")
     _run(RunSpec(frs.total_members, 0.5, 1650, 0), party_name="Flux+HalfBadMembers")
+    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 0), party_name="Flux@Thresh+F0")
+    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 0, filter_any=True), party_name="Flux@Thresh+F0")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed, filter_any=True), party_name="Flux@Thresh")
     _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49), party_name="Flux@Thresh+F50")
@@ -667,6 +852,18 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux):
         _run(RunSpec(543, (543-400) / 543, 543, 0, TestingStandard.C2012), party_name="400of543-C2012")
         _run(RunSpec(548, (548-400) / 548, 548, 0, TestingStandard.C2012), party_name="400of548-C2012")
         _run(RunSpec(550, (550-400) / 550, 550, 0, TestingStandard.C2012), party_name="400of550-C2012")
+
+        # eval table C2012
+        _run(RunSpec(500, (500-400) / 500, 500, 0, TestingStandard.C2012, filter_any=True), party_name="400of500-C2012-fAny")
+        _run(RunSpec(503, (503-400) / 503, 503, 0, TestingStandard.C2012, filter_any=True), party_name="400of503-C2012-fAny")
+        _run(RunSpec(512, (512-400) / 512, 512, 0, TestingStandard.C2012, filter_any=True), party_name="400of512-C2012-fAny")
+        _run(RunSpec(521, (521-400) / 521, 521, 0, TestingStandard.C2012, filter_any=True), party_name="400of521-C2012-fAny")
+        _run(RunSpec(529, (529-400) / 529, 529, 0, TestingStandard.C2012, filter_any=True), party_name="400of529-C2012-fAny")
+        _run(RunSpec(529, (529-400) / 529, 529, 0, TestingStandard.C2012Corrected, filter_any=True), party_name="400of529-C2012-Corrected-fAny")
+        _run(RunSpec(537, (537-400) / 537, 537, 0, TestingStandard.C2012, filter_any=True), party_name="400of537-C2012-fAny")
+        _run(RunSpec(543, (543-400) / 543, 543, 0, TestingStandard.C2012, filter_any=True), party_name="400of543-C2012-fAny")
+        _run(RunSpec(548, (548-400) / 548, 548, 0, TestingStandard.C2012, filter_any=True), party_name="400of548-C2012-fAny")
+        _run(RunSpec(550, (550-400) / 550, 550, 0, TestingStandard.C2012, filter_any=True), party_name="400of550-C2012-fAny")
 
         # eval table C2012
         _run(RunSpec(500, (500-500) / 500, 500, 0, TestingStandard.C2012), party_name="500of500-C2012")

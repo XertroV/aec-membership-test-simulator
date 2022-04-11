@@ -1,3 +1,6 @@
 /png/*.png
+!/png/*-N500000-*.png
 /csv/*.csv
+!/csv/*-N500000-*.csv
 *:Zone.Identifier
+*.log
