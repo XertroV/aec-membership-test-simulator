@@ -611,7 +611,7 @@ Here is a brief analysis of the insanity of the above:
 * Point 25 is dishonest -- Flux's arguments were ignored. Moreover, the exact thing that we criticized was the first thing that Ms Reid did.
 * Point 27 is largely irrelevant, it doesn't respond to anything that we said. It also contradicts point 29, which starts: "The Party challenges the validity of the AEC’s membership testing process." If Ms Reid knows this, why did she make point 27? That the AEC method failed *in spite* of Flux having sufficient members is the reason for Flux's objection in the first place. What Ms Reid omits, of course, is that it is *AEC policy* (and AEC policy alone) that prevents a party from submitting additional members.
 * Point 28 actually supports Flux's case: we should be able to submit more members than **AEC policy** currently allows. Ms Reid implies that this supports point 27, which in turn implies that the AEC method is remotely accurate (this has been proven false by the earlier sections of this paper). The purpose of point 28 is to dishonestly imply that the AEC's decision (and policy) are supported by the Electoral Act (EA) -- but this isn't the case. If the AEC wanted to use the EA to support their case, they should cite the parts that say the commissioner can do what they damn well please, without repercussion.
-* Point 29 is an argument with authority and dishonestly evades the arguments that Flux made. This is an outline/summary of what point 29 says:
+* Point 29 is an argument from authority and dishonestly evades the arguments that Flux made. This is an outline/summary of what point 29 says:
   - The party says the method is bad.
   - But the AEC developed this policy.
   - And the AEC consulted with the ABS.

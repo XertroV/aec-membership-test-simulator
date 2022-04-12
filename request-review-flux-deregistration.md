@@ -1,6 +1,6 @@
 # Request for Review of Decision to Deregister Flux
 
-To: Mr Tom Rogers, Australian Electoral Commissioner
+To: Mr Tom Rogers, Australian Electoral Commissioner<br/>
 CC: The other members of the Commission: Justice Kelly, Chairperson, and Dr Gruen, the Australian Statistician.
 
 This is a request for the Commission to review the decision, made on the 24th of March 2022, to deregister "VOTEFLUX.ORG \| Upgrade Democracy!" (Flux) under s137(6) of the Electoral Act.
@@ -116,7 +116,7 @@ That they deserve the right to present their case and, if it is supported by the
 Is that not one of the primary values of judicial processes and the courts?
 To safeguard citizenry from injustices?
 To undo decisions that would otherwise be mistakes?
-Is that not something that the integrity of our legal institutions depends on?
+Is that not something that the integrity of our legal institutions depend on?
 Is the AEC not part of the bedrock of our legal system?
 (Its foundational role being that it provides the system by which parliamentarians, who alone can create and modify legislation, are elected.)
 
