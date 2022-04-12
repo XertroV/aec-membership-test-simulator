@@ -31,7 +31,7 @@ If you had a blood sample processed by a doctor, would you accept the results if
 No, of course not, that would be crazy.
 
 So, Dr Gruen, please consider our hypothetical case.
-Given that this hypothetical party is eligible under the EA, how would it fair when tested using the AEC's methodology?
+Given that this hypothetical party is eligible under the EA, what should we expect as the results of the AEC's testing method as applied to this party?
 Given that this party cannot determine which of the 4,500 validatable members will respond "yes" or "no", and that this party can submit no more than 1,650 members due to AEC policy alone: the best that can be done is selecting a subset of those members, essentially at random.
 There may be some small optimizations the party could make, but in principle the limiting factors are those that we have already discussed.
 Thus each member on the submitted list is expected to respond to the AEC with a membership denial with a probability of 0.4 (60%).
@@ -43,12 +43,14 @@ Dr Gruen, I hope that you find this a reasonable course of action for the party 
 Dr Gruen, would you agree that the accuracy of a statistical method is roughly: how often it results in true positives and true negatives?
 That is: if a method results in false positives and false negatives some of the time, it cannot have 100% accuracy.
 If it *only* produces false positives and false negatives, then it has 0% accuracy for those cases.
-If there exists some case where the method *will always* result in false negatives, then we can conclude that such a method is *inaccurate*, yes?
+If there exists some case where the method *will always* result in false negatives, then we can conclude that such a method is, at least sometimes, *inaccurate*, yes?
 
-I invite you, Dr Gruen, to please calculate the probability that this hypothetical party passes the AEC's membership testing methodology -- that methodology endorsed by your bureau.
+I invite you, Dr Gruen, to please calculate the probability that this hypothetical party passes the AEC's membership testing methodology -- that the party passes the test endorsed by your bureau.
 You may assume that no members are filtered out, i.e., that during the AEC's validation of the membership list no electors are excluded for being duplicates, or deceased, or unmatchable against the electoral roll, etc.
 
 All the information required for such a calculation is specified above.
+I assume that such a calculation is trivial for a statistician such as yourself, with the resources available to you.
+Surely, you agree that it is fairly straight forward to calculate, yes?
 
 Mr Rogers, while Dr Gruen is calculating that probability, let us discuss [something that you wrote recently](https://web.archive.org/web/20220404122216/https://aec.gov.au/About_AEC/Publications/corporate-plan/index.htm):
 
@@ -64,7 +66,7 @@ It is to your integrity, and the integrity of Justice Kelly and Dr Gruen, too, t
 I am fully aware that you are free to decide whatever you wish -- the Electoral Act is written such that you are practically unconstrained in this matter.
 
 I ask you this: if the AEC and the ABS were wrong about the AEC's testing methodology, how would you know?
-Surely you realize that this is possible -- that we are all fallible, and our ideas are fallible?
+Surely you realize that it is possible that the AEC is mistaken somehow -- that we are all fallible, and our ideas are fallible?
 Institutions like the AEC, and methods like the one the AEC use, are based on ideas that were thought-up by people, and are therefore fallible.
 
 Justice Kelly and Dr Gruen, do you also realize this?
@@ -72,7 +74,9 @@ That there are no infallible humans, no infallible institutions, and no infallib
 
 Mr Rogers, if it is possible to be wrong, what does it mean to have integrity in the face of potentially being wrong, and thus potentially making progress?
 Should one take the path of honesty and truth-seeking, or should one take the path of enforcing authority through baseless claims, evasion, and dismissal?
-Perhaps Justice Kelly has some insight on this; I understand that judges often have some experience with such matters.
+If you have some other path to take, is it not one of honesty and truth-seeking?
+Surely you would not advocate a path that is dishonest and avoids the truth?
+Perhaps Justice Kelly has some insight on this; I understand that judges often have some experience in these matters.
 
 Now, let us return to the matter of the accuracy of the AEC's testing methodology.
 Dr Gruen, are you done calculating those probabilities?
@@ -84,12 +88,13 @@ The standard deviation of that distribution is 3.765 ± 0.007.
 The SEM for these results is 0.005.
 
 Dr Gruen, would you consider a statistical method accurate if the probability of it producing a false negative is 99.9980% ± 0.0012%?
-Would you consider that, for all intents and purposes in this case, the statistical method is *predetermined* in its outcome?
+Would you consider that, for all intents and purposes, such a statistical method is *predetermined* in its outcome?
 
 Justice Kelly, do you consider it appropriate for an important legal institution to use a method that, in some conditions, fails 99% of the time?
 What would our society be like if the courts had this kind of failure rate for certain types of cases?
 How do we know that they don't?
 How does the AEC know that its method doesn't?
+Why are the answers to those questions different?
 
 Mr Rogers, do you think that a test which, in some cases has a failure rate greater than 99%, should be used by a leader who values integrity and quality?
 Do you think that a test which, when applied to certain cases, succeeds only 0.002% of the time is "rational, fair and practical in all the circumstances"? [1]
@@ -107,11 +112,14 @@ Is that not one of the primary values of judicial processes and the courts?
 To safeguard citizenry from injustices?
 To undo decisions that would otherwise be mistakes?
 Is that not something that the integrity of our legal institutions depends on?
+Is the AEC not part of the bedrock of our legal system?
+(Its foundational role being that it provides the system by which parliamentarians, who alone can create and modify legislation, are elected.)
 
 If a citizen petitions an institution via a judicial process, and proves their case with mathematics and evidence, what are they to do if that is not enough?
 If that institution is unconvinced by facts and evidence, how can a citizen have confidence in their legal system?
+How can they have confidence in that foundational component of our society?
 
-Moreover, if judicial processes ignore facts and evidence, are those processes serving one of their purposes -- error correction?
+Moreover, if judicial processes ignore facts and evidence, are those processes serving one of their major purposes -- error correction?
 Is that not a core goal of judicial processes: righting wrongs, undoing mistakes, preventing mistakes, promoting justice, and so on?
 What is a citizen to do when a judicial process ignores facts and evidence?
 
@@ -119,15 +127,16 @@ Mr Rogers, I cannot force you to change your mind about anything, that is solely
 
 I can present you with this case, though.
 Perhaps you (along with Justice Kelly and Dr Gruen) have guessed that the hypothetical party was not so hypothetical after all.
-The case that we examined is spitting distance from Flux's second membership test (conducted Feb/March 2022).
+The parameters of that case are spitting distance from those of Flux's second membership test (conducted Feb/March 2022).
 There is at least one major difference -- in the hypothetical case, the party selected members randomly; in Flux's case, your delegate selected 1,650 members from the top of the list of 4,680 members that Flux submitted.
 That list was alphabetical, so the AEC only sampled from members whose first name started with one of A through G.
 
-Dr Gruen, in such a case, in your expert opinion, which of these should we believe true:
+Dr Gruen, in your expert opinion and in light of the above, which of these should we believe true:
 * That Flux has fewer than 1,500 members; or
 * That Flux has fewer than 1,500 members whose first name starts with one of A through G?
 
-If a party has 1,000 (~1586 * 29/(17+29)) members whose first name starts with one of A through G, how many members whose names starts with one of H through Z do we expect that party to have?
+If a party has 1,000 (~1586 * 29/(17+29)) members whose first name starts with one of A through G, how many members whose name starts with one of H through Z do we expect that party to have?
+After all, what are the chances that a party *only* has members with first names that start with a letter between A and G inclusive.
 
 The point of this argument is not that Flux has sufficient members to satisfy the electoral act.
 The point of this argument is that the AEC's method is flawed.
@@ -143,12 +152,15 @@ I am not asking that the commission believe *me*, I am asking the commission to 
 Justice Kelly, I will ask you again, does a citizen deserve the right to present their case via a judicial process and, if it is supported by the facts, to have an injustice undone?
 I hope that your answer is the same in this case as it would have been for all other cases that you have presided over as a Judge of the Court.
 
-The above is sufficient to conclude that Flux was wrongfully deregistered.
+The above is sufficient to conclude that Flux was *wrongfully* deregistered.
 It was wrongful because, regardless of *whether* Flux *should* be deregistered or not, *the AEC's method is not good enough to produce an accurate result in this case*.
-It is not my place to tell you what should be done instead, I can only demonstrate to you that the current method is predetermined in Flux's case, as it results in a false negative with probability 0.999978 ± 0.000013.
-(These numbers differ slightly from those above because they are calculated based on Flux's second test specifically, rather than the hypothetical case from earlier.)
+From a truth-seeking point of view, the AEC's test provides no meaningful information on whether Flux is eligible or not.
+Since we should not take my word for it, if our goal is to determine whether Flux is eligible with regards to sufficient membership, *we are at square one*.
+Scientifically, we can draw no conclusions based on the AEC's testing.
+It is not my place to tell you what should be done instead of the current method, I can only demonstrate to you that it is predetermined in Flux's case, as it results in a false negative with probability 0.999978 ± 0.000013.
+(These numbers differ slightly from those in the hypothetical case above because the calculations are based, specifically, on Flux's second test.)
 
-Mr Rogers, Justice Kelly, and Dr Gruen: perhaps this is not enough to convince that there is perhaps some problems with the AEC's methodology.
+Mr Rogers, Justice Kelly, and Dr Gruen: perhaps this is not enough to convince that there is a reasonable chance of some problems with the AEC's methodology.
 The only other thing I can do is present you with a more in-depth statistical analysis of the method -- covering this problem and others, both historical and on-going.
 I suppose that it is most relevant for Dr Gruen, since he is the only one I can reasonably expect to have the knowledge of statistics necessary to judge the analysis.
 To my knowledge, this is the first third party review of the AEC's methodology.
