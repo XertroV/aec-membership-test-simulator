@@ -1,18 +1,23 @@
-To: Mr Tom Rogers, Australian Electoral Commissioner.
+# Request for Review of Decision to Deregister Flux
 
-This is a request to review the decision, made on the 24th of March 2022, to deregister "VOTEFLUX.ORG \| Upgrade Democracy!" (Flux) under s137(6) of the Electoral Act.
+To: Mr Tom Rogers, Australian Electoral Commissioner
+CC: The other members of the Commission: Justice Kelly, Chairperson, and Dr Gruen, the Australian Statistician.
+
+This is a request for the Commission to review the decision, made on the 24th of March 2022, to deregister "VOTEFLUX.ORG \| Upgrade Democracy!" (Flux) under s137(6) of the Electoral Act.
+It is made under s141(2) of the Electoral Act.
 
 I am making this request because the AEC has been using and continues to use a faulty method to test party eligibility with regards to sufficient membership.
 Thus, I am dissatisfied with the decision to deregister Flux.
+As part of this request, I provide statistical analysis as grounds that the AEC's testing method is flawed.
 
-### My statement to the commission
+### My Statement to the Commission
 
-I invite the commission -- Mr Rogers along with Justice Kelly and Dr Gruen -- to consider the following hypothetical case regarding the AEC's method for validating that a party meets the requirements of the Electoral Act.
+I invite the Commission -- Mr Rogers along with Justice Kelly and Dr Gruen -- to consider the following hypothetical case regarding the AEC's method for validating that a party meets the requirements of the Electoral Act.
 I assume that you all are familiar with the AEC's testing methodology.
 
 Consider a party with 9,000 members, and let's say that half of those members (4,500) are validatable as electors, and a further 60% of those members (2,700) will respond "yes" to an AEC request for membership confirmation.
 It is natural for a party to have members that can not be validated against the electoral roll (which can happen for a variety of reasons; a status of *silent elector* is one).
-Thus, parties go to some substantial effort to submit only those members that can be validated against the roll -- for reasons that I hope are obvious to you who comprise the commission.
+Thus, parties go to some substantial effort to submit only those members that can be validated against the roll -- for reasons that I hope are obvious to you who comprise the Commission.
 
 That is: 4,500 members are not validatable as electors, and a further 1,800 would deny membership if asked by the AEC.
 The remaining 2,700 are legitimate.
@@ -131,9 +136,9 @@ The parameters of that case are spitting distance from those of Flux's second me
 There is at least one major difference -- in the hypothetical case, the party selected members randomly; in Flux's case, your delegate selected 1,650 members from the top of the list of 4,680 members that Flux submitted.
 That list was alphabetical, so the AEC only sampled from members whose first name started with one of A through G.
 
-Dr Gruen, in your expert opinion and in light of the above, which of these should we believe true:
+Dr Gruen, in your expert opinion and in light of the above, which of these should we believe true?
 * That Flux has fewer than 1,500 members; or
-* That Flux has fewer than 1,500 members whose first name starts with one of A through G?
+* That Flux has fewer than 1,500 members whose first name starts with one of A through G.
 
 If a party has 1,000 (~1586 * 29/(17+29)) members whose first name starts with one of A through G, how many members whose name starts with one of H through Z do we expect that party to have?
 After all, what are the chances that a party *only* has members with first names that start with a letter between A and G inclusive.
@@ -147,7 +152,7 @@ If 63% (~29/(17+29)) of a population *sample* (n=1,586) meet some criterion, and
 - Given that we have no reason to think that the population has an unusual distribution of first letters of first names, how big is the full population? (What is N?)
 - Given that 63% of the sample (n=1,586) met some criterion, what is your estimate of the size of the subset of N which meets that criterion? -->
 
-I am not asking that the commission believe *me*, I am asking the commission to believe *facts and evidence*.
+I am not asking that the Commission believe *me*, I am asking the Commission to believe *facts and evidence*.
 
 Justice Kelly, I will ask you again, does a citizen deserve the right to present their case via a judicial process and, if it is supported by the facts, to have an injustice undone?
 I hope that your answer is the same in this case as it would have been for all other cases that you have presided over as a Judge of the Court.
@@ -164,20 +169,20 @@ Mr Rogers, Justice Kelly, and Dr Gruen: perhaps this is not enough to convince t
 The only other thing I can do is present you with a more in-depth statistical analysis of the method -- covering this problem and others, both historical and on-going.
 I suppose that it is most relevant for Dr Gruen, since he is the only one I can reasonably expect to have the knowledge of statistics necessary to judge the analysis.
 To my knowledge, this is the first third party review of the AEC's methodology.
-If there has been a third party review that is not public, I think that it is reasonable for the commission to provide it (without an FOI request).
+If there has been a third party review that is not public, I think that it is reasonable for the Commission to provide it (without an FOI request).
 
 After I sign off, you will find supporting graphs of the Probability Mass Functions comprising the statistical analysis from which my above results were drawn.
 Following that, the in-depth review of the method.
 Please consider these as part of this submission.
 
-There is only one thing that I ask of you -- besides that this matter is taken seriously.
-If the commission resolves to affirm the decision to deregister Flux under s137(6) of the EA, please tell me: if *this* was not enough to convince you that there are problems with the testing method, what would have?
+Mr Rogers, there is only one thing that I ask of you -- besides that this matter is taken seriously.
+If the Commission resolves to affirm the decision to deregister Flux under s137(6) of the EA, please tell me: if *this* was not enough to convince you that there are problems with the testing method, what would have?
 Is there *anything* that would have convinced you?
 
 If that case comes to bear, then I have a request for Dr Gruen, too: if you disagree with my statistical analysis, meet me on a level playing field by providing your calculations, as [I am providing you mine](https://github.com/XertroV/aec-membership-test-simulator/blob/aec313e66acdd2ccdaa7ff8e7bd96aec6542138a/main.py#L439-L684).
-Perhaps Justice Kelly can assist the commission in determining if this is a fair request.
+Perhaps Justice Kelly can assist the Commission in determining if this is a fair request.
 
-Mr Rogers, I leave it to you as the accountable authority of the Australian Electoral Commission, along with the other members of the commission: Justice Kelly and Dr Gruen, to uphold "[the] AEC’s values of electoral integrity through agility, professionalism and quality [...]".
+Mr Rogers, I leave it to you as the accountable authority of the Australian Electoral Commission, along with the other members of the Commission: Justice Kelly and Dr Gruen, to uphold "[the] AEC’s values of electoral integrity through agility, professionalism and quality [...]".
 
 <br>
 <br>
