@@ -692,10 +692,12 @@ flux_second_run_spec = RunSpec(total_members=4_680, failure_rate=17/(17+29), _sa
 @click.option('-S', '--show', is_flag=True, help='Show the plot when done')
 @click.option('-j', '--jobs', type=int, required=False, help='The number of parallel jobs to run (default: N_CPUS - 1)')
 @click.option('-F', '--force', is_flag=True, help='Run the simulation even if the output files already exist')
-@click.option('-N', '--non-essential', is_flag=True, help='Also generate non-essential graphs')
-@click.option('--only-flux', is_flag=True, help='Only generate essential Flux graphs')
-@click.option('--only-flux-real', is_flag=True, help='Only generate Flux graphs based on actual AEC tests')
-def aec(n_trials, show, jobs, force, non_essential, only_flux, only_flux_real):
+@click.option('-C', '--collection-to-run', type=str, default="flux_and_special", help='The collection of simulation parameters to run')
+@click.option('-L', '--list-collections', is_flag=True, help='List collections that can be run')
+# @click.option('-N', '--non-essential', is_flag=True, help='Also generate non-essential graphs')
+# @click.option('--only-flux', is_flag=True, help='Only generate essential Flux graphs')
+# @click.option('--only-flux-real', is_flag=True, help='Only generate Flux graphs based on actual AEC tests')
+def aec(n_trials, show, jobs, force, collection_to_run, list_collections):
     global SIM_CHUNKS
     frs = flux_run_spec
     f2rs = flux_second_run_spec
@@ -707,43 +709,43 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux, only_flux_real):
         _kwargs.update(kwargs)
         run(trial_pool if jobs > 1 else None, n_trials, *args, **_kwargs)
 
-    _run(flux_run_spec, party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
-    _run(flux_second_run_spec, party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
-    _run(flux_second_run_spec, party_name="Flux (Second Test, 2022-03)", farce_extra="")
-    _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, filter_any=True), party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
-    _run(RunSpec(f2rs.total_members, f2rs.failure_rate, f2rs._sample_size, f2rs.n_members_removed, filter_any=True), party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
+    def flux_realword_simulations():
+        _run(flux_run_spec, party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
+        _run(flux_second_run_spec, party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
+        _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, filter_any=True), party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
+        _run(RunSpec(f2rs.total_members, f2rs.failure_rate, f2rs._sample_size, f2rs.n_members_removed, filter_any=True), party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
 
-    _run(RunSpec(4_500, 0.4, 1650, 0, TestingStandard.SEPT2021), party_name="Hypothetical Example for Dr Gruen and the Commission", farce_extra="")
+    def special_aec_submission():
+        _run(flux_second_run_spec, party_name="Flux (Second Test, 2022-03)", farce_extra="")
+        _run(RunSpec(4_500, 0.4, 1650, 0, TestingStandard.SEPT2021), party_name="Hypothetical Example for Dr Gruen and the Commission", farce_extra="")
 
-    if only_flux_real:
-        return
+    def flux_hypothetical():
+        _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
+        _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0, filter_any=True), party_name="Flux+NoFilter")
 
-    _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
-    _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0, filter_any=True), party_name="Flux+NoFilter")
+        _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
+        _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0, filter_any=True), party_name="Flux+NoFilter")
 
-    _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0), party_name="Flux+NoFilter")
-    _run(RunSpec(frs.total_members, frs.failure_rate, 1650, 0, filter_any=True), party_name="Flux+NoFilter")
+        _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 0), party_name="Flux+Gain20%Lose10%")
+        _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 24), party_name="Flux+Gain20%Lose10%")
+        _run(RunSpec(frs.total_members, 0.5, 1650, 0), party_name="Flux+HalfBadMembers")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 0), party_name="Flux@Thresh+F0")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 0, filter_any=True), party_name="Flux@Thresh+F0")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed, filter_any=True), party_name="Flux@Thresh")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49), party_name="Flux@Thresh+F50")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49, filter_any=True), party_name="Flux@Thresh+F50")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99), party_name="Flux@Thresh+F99")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99, filter_any=True), party_name="Flux@Thresh+F99")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")
+        _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149, filter_any=True), party_name="Flux@Thresh+F149")
 
-    _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 0), party_name="Flux+Gain20%Lose10%")
-    _run(RunSpec(round(frs.total_members * 1.2), (796 + frs.total_members * 0.1) / frs.total_members / 1.2, 1650, 24), party_name="Flux+Gain20%Lose10%")
-    _run(RunSpec(frs.total_members, 0.5, 1650, 0), party_name="Flux+HalfBadMembers")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 0), party_name="Flux@Thresh+F0")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 0, filter_any=True), party_name="Flux@Thresh+F0")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed), party_name="Flux@Thresh")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, frs.n_members_removed, filter_any=True), party_name="Flux@Thresh")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49), party_name="Flux@Thresh+F50")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 49, filter_any=True), party_name="Flux@Thresh+F50")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99), party_name="Flux@Thresh+F99")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 99, filter_any=True), party_name="Flux@Thresh+F99")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149), party_name="Flux@Thresh+F149")
-    _run(RunSpec(frs.total_members, 150/1650, frs.sample_size, 149, filter_any=True), party_name="Flux@Thresh+F149")
+        _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), party_name="Flux+Gain100%Lose33%")
+        _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
 
-    _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 0), party_name="Flux+Gain100%Lose33%")
-    _run(RunSpec(round(frs.total_members * 2), (796 + frs.total_members * 0.333) / frs.total_members / 2, 1650, 24), party_name="Flux+Gain100%Lose33%")
+        _run(RunSpec(20000, 0.5, 1650, 0))
 
-    _run(RunSpec(20000, 0.5, 1650, 0))
-
-    if not only_flux:
+    def other_party_sims():
         # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-australian-peoples-party-s137-deregistration.pdf
         # Note: no way they were valid with 25 denials to 12 confirmations
         # _run(RunSpec(541*3, 36/536, 536*3, 5*3), party_name="APP@Threshold (Scaled)")
@@ -819,40 +821,48 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux, only_flux_real):
         _run(RunSpec(2500, 14/(14+28), 1650, (37+21+3+17), TestingStandard.SEPT2021, True), party_name="DLP@Measured", farce_extra="SUSPECTED")
         _run(RunSpec(2250, 14/(14+28), 1650, (37+21+3+17), TestingStandard.SEPT2021, True), party_name="DLP@Measured", farce_extra="SUSPECTED")
 
-        if non_essential:
-            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/the-new-liberals-statement-of-reasons.pdf
-            # TLN 2021
-            # max confidence of 86.6%
-            _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017), party_name="TNL@2021", farce_extra="POSSIBLE")
-            _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017, filter_any=True), party_name="TNL@2021", farce_extra="POSSIBLE")
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/the-new-liberals-statement-of-reasons.pdf
+        # TLN 2021
+        # max confidence of 86.6%
+        _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017), party_name="TNL@2021", farce_extra="POSSIBLE")
+        _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017, filter_any=True), party_name="TNL@2021", farce_extra="POSSIBLE")
 
-            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australia-first.pdf
-            # 512-521 members after filtering
-            # max confidence 64.1% (only checked fANY)
-            _run(RunSpec(550, 3/34, 550, 29, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
-            # possible farce
-            _run(RunSpec(550, 3/34, 550, 38, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australia-first.pdf
+        # 512-521 members after filtering
+        # max confidence 64.1% (only checked fANY)
+        _run(RunSpec(550, 3/34, 550, 29, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
+        # possible farce
+        _run(RunSpec(550, 3/34, 550, 38, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
 
-            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-rpa.pdf
-            # note: party rep did not mention having more than 550 members in AEC report (N unknown)
-            _run(RunSpec(550, 13/38, 550, 20, TestingStandard.C2012, filter_any=True), party_name="RPA@2016", farce_extra="POSSIBLE")
-            _run(RunSpec(760, 13/38, 550, 20, TestingStandard.C2012, filter_any=True), party_name="RPA@2016", farce_extra="POSSIBLE")
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-rpa.pdf
+        # note: party rep did not mention having more than 550 members in AEC report (N unknown)
+        _run(RunSpec(550, 13/38, 550, 20, TestingStandard.C2012, filter_any=True), party_name="RPA@2016", farce_extra="POSSIBLE")
+        _run(RunSpec(760, 13/38, 550, 20, TestingStandard.C2012, filter_any=True), party_name="RPA@2016", farce_extra="POSSIBLE")
 
-            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-dlp.pdf
-            # DLP
-            # 42 / 540 contacted
-            # review successful
-            # note: should not have succeeded based on measured P(denial)
-            _run(RunSpec(550, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
-            # confidence 61.1%
-            _run(RunSpec(568, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-dlp.pdf
+        # DLP
+        # 42 / 540 contacted
+        # review successful
+        # note: should not have succeeded based on measured P(denial)
+        _run(RunSpec(550, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
+        # confidence 61.1%
+        _run(RunSpec(568, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
 
-            # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf
-            # democrats
-            # we assume they have more than 550 members b/c of NSW requirements
-            _run(RunSpec(550, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="SUSPECTED")
-            _run(RunSpec(586, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="SUSPECTED")
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf
+        # democrats
+        # we assume they have more than 550 members b/c of NSW requirements
+        _run(RunSpec(550, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="SUSPECTED")
+        _run(RunSpec(586, 5/34, 550, 24, TestingStandard.C2012, filter_any=True), party_name="Democrats@2016", farce_extra="SUSPECTED")
 
+        # huh, a recent one:
+        # https://archive.fo/QnKTx
+        # claimed griefing attack -- note that submitting a list with 333 members not on the roll is messy (NMVP could have validated them, even tho that's a shit tonne of work without automation)
+        # there should be 333 members filtered but that puts it outside AEC limits, so put it at 150
+        # if they really do have 4250 members tho, even with a ~64% denial rate they'd have 1500 valid members
+        _run(RunSpec(1650 + 2600, 333/1650, 1650, 150, TestingStandard.SEPT2021), party_name="NMVP2021@Measured")
+        _run(RunSpec(1650 + 2600, 333/1650, 1650, 0, TestingStandard.SEPT2021), party_name="NMVP2021@Measured+NoFiltered")
+
+    def aec_testing_tables_sims():
         # check 98% confidence of not registering a party with only 400 members
         # note: seems to pan out
         _run(RunSpec(550, 150/550, 550, 0, TestingStandard.C2017), party_name="400of550")
@@ -974,52 +984,72 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux, only_flux_real):
         _run(RunSpec(1647, (1647-1200) / 1647, 1647, 0, TestingStandard.SEPT2021), party_name="1200of1647-SEPT2021")
         _run(RunSpec(1650, (1650-1200) / 1650, 1650, 0, TestingStandard.SEPT2021), party_name="1200of1650-SEPT2021")
 
-        # huh, a recent one:
-        # https://archive.fo/QnKTx
-        # claimed griefing attack -- note that submitting a list with 333 members not on the roll is messy (NMVP could have validated them, even tho that's a shit tonne of work without automation)
-        # there should be 333 members filtered but that puts it outside AEC limits, so put it at 150
-        # if they really do have 4250 members tho, even with a ~64% denial rate they'd have 1500 valid members
-        _run(RunSpec(1650 + 2600, 333/1650, 1650, 150, TestingStandard.SEPT2021), party_name="NMVP2021@Measured")
-        _run(RunSpec(1650 + 2600, 333/1650, 1650, 0, TestingStandard.SEPT2021), party_name="NMVP2021@Measured+NoFiltered")
 
+    def non_essential_2():
+        _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
+        _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
+        _run(RunSpec(frs.total_members, 0.14, 1650, frs.n_members_removed), party_name="Flux@0.14")
+        _run(RunSpec(frs.total_members, 0.16, 1650, frs.n_members_removed), party_name="Flux@0.16")
+        _run(RunSpec(frs.total_members, 0.18, 1650, frs.n_members_removed), party_name="Flux@0.18")
+        _run(RunSpec(1650, 150/1650, 1650, 0), party_name="1650@Thresh")
+        _run(RunSpec(1650, 150/1650, 1650, 25), party_name="1650@Thresh+F25")
+        _run(RunSpec(1650, 150/1650, 1650, 50), party_name="1650@Thresh+F50")
+        _run(RunSpec(1625, 150/1625, 1625, 0), party_name="1625@Thresh")
+        _run(RunSpec(1600, 150/1600, 1600, 25))
+        _run(RunSpec(1650, 0.06, 1650, 0))
+        _run(RunSpec(1650, 0.09, 1650, 0))
+        _run(RunSpec(1650, 0.16, 1650, 0))
+        _run(RunSpec(1650, 0.17, 1650, 0))
+        _run(RunSpec(1650, 150/1650, 1650, 0))
+        _run(RunSpec(1650, 150/1650, 1650, 5))
+        _run(RunSpec(1650, 150/1650, 1650, 18))
+        _run(RunSpec(1650, (150-18)/1650, 1650, 18))
+        _run(RunSpec(1650, 150/1650, 1650, 25))
+        _run(RunSpec(1750, 200/1750, 1650, 25))
+        _run(RunSpec(1850, 150/1650, 1650, 50), party_name="1850@Thresh+F50")
+        _run(RunSpec(1850, 200/1850, 1650, 0))
+        _run(RunSpec(1850, 200/1850, 1650, 25))
+        _run(RunSpec(2000, 150/2000, 1650, 25))
+        _run(RunSpec(2000, 300/2000, 1650, 0))
+        _run(RunSpec(2000, 300/2000, 1650, 5))
+        _run(RunSpec(2000, 300/2000, 1650, 6))
+        _run(RunSpec(2000, 300/2000, 1650, 7))
+        _run(RunSpec(2000, 300/2000, 1650, 8))
+        _run(RunSpec(2000, 300/2000, 1650, 10))
+        _run(RunSpec(2000, 300/2000, 1650, 15))
+        _run(RunSpec(2000, 300/2000, 1650, 25))
+        _run(RunSpec(2000, 400/2000, 1650, 25))
+        _run(RunSpec(2500, 300/2500, 1650, 25))
+        _run(RunSpec(2500, 500/2500, 1650, 25))
+        _run(RunSpec(2500, 1000/2500, 1650, 25))
 
-        if non_essential:
-            _run(RunSpec(frs.total_members, 0.10, 1650, frs.n_members_removed), party_name="Flux@0.10")
-            _run(RunSpec(frs.total_members, 0.12, 1650, frs.n_members_removed), party_name="Flux@0.12")
-            _run(RunSpec(frs.total_members, 0.14, 1650, frs.n_members_removed), party_name="Flux@0.14")
-            _run(RunSpec(frs.total_members, 0.16, 1650, frs.n_members_removed), party_name="Flux@0.16")
-            _run(RunSpec(frs.total_members, 0.18, 1650, frs.n_members_removed), party_name="Flux@0.18")
-            _run(RunSpec(1650, 150/1650, 1650, 0), party_name="1650@Thresh")
-            _run(RunSpec(1650, 150/1650, 1650, 25), party_name="1650@Thresh+F25")
-            _run(RunSpec(1650, 150/1650, 1650, 50), party_name="1650@Thresh+F50")
-            _run(RunSpec(1625, 150/1625, 1625, 0), party_name="1625@Thresh")
-            _run(RunSpec(1600, 150/1600, 1600, 25))
-            _run(RunSpec(1650, 0.06, 1650, 0))
-            _run(RunSpec(1650, 0.09, 1650, 0))
-            _run(RunSpec(1650, 0.16, 1650, 0))
-            _run(RunSpec(1650, 0.17, 1650, 0))
-            _run(RunSpec(1650, 150/1650, 1650, 0))
-            _run(RunSpec(1650, 150/1650, 1650, 5))
-            _run(RunSpec(1650, 150/1650, 1650, 18))
-            _run(RunSpec(1650, (150-18)/1650, 1650, 18))
-            _run(RunSpec(1650, 150/1650, 1650, 25))
-            _run(RunSpec(1750, 200/1750, 1650, 25))
-            _run(RunSpec(1850, 150/1650, 1650, 50), party_name="1850@Thresh+F50")
-            _run(RunSpec(1850, 200/1850, 1650, 0))
-            _run(RunSpec(1850, 200/1850, 1650, 25))
-            _run(RunSpec(2000, 150/2000, 1650, 25))
-            _run(RunSpec(2000, 300/2000, 1650, 0))
-            _run(RunSpec(2000, 300/2000, 1650, 5))
-            _run(RunSpec(2000, 300/2000, 1650, 6))
-            _run(RunSpec(2000, 300/2000, 1650, 7))
-            _run(RunSpec(2000, 300/2000, 1650, 8))
-            _run(RunSpec(2000, 300/2000, 1650, 10))
-            _run(RunSpec(2000, 300/2000, 1650, 15))
-            _run(RunSpec(2000, 300/2000, 1650, 25))
-            _run(RunSpec(2000, 400/2000, 1650, 25))
-            _run(RunSpec(2500, 300/2500, 1650, 25))
-            _run(RunSpec(2500, 500/2500, 1650, 25))
-            _run(RunSpec(2500, 1000/2500, 1650, 25))
+    # run configs
+    rcs = {
+        '': [],  # empty key first for list_collections printing
+        'flux_realworld': [flux_realword_simulations],
+        'flux_hypothetical': [flux_hypothetical],
+        'non_essential': [non_essential_2],
+        'other_party_sims': [other_party_sims],
+        'aec_testing_tables_sims': [aec_testing_tables_sims],
+        'special_aec': [special_aec_submission],
+    }
+    all_rcs = list(flatten([v for v in rcs.values()]))
+    rcs['all'] = all_rcs
+    rcs['all_flux'] = rcs['flux_realworld'] + rcs['flux_hypothetical']
+    rcs['flux_and_special'] = rcs['special_aec'] + rcs['all_flux']
+
+    valid_collection = collection_to_run in rcs
+
+    if list_collections or not valid_collection:
+        if not valid_collection:
+            print(f"Warning: collection `{collection_to_run}` does not exist.\n")
+        print(f"Collections that can be run:" + "\n - ".join(rcs.keys()))
+        return
+
+    for f in rcs[collection_to_run]:
+        f()
+
+    print(f"\nFinished running simulations in collection: {collection_to_run}")
 
 
 if __name__ == "__main__":
