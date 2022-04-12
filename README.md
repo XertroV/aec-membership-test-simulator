@@ -623,7 +623,7 @@ Here is a brief analysis of the insanity of the above:
   Hmm.
 * The document cited to support point 29 is for a different testing procedure -- did Ms Reid's expert statistical knowledge inform her that the methods were comparable and that nothing substantial had changed? We may never know. At least, the AEC won't volunteer such information. Why should they? After all, it doesn't really matter whether the commission responsible for maintaining our democracy is rational, reasonable, or even knows early high-school maths, does it? If it did matter, surely we would have noticed by now.
 <!-- * The document cited to support point 29 has an AEC reference of LEX967: the "LEX" seems to indicate that it's associated with a Freedom of Information request. At least, that's the only place I've ever seen it. It's also notable that TODO search aec archive for mentions CUT -->
-* The document cited to support point 29 says:
+* [The document cited to support point 29](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/notice-of-decision-with-reasons-SUPA.pdf) says:
   > &emsp; 8. [...] The Commission noted that this methodology was the same as the sampling methodology recommended byt the Australian Bureau of Statistics ('ABS'). The Commission concluded that the methodology was appropriate for the purpose of membership testing, including because it was rational, fair and practical in all the circumstances."
 
   So, the Commission, to argue for their *conclusion*, cites another time they claimed, also without reason, a similar conclusion for a different method.

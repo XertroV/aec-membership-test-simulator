@@ -10,6 +10,7 @@ import os
 import sys
 from time import perf_counter, sleep
 from typing import Any, NamedTuple, Optional, Union
+import matplotlib as mpl
 from matplotlib.cbook import flatten
 from numpy import sqrt
 import numpy as np
@@ -373,22 +374,26 @@ def name_to_fname_sfx(n: str):
     return n.lower().strip().replace(' ', '-').replace('(', '').replace(')', '').replace('@', '_').replace('%', '-pct-')
 
 
-def fmt_precise_float(val):
-    pm_str = f"{val:.3f}"
-    for pot in range(-3, -9, -1):  # pot = power of ten
+def fmt_precise_float(val, dps=None):
+    dps = dps or 3
+    if val == 0.0:
+        return '0.0', dps
+    pm_str = f"{{val:.{dps:d}f}}".format(val=val)
+    for pot in range(-1 * dps, -9, -1):  # pot = power of ten
         limit = 5 * 10 ** pot
         if not (val < limit): # if this is False, given current limit, val would show as all zeros or otherwise have significant rounding errors
             break
         # indirectly construct format string via f-strings
-        pm_str = f"{{val:.{-1*(pot-1):d}f}}".format(val=val)
-    return pm_str
+        dps = -1*(pot-1)
+        pm_str = f"{{val:.{dps:d}f}}".format(val=val)
+    return (pm_str, dps)
 
 
-def fmt_stat(smm):
-    return fmt_precise_float(smm.statistic)
+def fmt_stat(smm, dps=None):
+    return fmt_precise_float(smm.statistic, dps=dps)[0]
 
 
-def fmt_minmax_confidence_interval(smm, mpl_err=False):
+def _fmt_minmax_confidence_interval(smm, mpl_err=False):
     # when absolute error (e.g., smm=(1, (0.9, 1.1))) then take the average of the difference for plus-minus err value
     plus_minus = (smm.minmax[1] - smm.minmax[0]) / 2
     if mpl_err:
@@ -402,11 +407,17 @@ def fmt_minmax_confidence_interval(smm, mpl_err=False):
     #         break
     #     # indirectly construct format string via f-strings
     #     pm_str = f"{{pm:.{-1*(pot-1):d}f}}".format(pm=plus_minus)
-    return f"\\pm {fmt_precise_float(plus_minus)}"
+    pm_str, dps = fmt_precise_float(plus_minus)
+    return f"\\pm {pm_str}", dps
+
+
+def fmt_minmax_confidence_interval(smm, mpl_err=False):
+    return _fmt_minmax_confidence_interval(smm, mpl_err=mpl_err)
 
 
 def fmt_stat_minmax(smm, mpl_err=False):
-    return f"{fmt_stat(smm)} {fmt_minmax_confidence_interval(smm, mpl_err=mpl_err)}"
+    pm_str, dps = _fmt_minmax_confidence_interval(smm, mpl_err=mpl_err)
+    return f"{fmt_stat(smm, dps=dps)} {pm_str}"
 
 
 def calc_normalized_errors(results: list[int]):
@@ -623,11 +634,14 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
         run_spec.subtitle_line() \
         + "\n" + " | ".join([
             f"Simulations = {n_trials}",
-            f"Party {if_else(party_valid, 'IS', 'IS NOT')} eligible",
-            f"Exhaustive test (limit $N \\leq {run_spec.max_list_limit}$) would: {if_else(pass_expected, 'Pass', 'Fail')}",
-            f"$\\bar{{x}} = {fmt_stat(bayes_mvs[0])}$",
-            f"$\\sigma_x = {fmt_stat(bayes_mvs[2])}$",
-            f"$\\sigma_\\bar{{x}} = {std_err_mean:.3f}$",
+            f"Eligible? {if_else(party_valid, 'Yes', 'No')}",
+            f"Exhaustive test ($N \\leq {run_spec.max_list_limit}$): {if_else(pass_expected, 'Pass', 'Fail')}",
+            # f"$\\bar{{x}} = {fmt_stat(bayes_mvs[0])}$",
+            f"$\\bar{{x}} = {fmt_stat_minmax(bayes_mvs[0])}$",
+            # f"$\\sigma_x = {fmt_stat(bayes_mvs[2])}$",
+            f"$\\sigma_x = {fmt_stat_minmax(bayes_mvs[2])}$",
+            # f"$\\sigma_\\bar{{x}} = {std_err_mean:.3f}$",
+            f"$\\sigma_\\bar{{x}} = {fmt_precise_float(std_err_mean)[0]}$",
             # f"P(AEC false neg) = {aec_false_neg:.1%}",
             # f"P(AEC false pos) = {aec_false_pos:.1%}",
         ]) \
@@ -645,7 +659,9 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
     loc = (n_cols - 2, max_p / 2)
     bbox = {'facecolor': '#ffffff70', 'edgecolor': 'red', 'lw': 3}
     def notice_box(farce_or):
-        return "\n".join(if_else(farce_extra, [farce_extra], []) + [farce_or] + if_else(farce_extra, extra_end, []))
+        return if_else(farce_extra == "", None,
+            "\n".join(if_else(farce_extra, [farce_extra], []) + [farce_or] + if_else(farce_extra, extra_end, []))
+        )
     if is_farce: # or is_bad_conf:
         farce_txt = None
         if is_farce:
@@ -653,8 +669,9 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
             farce_txt = notice_box("FARCE")
         # elif is_bad_conf:
         #     farce_txt = notice_box("")
-        assert farce_txt is not None
-        plt.text(loc[0], loc[1], farce_txt, ha='right', va='center', color='red', fontweight='black', fontsize=20, bbox=bbox)
+        assert ((farce_extra == "") ^ (farce_txt is not None))
+        if farce_txt is not None:
+            plt.text(loc[0], loc[1], farce_txt, ha='right', va='center', color='red', fontweight='black', fontsize=20, bbox=bbox)
 
     fname = run_spec.out_fname(n_trials, party_name, is_farce)
     print(f"Writing files out under ./png/{fname}.png (also csv/*.csv)")
@@ -691,8 +708,11 @@ def aec(n_trials, show, jobs, force, non_essential, only_flux, only_flux_real):
 
     _run(flux_run_spec, party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
     _run(flux_second_run_spec, party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
+    _run(flux_second_run_spec, party_name="Flux (Second Test, 2022-03)", farce_extra="")
     _run(RunSpec(frs.total_members, frs.failure_rate, frs._sample_size, frs.n_members_removed, filter_any=True), party_name="Flux", farce_extra="CONFIRMED\nREAL-WORLD")
     _run(RunSpec(f2rs.total_members, f2rs.failure_rate, f2rs._sample_size, f2rs.n_members_removed, filter_any=True), party_name="Flux (Second Test)", farce_extra="CONFIRMED\nREAL-WORLD")
+
+    _run(RunSpec(4_500, 0.4, 1650, 0, TestingStandard.SEPT2021), party_name="Hypothetical Example for Dr Gruen and the Commission", farce_extra="")
 
     if only_flux_real:
         return
