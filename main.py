@@ -582,6 +582,7 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
         try:
             assert abs(old_y - new_y) <= new_y_err[0]
         except AssertionError as e:
+            # Note: this has never triggered
             print(f"old:{old_y}, new:{new_y} +- {new_y_err}")
             print(f"\n\n  >> TRYING 2x ERROR <<")
             print(f"PRESS ENTER TO CONFIRM")
