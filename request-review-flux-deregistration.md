@@ -8,6 +8,7 @@ It is made under s141(2) of the Electoral Act.
 
 I am making this request because the AEC has been using and continues to use a faulty method to test party eligibility with regards to sufficient membership.
 Thus, I am dissatisfied with the decision to deregister Flux.
+Additionally, as an Australian elector, a fundamental oversight in the AEC's policy could compromise the democracy that I am a constituent of, so I am affected, along with all other Australians.
 As part of this request, I provide statistical analysis as grounds that the AEC's testing method is flawed.
 
 ### My Statement to the Commission
@@ -16,10 +17,10 @@ I invite the Commission -- Mr Rogers along with Justice Kelly and Dr Gruen -- to
 I assume that you all are familiar with the AEC's testing methodology.
 
 Consider a party with 9,000 members, and let's say that half of those members (4,500) are validatable as electors, and a further 60% of those members (2,700) will respond "yes" to an AEC request for membership confirmation.
-It is natural for a party to have members that can not be validated against the electoral roll (which can happen for a variety of reasons; a status of *silent elector* is one).
+It is natural for a party to have members that can not be validated against the electoral roll (which can happen for a variety of reasons; a member's status of *silent elector* is one).
 Thus, parties go to some substantial effort to submit only those members that can be validated against the roll -- for reasons that I hope are obvious to you who comprise the Commission.
 
-That is: 4,500 members are not validatable as electors, and a further 1,800 would deny membership if asked by the AEC.
+That is, in our hypothetical case: 4,500 members are not validatable as electors, and a further 1,800 would deny membership if asked by the AEC.
 The remaining 2,700 are legitimate.
 
 Justice Kelly, as I'm sure you're aware, the Electoral Act (EA) specifies that an eligible party requires at least 1,500 members.
@@ -47,10 +48,10 @@ Dr Gruen, I hope that you find this a reasonable course of action for the party 
 
 Dr Gruen, would you agree that the accuracy of a statistical method is roughly: how often it results in true positives and true negatives?
 That is: if a method results in false positives and false negatives some of the time, it cannot have 100% accuracy.
-If it *only* produces false positives and false negatives, then it has 0% accuracy for those cases.
+If, for some cases, it *only* produces false positives and false negatives, then it has 0% accuracy for those cases.
 If there exists some case where the method *will always* result in false negatives, then we can conclude that such a method is, at least sometimes, *inaccurate*, yes?
 
-I invite you, Dr Gruen, to please calculate the probability that this hypothetical party passes the AEC's membership testing methodology -- that the party passes the test endorsed by your bureau.
+I invite you, Dr Gruen, to please calculate the probability that this hypothetical party passes the AEC's membership testing methodology -- that the party passes the test that is endorsed by your bureau.
 You may assume that no members are filtered out, i.e., that during the AEC's validation of the membership list no electors are excluded for being duplicates, or deceased, or unmatchable against the electoral roll, etc.
 
 All the information required for such a calculation is specified above.
@@ -95,7 +96,7 @@ The SEM for these results is 0.005.
 Dr Gruen, would you consider a statistical method accurate if the probability of it producing a false negative is 99.9980% ± 0.0012%?
 Would you consider that, for all intents and purposes, such a statistical method is *predetermined* in its outcome?
 
-Justice Kelly, do you consider it appropriate for an important legal institution to use a method that, in some conditions, fails 99% of the time?
+Justice Kelly, do you consider it appropriate for an important legal institution to use a method that, in some conditions, fails more than 99% of the time?
 What would our society be like if the courts had this kind of failure rate for certain types of cases?
 How do we know that they don't?
 How does the AEC know that its method doesn't?
@@ -136,7 +137,7 @@ The parameters of that case are spitting distance from those of Flux's second me
 There is at least one major difference -- in the hypothetical case, the party selected members randomly; in Flux's case, your delegate selected 1,650 members from the top of the list of 4,680 members that Flux submitted.
 That list was alphabetical, so the AEC only sampled from members whose first name started with one of A through G.
 
-Dr Gruen, in your expert opinion and in light of the above, which of these should we believe true?
+Dr Gruen, in your expert opinion and in light of the above, and given that Flux failed this test, which of these should we believe true?
 * That Flux has fewer than 1,500 members; or
 * That Flux has fewer than 1,500 members whose first name starts with one of A through G.
 
@@ -146,6 +147,7 @@ After all, what are the chances that a party *only* has members with first names
 The point of this argument is not that Flux has sufficient members to satisfy the electoral act.
 The point of this argument is that the AEC's method is flawed.
 It is inaccurate, it is unreliable, it is unfair, and it is unsuitable -- at least in this case.
+*The facts prove this.*
 
 <!-- Dr Gruen, what is the chance that a political party only has members whose names start with A-G?
 If 63% (~29/(17+29)) of a population *sample* (n=1,586) meet some criterion, and that *sample* have first names starting with A-G only, then:
@@ -162,7 +164,7 @@ It was wrongful because, regardless of *whether* Flux *should* be deregistered o
 From a truth-seeking point of view, the AEC's test provides no meaningful information on whether Flux is eligible or not.
 Since we should not take my word for it, if our goal is to determine whether Flux is eligible with regards to sufficient membership, *we are at square one*.
 Scientifically, we can draw no conclusions based on the AEC's testing.
-It is not my place to tell you what should be done instead of the current method, I can only demonstrate to you that it is predetermined in Flux's case, as it results in a false negative with probability 0.999978 ± 0.000013.
+It is not my place to tell you what should be done instead of the current method, I can only demonstrate to you that the outcome is predetermined in Flux's case, as the test results in a false negative with probability 0.999978 ± 0.000013.
 (These numbers differ slightly from those in the hypothetical case above because the calculations are based, specifically, on Flux's second test.)
 
 Mr Rogers, Justice Kelly, and Dr Gruen: perhaps this is not enough to convince that there is a reasonable chance of some problems with the AEC's methodology.
@@ -179,8 +181,10 @@ Mr Rogers, there is only one thing that I ask of you -- besides that this matter
 If the Commission resolves to affirm the decision to deregister Flux under s137(6) of the EA, please tell me: if *this* was not enough to convince you that there are problems with the testing method, what would have?
 Is there *anything* that would have convinced you?
 
-If that case comes to bear, then I have a request for Dr Gruen, too: if you disagree with my statistical analysis, meet me on a level playing field by providing your calculations, as [I am providing you mine](https://github.com/XertroV/aec-membership-test-simulator/blob/aec313e66acdd2ccdaa7ff8e7bd96aec6542138a/main.py#L439-L684).
+If that case comes to bear, then I have a request for Dr Gruen, too: if you disagree with my statistical analysis, meet me on a level playing field by providing your calculations, as [I am providing you mine](https://github.com/XertroV/aec-membership-test-simulator/blob/aec313e66acdd2ccdaa7ff8e7bd96aec6542138a/main.py#L439-L684) [2].
 Perhaps Justice Kelly can assist the Commission in determining if this is a fair request.
+
+<span></span>[2]: <https://github.com/XertroV/aec-membership-test-simulator/blob/aec313e66acdd2ccdaa7ff8e7bd96aec6542138a/main.py#L439-L684>
 
 Mr Rogers, I leave it to you as the accountable authority of the Australian Electoral Commission, along with the other members of the Commission: Justice Kelly and Dr Gruen, to uphold "[the] AEC’s values of electoral integrity through agility, professionalism and quality [...]".
 
