@@ -2,6 +2,9 @@
 
 <!-- try adding katex styles for website render via github pages -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
+<style>
+.only-gh-readme {display: none;}
+</style>
 
 <p align="center">
     <a href="https://xertrov.github.io/aec-membership-test-simulator/">Website</a>
@@ -284,7 +287,7 @@ Update: additionally, see [8. Flux’s Second Membership Test (March 2022)](#8-f
 
 ### Reading These Graphs
 
-*Note: some mathematical notation below may or may not render correctly. To assist with this, an English translation is provided in quotes beforehand. Note that the problem entries (x bar, sigma sub x, etc) are presented below in the same order as the subtitles of the figures.*
+<em class="only-gh-readme">Note: some mathematical notation below won't render correctly if you view this on GitHub. To assist with this, an English translation is provided in quotes beforehand. Note that the problem entries (x bar, sigma sub x, etc) are presented below in the same order as the subtitles of the figures.</em>
 
 * N Members: The number of members that the party is capable of submitting, i.e., they are validated to the best of the party's ability.
 * Submitted: The number of members that the party submits to the AEC.
