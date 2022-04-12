@@ -72,7 +72,7 @@ This is not a theoretical problem. It has been happening and continues to happen
 
 Additionally, the AEC mistakenly enforced a testing table with a typo for 4 years -- it's unknown if they ever noticed before the table was updated. (See [Appendix: AEC Membership Testing Tables / Circa 2012 to 2016](#circa-2012-to-2016))
 
-*Disclosure and context: My roles in The Flux Party (Flux) are: a founder, the deputy leader, the secretary, and the deputy registered officer.*
+*Disclosure and context: My roles in The Flux Party (Flux) were: a founder, the deputy leader, the secretary, and the deputy registered officer.*
 
 ### Change Log
 
@@ -580,7 +580,7 @@ It appears that the AEC does not care about reason, or logic, or statistical arg
 
 As though to emphasize the fact that the AEC's method is a joke, [the AEC's statement of reasons](https://xertrov.github.io/aec-membership-test-simulator/docs/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf) [[mirror]](https://web.archive.org/web/20220326093243/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf), authored by one Ms Reid, says:
 
-> 22. The membership list submitted by the Party on 13 February 2022 contained 4,680 names of individuals that the Party considers to be current members (referred to as ‘members’ below). As a delegate of the Electoral Commission, I instructed that the top 1,650 names be tested to conform with the AEC’s membership testing parameters. [...]
+> <br>&emsp; 22. The membership list submitted by the Party on 13 February 2022 contained 4,680 names of individuals that the Party considers to be current members (referred to as ‘members’ below). As a delegate of the Electoral Commission, I instructed that the top 1,650 names be tested to conform with the AEC’s membership testing parameters. [...]
 
 The membership list that we submitted was sorted alphabetically by first name.
 "Gloria" was the first member to miss out on the chance to be contacted.
@@ -594,24 +594,22 @@ First, consider that Flux did not ask for another membership test, and argued th
 
 The "supporting statement" comprises:
 
-> 25. I have considered the statement lodged by the Party on 13 February 2022, setting out reasons why the Party should not be deregistered.<br>
+> &emsp; 25. I have considered the statement lodged by the Party on 13 February 2022, setting out reasons why the Party should not be deregistered.<br>
 > [Omitted: quotes of Flux's February 2022 response]
-> 26. I reject the reasons outlined by the Party in its statement provided on 13 February 2022 for
-the following reasons.
-> 27. The Party failed membership testing for exceeding the maximum number of permitted denials according to the ABS methodology used by the AEC. It did not fail membership testing due to having an insufficient number of members being identified on the electoral roll.
-> 28. The Electoral Act defines an elector as someone that is on the Commonwealth Electoral Roll. Section 123 of the Electoral Act prescribes that an eligible political party, not being a Parliamentary party, has ‘at least 1,500 members’. The requirement is not to be solely ‘an elector’ but to be a member of the party.
-> 29. The Party challenges the validity of the AEC’s membership testing process. This process has been developed by the AEC to support the delegate’s consideration of whether a party has sufficient members. It is based on sampling methodology designed in consultation with the ABS and provides a valid methodology to satisfy a delegate of a party’s membership. The Electoral Commission has previously concluded that the methodology ‘was appropriate
-for membership testing, including because it was rational, fair and practical in all the circumstances.’<sup>1</sup>
-> 30. I consider that the membership testing results outlined above provide a more robust method for ascertaining whether a party has satisfied the requirements of the Electoral Act than a statement provided by the party.
-> 31. In summary, I remain satisfied that the Party does not have at least 1,500 members based on the outcomes from membership testing both membership lists of 7 December 2021 and 13 February 2022.
-> 32. Accordingly, in my capacity as a delegate of the Electoral Commission, I have deregistered VOTEFLUX.ORG | Upgrade Democracy! under s 137(6) of the Electoral Act and the particulars of the Party have been cancelled from the Register under s 138 of the Electoral
-Act.
+> <br>&emsp; 26. I reject the reasons outlined by the Party in its statement provided on 13 February 2022 for the following reasons.
+> <br>&emsp; 27. The Party failed membership testing for exceeding the maximum number of permitted denials according to the ABS methodology used by the AEC. It did not fail membership testing due to having an insufficient number of members being identified on the electoral roll.
+> <br>&emsp; 28. The Electoral Act defines an elector as someone that is on the Commonwealth Electoral Roll. Section 123 of the Electoral Act prescribes that an eligible political party, not being a Parliamentary party, has ‘at least 1,500 members’. The requirement is not to be solely ‘an elector’ but to be a member of the party.
+> <br>&emsp; 29. The Party challenges the validity of the AEC’s membership testing process. This process has been developed by the AEC to support the delegate’s consideration of whether a party has sufficient members. It is based on sampling methodology designed in consultation with the ABS and provides a valid methodology to satisfy a delegate of a party’s membership. The Electoral Commission has previously concluded that the methodology ‘was appropriate for membership testing, including because it was rational, fair and practical in all the circumstances.’<sup>1</sup>
+> <br>&emsp; 30. I consider that the membership testing results outlined above provide a more robust method for ascertaining whether a party has satisfied the requirements of the Electoral Act than a statement provided by the party.
+> <br>&emsp; 31. In summary, I remain satisfied that the Party does not have at least 1,500 members based on the outcomes from membership testing both membership lists of 7 December 2021 and 13 February 2022.
+> <br>&emsp; 32. Accordingly, in my capacity as a delegate of the Electoral Commission, I have deregistered VOTEFLUX.ORG | Upgrade Democracy! under s 137(6) of the Electoral Act and the particulars of the Party have been cancelled from the Register under s 138 of the Electoral Act.
 >
 > <sup>1</sup> <https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/notice-of-decision-with-reasons-SUPA.pdf>
 
 Here is a brief analysis of the insanity of the above:
 
-*  Point 27 is largely irrelevant, it doesn't respond to anything that we said. It also contradicts point 29, which starts: "The Party challenges the validity of the AEC’s membership testing process." If Ms Reid knows this, why did she make point 27? That the AEC method failed *in spite* of Flux having sufficient members is the reason for Flux's objection in the first place. What Ms Reid omits, of course, is that it is *AEC policy* (and AEC policy alone) that prevents a party from submitting additional members.
+* Point 25 is dishonest -- Flux's arguments were ignored. Moreover, the exact thing that we criticized was the first thing that Ms Reid did.
+* Point 27 is largely irrelevant, it doesn't respond to anything that we said. It also contradicts point 29, which starts: "The Party challenges the validity of the AEC’s membership testing process." If Ms Reid knows this, why did she make point 27? That the AEC method failed *in spite* of Flux having sufficient members is the reason for Flux's objection in the first place. What Ms Reid omits, of course, is that it is *AEC policy* (and AEC policy alone) that prevents a party from submitting additional members.
 * Point 28 actually supports Flux's case: we should be able to submit more members than **AEC policy** currently allows. Ms Reid implies that this supports point 27, which in turn implies that the AEC method is remotely accurate (this has been proven false by the earlier sections of this paper). The purpose of point 28 is to dishonestly imply that the AEC's decision (and policy) are supported by the Electoral Act (EA) -- but this isn't the case. If the AEC wanted to use the EA to support their case, they should cite the parts that say the commissioner can do what they damn well please, without repercussion.
 * Point 29 is an argument with authority and dishonestly evades the arguments that Flux made. This is an outline/summary of what point 29 says:
   - The party says the method is bad.
@@ -626,16 +624,16 @@ Here is a brief analysis of the insanity of the above:
 * The document cited to support point 29 is for a different testing procedure -- did Ms Reid's expert statistical knowledge inform her that the methods were comparable and that nothing substantial had changed? We may never know. At least, the AEC won't volunteer such information. Why should they? After all, it doesn't really matter whether the commission responsible for maintaining our democracy is rational, reasonable, or even knows early high-school maths, does it? If it did matter, surely we would have noticed by now.
 <!-- * The document cited to support point 29 has an AEC reference of LEX967: the "LEX" seems to indicate that it's associated with a Freedom of Information request. At least, that's the only place I've ever seen it. It's also notable that TODO search aec archive for mentions CUT -->
 * The document cited to support point 29 says:
-  > 8. [...] The Commission noted that this methodology was the same as the sampling methodology recommended byt the Australian Bureau of Statistics ('ABS'). The Commission concluded that the methodology was appropriate for the purpose of membership testing, including because it was rational, fair and practical in all the circumstances."
+  > &emsp; 8. [...] The Commission noted that this methodology was the same as the sampling methodology recommended byt the Australian Bureau of Statistics ('ABS'). The Commission concluded that the methodology was appropriate for the purpose of membership testing, including because it was rational, fair and practical in all the circumstances."
 
   So, the Commission, to argue for their *conclusion*, cites another time they claimed, also without reason, a similar conclusion for a different method.
   Well, we have seen both claims proven false, here, haven't we?
 
   This sort of evasion is to be expected.
   A different reason was given by the AEC in 2018 -- that example is cited in [9. Feedback Loops Between AEC Policy and Party Behavior](#9-feedback-loops-between-aec-policy-and-party-behavior).
-* > 30. I consider that the membership testing results outlined above provide a more robust method [...] than a statement provided by the party.
+* > &emsp; 30. I consider that the membership testing results outlined above provide a more robust method [...] than a statement provided by the party.
 
-  Yes, indeed that is your educated opinion as a statistician, I'm sure.
+  Yes, indeed. That is her educated opinion as a statistician, I'm sure.
 
   As it turns out, there is nothing that a party could say that would change the AEC's mind.
   That is dangerous.
@@ -653,6 +651,8 @@ Here is a brief analysis of the insanity of the above:
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m4680-f1730-s1650-r64-flux-second-test.png">Fig 8.1</a>: Despite being eligible under the Electoral Act, Flux could never have passed the AEC's test. In this case, the AEC's method has a failure rate > 99.996%. In the AEC's words, this test is "rational, fair and practical in all the circumstances". What a joke.</em>
 </p>
 
+Rigged. There isn't much more to say.
+
 ## 9. Feedback Loops Between AEC Policy and Party Behavior
 
 To my knowledge, parties typically don't try to build membership to many thousands of members. That's because it's expensive, time consuming, and difficult to manage. Most importantly -- **there's no point when it comes to registration**.
@@ -667,7 +667,7 @@ If *the previous status quo was 550 members due to the AEC* promulgating a cultu
 
 The AEC is on record about why it imposes a limit on membership lists used for verification:
 
-> 26. In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimizing the work required of the party in confirming the enrolment status and contact details of additional other members.
+> &emsp; 26. In respect of the assertion in the application for review that the AEC failed to test the lists provided by the Party on 12 June 2017 (which contained 650 members) and on 20 August 2017 (which contained 739 members), the Commission notes that the ‘Party Registration Guide’ requests that parties provide a list of between 500 to 550 members. This is considered to be to a party’s advantage, by minimizing the work required of the party in confirming the enrolment status and contact details of additional other members.
 
 Source: <https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf> ([mirror](https://web.archive.org/web/20190403114018/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-commonwealth-of-australia-party-statement-of-reasons.pdf))
 
@@ -678,9 +678,13 @@ Especially when those decisions have been *proven* (by this document) to have sy
 
 ## 10. Conclusion
 
-With the AEC's existing policies, and on the assumption that Flux is a valid party, it is only reasonable to conclude that Flux will find it increasingly difficult to remain registered and pass registration tests, even if it grows in membership. That is to say: the process has a predetermined outcome, and is an empty act done for show. *It is rigged, and a farce.*
+With the AEC's existing policies, and on the assumption that Flux is a valid party, it is only reasonable to conclude that Flux will find it increasingly difficult to remain registered and pass registration tests, even if it grows in membership.
+This applies to all nonparliamentary parties.
+That is to say: the process has a predetermined outcome, and is an empty act done for show.
+*It is rigged, and a farce.*
 
-With currently measured values (based on AEC results), it would take (on average) 7 repeated trials for Flux to have 1 successful membership test. So this is not a problem that can be solved by repeating the membership test.
+With currently measured values (based on AEC results), it would take (on average) 7 repeated trials for Flux to have 1 successful membership test.
+So this is not a problem that can be solved by repeating the membership test.
 
 At least 5 past cases have been identified with farcical properties -- they are *suspected* farces -- and at least 5 additional cases have incomplete information but may be farcical.
 
