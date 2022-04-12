@@ -578,7 +578,7 @@ In fact, it makes no sense for Flux to request this because we were primarily co
 The AEC ignored our criticisms.
 It appears that the AEC does not care about reason, or logic, or statistical arguments.
 
-As though to emphasize the fact that the AEC's method is a joke, [the AEC's statement of reasons](https://xertrov.github.io/aec-membership-test-simulator/docs/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf) [[mirror]](https://web.archive.org/web/20220326093243/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf), authored by one Ms Reid, says:
+As though to emphasize the fact that the AEC's method is a joke, [the AEC's statement of reasons](https://web.archive.org/web/20220326093243/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf) [[mirror]](https://xertrov.github.io/aec-membership-test-simulator/docs/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf), authored by one Ms Reid, says:
 
 > <br>&emsp; 22. The membership list submitted by the Party on 13 February 2022 contained 4,680 names of individuals that the Party considers to be current members (referred to as ‘members’ below). As a delegate of the Electoral Commission, I instructed that the top 1,650 names be tested to conform with the AEC’s membership testing parameters. [...]
 
