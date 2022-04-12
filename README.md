@@ -296,7 +296,7 @@ Update: additionally, see [8. Flux’s Second Membership Test (March 2022)](#8-f
 * P(denial): The probability that a member will deny membership when contacted.
 * (Y: ..., N: ...): The number of members that, when contacted by the AEC, will respectively respond: "yes", and "no". Note: if a member does not respond to a request for contact, the AEC selects a new member to contact from the sample.
 * Simulations: The number of times the AEC test was simulated while generating the distribution.
-* Party IS / IS NOT eligible: whether the party is eligible under the Electoral Act.
+* Eligible?: whether the party is eligible under the Electoral Act.
 * Exhaustive test: would the party pass a membership test if *every* member *in the sample group* were contacted? Note: this is limited by AEC policy to 1650 (or 550 prior to Sept 2021).
 * "x bar"
   (<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover></mrow><annotation encoding="application/x-tex">\bar{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.5678em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.5678em;"><span class="" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord mathnormal">x</span></span><span class="" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="accent-body" style="left: -0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span></span></span></span>):
