@@ -372,8 +372,8 @@ Update: additionally, see [8. Flux’s Second Membership Test (March 2022)](#8-f
 
 ## 6. Suspected Farces
 
-Detecting previous farces is difficult because the AEC does not publish the results of membership tests and, too my knowledge, does not record or ask for the number of members a party *could* offer in support of their validity.
-Instead, we only know the number of members that were submitted, which is always &lt;= 1650 (or the limit in effect at the time), and we only know this when the AEC has published a statement of reasons which is only done when there is a request for review. If a party just gives up, or otherwise misses the deadline, then we don't hear about it and thus cannot evaluate whether a farce occurred.
+Detecting previous farces is difficult because the AEC does not publish the results of membership tests and, to my knowledge, does not record or ask for the number of members a party *could* offer in support of their validity.
+Instead, we only know the number of members that were submitted, which is always ≤ 1650 (or the limit in effect at the time), and we only know this when the AEC has published a statement of reasons which is only done when there is a request for review. If a party just gives up, or otherwise misses the deadline, then we don't hear about it and thus cannot evaluate whether a farce occurred.
 
 *Note: these cases occurred prior to the September 2021 increase in required members. Therefore they are judged against the previous requirements -- the test method was practically the same, the only difference being that it was calibrated for membership lists of 500-550 instead of 1500-1650.*
 
@@ -671,7 +671,7 @@ The fact that the AEC has imposed this flawed method for years means that non-pa
 
 <!-- **The AEC must acknowledge that, due to its poor judgement, it has impacted the operations and dynamics of political parties in a way that violates its responsibility of neutrality.** -->
 
-Additionally, the AEC's policies have entrenched these common practices which enabled the political elite to change the legislative requirements **suddenly and dramatically** -- effectively eliminate competition. *The AEC is complicit.*
+Additionally, the AEC's policies have entrenched these common practices which enabled the political elite to change the legislative requirements **suddenly and dramatically** -- effectively eliminating the competition. *The AEC is complicit.*
 
 If *the previous status quo was 550 members due to the AEC* promulgating a culture of not going beyond this, and then *parliament decides to radically change the limit* (there is no reason they could not have done this gradually over, say, 10 years with a small bump each year), *at what point do we acknowledge that something is rotten?*
 
