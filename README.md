@@ -183,7 +183,7 @@ Each simulation proceeds thus:
 The results are compared against:
 
 1. AEC published accuracy claims
-2. Reality (will an eligible party fail the AEC's test, or an ineligbile party pass it?)
+2. Reality (will an eligible party fail the AEC's test, or an ineligible party pass it?)
 
 Note: after the main body of this paper, there is [Appendix: AEC Membership Testing Tables](#appendix-aec-membership-testing-tables) which measures the accuracy of published AEC membership testing tables.
 
@@ -231,19 +231,29 @@ It has been run 500,000 times per graph unless otherwise mentioned.
 membership_sample = sample_from(members, sample_size, replace=False, shuffle=True)
 
 # remove n_members_removed from the party list (these are filtered members).
-# If `filter_any == False` then only members that will respond "yes" will be removed (this is the worst case for the party).
+# If `filter_any == False` then only members that will respond "yes" will be removed (this
+#   is the worst case for the party).
 # - note: this usually makes little-to-no difference
-# - members can be removed b/c their details couldn't be matched, they're deceased, or b/c they've supported another party's rego.
+# - members can be removed b/c their details couldn't be matched, they're deceased, or b/c
+#   they've supported another party's rego.
 # - we usually want to remove true members to measure worst case performance of methodology.
 # why?
-# - if the party has excess members, then filtered members *could* be replaced with other valid members
-#   - if the party had a way to pro-actively filter these members out, the party would (so as to submit a higher quality list)
-# - because that's what happens in a griefing attack (your fake-members will be sure not to give you bad details).
-#   - since there is no way to detect this and it is not random or uniformly distributed, it must be assumed.
+# - if the party has excess members, then filtered members *could* be replaced with other
+#   valid members
+#   - if the party had a way to pro-actively filter these members out, the party would
+#     (so as to submit a higher quality list)
+# - because that's what happens in a griefing attack (your fake-members will be sure not to
+#   give you bad details).
+#   - since there is no way to detect this and it is not random or uniformly distributed, it
+#     must be assumed.
 if not filter_any:
-    reduced_sample = list(filter_out_n_members(lambda m: m, membership_sample, n_members_removed))
+    reduced_sample = list(filter_out_n_members(
+        lambda m: m,
+        membership_sample,
+        n_members_removed))
 else:
-    # the following line will remove n_members_removed indiscriminantly since `membership_sample` is shuffled.
+    # the following line will remove n_members_removed indiscriminantly since
+    # `membership_sample` is shuffled.
     # note: it makes little difference -- only in borderline cases.
     reduced_sample = membership_sample[n_members_removed:]
 assert reduced_sample_size == len(reduced_sample)
@@ -580,7 +590,7 @@ It appears that the AEC does not care about reason, or logic, or statistical arg
 
 As though to emphasize the fact that the AEC's method is a joke, [the AEC's statement of reasons](https://web.archive.org/web/20220326093243/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf) [[mirror]](https://xertrov.github.io/aec-membership-test-simulator/docs/statement-of-reasons-voteflux-org-upgrade-democracy-s137-deregistration.pdf), authored by one Ms Reid, says:
 
-> <br>&emsp; 22. The membership list submitted by the Party on 13 February 2022 contained 4,680 names of individuals that the Party considers to be current members (referred to as ‘members’ below). As a delegate of the Electoral Commission, I instructed that the top 1,650 names be tested to conform with the AEC’s membership testing parameters. [...]
+> &emsp; 22. The membership list submitted by the Party on 13 February 2022 contained 4,680 names of individuals that the Party considers to be current members (referred to as ‘members’ below). As a delegate of the Electoral Commission, I instructed that the top 1,650 names be tested to conform with the AEC’s membership testing parameters. [...]
 
 The membership list that we submitted was sorted alphabetically by first name.
 "Gloria" was the first member to miss out on the chance to be contacted.
@@ -842,7 +852,7 @@ Source: Page 24 of <https://web.archive.org/web/20220206003633/https://www.aec.g
 
 #### Experimental Eval (No Published Accuracy Values)
 
-| Members lodged; <br> (N_reduced) | Measured risk of accepting 1200; <br> P(denial) = (N-1200)/N; <br> N = N_reduced; | Measured risk of rejecting 1500; <br> P(denial) = (N-1500)/N; <br> N = N_reduced; <br> f = 0 (no members filtered); | Measured risk of rejecting ≥ 1500;<br>(Threshold case); <br> P(denial) = 150/1650 = 9.09%; <br> N = 3300; <br> f = 1650 - N_reduced; | Measured risk of rejecting ≥ 1500; <br> P(denial) = 20%; <br> N = 3300; <br> f = 1650 - N_reduced; |
+| Members lodged; <br> N_reduced | Measured risk of accepting 1200; <br> P(denial) = (N-1200)/N; <br> N = N_reduced; | Measured risk of rejecting 1500; <br> P(denial) = (N-1500)/N; <br> N = N_reduced; <br> f = 0 (no members filtered); | Measured risk of rejecting ≥ 1500;<br>(Threshold case); <br> P(denial) = 150/1650 = 9.09%; <br> N = 3300; <br> f = 1650 - N_reduced; | Measured risk of rejecting ≥ 1500; <br> P(denial) = 20%; <br> N = 3300; <br> f = 1650 - N_reduced; |
 |---|---|---|---|---|
 | 1,500 | 1.8% [fig](png/aec-test-sim-N500000-m1500-f300-s1500-r0-1200of1500-sept2021.png) | 0.0% [fig](png/aec-test-sim-N500000-m1500-f0-s1500-r0-1500of1500-sept2021.png) | <strong style="color:red;">82.2%</strong> [fig](png/aec-test-sim-FARCE-N500000-m3300-f300-s1650-r150-fANY-1500of3300-sept2021.png) | <strong style="color:red;">98.2%</strong> [fig](png/aec-test-sim-FARCE-N500000-m3300-f660-s1650-r150-fANY-1500of3300-sept2021.png) |
 | 1,506 | 1.6% [fig](png/aec-test-sim-N500000-m1506-f306-s1506-r0-1200of1506-sept2021.png) | 0.5% [fig](png/aec-test-sim-N500000-m1506-f6-s1506-r0-1500of1506-sept2021.png) | <strong style="color:red;">72.0%</strong> [fig](png/aec-test-sim-FARCE-N500000-m3300-f300-s1650-r144-fANY-1500of3300-sept2021.png) | <strong style="color:red;">98.2%</strong> [fig](png/aec-test-sim-FARCE-N500000-m3300-f660-s1650-r144-fANY-1500of3300-sept2021.png) |
@@ -928,10 +938,10 @@ The [2016 Australian Democrats statement of reasons](https://web.archive.org/web
 
 #### Experimental Eval
 
-**Note:** The row with `members lodged`=`529 (corrected)` corrects the erronous `max denials to pass` from `3` to `4`.
+**Note:** The row with `members lodged`=`529 (corrected)` corrects the erroneous `max denials to pass` from `3` to `4`.
 The AEC did not pick up on this error for at least 4 years (if they ever did).
 
-| Members lodged; <br> (N_reduced) | Claimed: accepting only 400 – risk % | Measured risk of accepting 400; <br> P(denial) = (N-400)/N; | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500; <br> P(denial) = (N-500)/N; <br> f = 0 (no members filtered); | Measured risk of rejecting ≥ 500;<br>(Threshold case); <br> P(denial) = 50/550 = 9.09%; <br> N = 1100; <br> f = 550 - N_reduced; | Measured risk of rejecting ≥ 500; <br> P(denial) = 20%; <br> N = 1100; <br> f = 550 - N_reduced |
+| Members lodged; <br> N_reduced | Claimed: accepting only 400 – risk % | Measured risk of accepting 400; <br> P(denial) = (N-400)/N; | Claimed: rejecting 500 – risk % | Measured risk of rejecting 500; <br> P(denial) = (N-500)/N; <br> f = 0 (no members filtered); | Measured risk of rejecting ≥ 500;<br>(Threshold case); <br> P(denial) = 50/550 = 9.09%; <br> N = 1100; <br> f = 550 - N_reduced; | Measured risk of rejecting ≥ 500; <br> P(denial) = 20%; <br> N = 1100; <br> f = 550 - N_reduced |
 |---|---|---|---|---|---|---|
 | 500 | 1.80% | 1.7% [fig](png/aec-test-sim-N500000-m500-f100-s500-r0-400of500-c2012.png) | 0.00% | 0.0% [fig](png/aec-test-sim-N500000-m500-f0-s500-r0-500of500-c2012.png) | <strong style="color:red;">82.3%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r50-fANY-550of1100-c2012.png) | <strong style="color:red;">98.2%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f220-s550-r50-fANY-550of1100-c2012.png) |
 | 503 | 1.99% | 1.8% [fig](png/aec-test-sim-N500000-m503-f103-s503-r0-400of503-c2012.png) | 1.05% | 0.8% [fig](png/aec-test-sim-N500000-m503-f3-s503-r0-500of503-c2012.png) | <strong style="color:red;">70.1%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f100-s550-r47-fANY-550of1100-c2012.png) | <strong style="color:red;">97.8%</strong> [fig](png/aec-test-sim-FARCE-N500000-m1100-f220-s550-r47-fANY-550of1100-c2012.png) |

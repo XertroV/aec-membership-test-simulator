@@ -4,3 +4,5 @@
 !/csv/*-N500000-*.csv
 *:Zone.Identifier
 *.log
+request-for-review.htm
+request-for-review_files
