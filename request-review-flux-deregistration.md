@@ -1,3 +1,10 @@
+<style>
+    .markdown-body > h1:first-child,
+    .footer {
+        display: none;
+    }
+</style>
+
 # Request for Review of Decision to Deregister Flux
 
 To: Mr Tom Rogers, Australian Electoral Commissioner<br/>
@@ -40,7 +47,7 @@ So, Dr Gruen, please consider our hypothetical case.
 Given that this hypothetical party is eligible under the EA, what should we expect as the results of the AEC's testing method as applied to this party?
 Given that this party cannot determine which of the 4,500 validatable members will respond "yes" or "no", and that this party can submit no more than 1,650 members due to AEC policy alone: the best that can be done is selecting a subset of those members, essentially at random.
 There may be some small optimizations the party could make, but in principle the limiting factors are those that we have already discussed.
-Thus each member on the submitted list is expected to respond to the AEC with a membership denial with a probability of 0.4 (60%).
+Thus each member on the submitted list is expected to respond to the AEC with a membership denial with a probability of 0.4 (40%).
 Of course, we know this because 1,800 / (2,700 + 1,800) = 0.4, and there is no reason that the ratio of denying members to confirming members would change substantially (outside the statistical variance of the selection of 1,650 members, which is not very substantial anyway).
 
 Let us assume that this hypothetical party randomly selects 1,650 validatable members from its pool of 4,500.
