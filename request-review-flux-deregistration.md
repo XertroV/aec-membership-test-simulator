@@ -9,7 +9,7 @@
 # Request for Review of Decision to Deregister Flux
 
 To: Mr Tom Rogers, Australian Electoral Commissioner<br/>
-CC: The other members of the Commission: Justice Kelly, Chairperson, and Dr Gruen, the Australian Statistician.
+CC: The other members of the Commission: Justice Kenny, Chairperson, and Dr Gruen, the Australian Statistician.
 
 This is a request for the Commission to review the decision, made on the 24th of March 2022, to deregister "VOTEFLUX.ORG \| Upgrade Democracy!" (Flux) under s137(6) of the Electoral Act.
 It is made under s141(2) of the Electoral Act.
@@ -21,7 +21,7 @@ As part of this request, I provide statistical analysis as grounds that the AEC'
 
 ### My Statement to the Commission
 
-I invite the Commission -- Mr Rogers along with Justice Kelly and Dr Gruen -- to consider the following hypothetical case regarding the AEC's method for validating that a party meets the requirements of the Electoral Act.
+I invite the Commission -- Mr Rogers along with Justice Kenny and Dr Gruen -- to consider the following hypothetical case regarding the AEC's method for validating that a party meets the requirements of the Electoral Act.
 I assume that you all are familiar with the AEC's testing methodology.
 
 Consider a party with 9,000 members, and let's say that half of those members (4,500) are validatable as electors, and a further 60% of those members (2,700) will respond "yes" to an AEC request for membership confirmation.
@@ -31,7 +31,7 @@ Thus, parties go to some substantial effort to submit only those members that ca
 That is, in our hypothetical case: 4,500 members are not validatable as electors, and a further 1,800 would deny membership if asked by the AEC.
 The remaining 2,700 are legitimate.
 
-Justice Kelly, as I'm sure you're aware, the Electoral Act (EA) specifies that an eligible party requires at least 1,500 members.
+Justice Kenny, as I'm sure you're aware, the Electoral Act (EA) specifies that an eligible party requires at least 1,500 members.
 In your legal opinion, would a party with 2,700 members satisfy that clause of the EA?
 
 I hope that you agree that it would.
@@ -76,21 +76,21 @@ Integrity is a major difference between 'stable and enduring', and 'compromised 
 When integrity fails, good systems become rotten.
 Do you not agree?
 
-It is to your integrity, and the integrity of Justice Kelly and Dr Gruen, too, that I make this appeal.
+It is to your integrity, and the integrity of Justice Kenny and Dr Gruen, too, that I make this appeal.
 I am fully aware that you are free to decide whatever you wish -- the Electoral Act is written such that you are practically unconstrained in this matter.
 
 I ask you this: if the AEC and the ABS were wrong about the AEC's testing methodology, how would you know?
 Surely you realize that it is possible that the AEC is mistaken somehow -- that we are all fallible, and our ideas are fallible?
 Institutions like the AEC, and methods like the one the AEC use, are based on ideas that were thought-up by people, and are therefore fallible.
 
-Justice Kelly and Dr Gruen, do you also realize this?
+Justice Kenny and Dr Gruen, do you also realize this?
 That there are no infallible humans, no infallible institutions, and no infallible ideas?
 
 Mr Rogers, if it is possible to be wrong, what does it mean to have integrity in the face of potentially being wrong, and thus potentially making progress?
 Should one take the path of honesty and truth-seeking, or should one take the path of enforcing authority through baseless claims, evasion, and dismissal?
 If you have some other path to take, is it not one of honesty and truth-seeking?
 Surely you would not advocate a path that is dishonest and avoids the truth?
-Perhaps Justice Kelly has some insight on this; I understand that judges often have some experience in these matters.
+Perhaps Justice Kenny has some insight on this; I understand that judges often have some experience in these matters.
 
 Now, let us return to the matter of the accuracy of the AEC's testing methodology.
 Dr Gruen, are you done calculating those probabilities?
@@ -110,7 +110,7 @@ The SEM for these results is
 Dr Gruen, would you consider a statistical method accurate if the probability of it producing a false negative is 99.9980% ± 0.0012%?
 Would you consider that, for all intents and purposes, such a statistical method is *predetermined* in its outcome?
 
-Justice Kelly, do you consider it appropriate for an important legal institution to use a method that, in some conditions, fails more than 99% of the time?
+Justice Kenny, do you consider it appropriate for an important legal institution to use a method that, in some conditions, fails more than 99% of the time?
 What would our society be like if the courts had this kind of failure rate for certain types of cases?
 How do we know that they don't?
 How does the AEC know that its method doesn't?
@@ -126,7 +126,7 @@ After all, it is a fact that the AEC's method performs this poorly some of the t
 You have calculated so yourself.
 (You have done the calculations, haven't you?)
 
-Justice Kelly, do you think that, when a citizen appeals to a judicial process of their country's legal institutions, they deserve the right to be taken seriously?
+Justice Kenny, do you think that, when a citizen appeals to a judicial process of their country's legal institutions, they deserve the right to be taken seriously?
 That they deserve the right to present their case and, if it is supported by the facts, to have an injustice undone?
 Is that not one of the primary values of judicial processes and the courts?
 To safeguard citizenry from injustices?
@@ -146,7 +146,7 @@ What is a citizen to do when a judicial process ignores facts and evidence?
 Mr Rogers, I cannot force you to change your mind about anything, that is solely up to you.
 
 I can present you with this case, though.
-Perhaps you (along with Justice Kelly and Dr Gruen) have guessed that the hypothetical party was not so hypothetical after all.
+Perhaps you (along with Justice Kenny and Dr Gruen) have guessed that the hypothetical party was not so hypothetical after all.
 The parameters of that case are spitting distance from those of Flux's second membership test (conducted Feb/March 2022).
 There is at least one major difference -- in the hypothetical case, the party selected members randomly; in Flux's case, your delegate selected 1,650 members from the top of the list of 4,680 members that Flux submitted.
 That list was alphabetical, so the AEC only sampled from members whose first name started with one of A through G.
@@ -170,7 +170,7 @@ If 63% (~29/(17+29)) of a population *sample* (n=1,586) meet some criterion, and
 
 I am not asking that the Commission believe *me*, I am asking the Commission to believe *facts and evidence*.
 
-Justice Kelly, I will ask you again, does a citizen deserve the right to present their case via a judicial process and, if it is supported by the facts, to have an injustice undone?
+Justice Kenny, I will ask you again, does a citizen deserve the right to present their case via a judicial process and, if it is supported by the facts, to have an injustice undone?
 I hope that your answer is the same in this case as it would have been for all other cases that you have presided over as a Judge of the Court.
 
 The above is sufficient to conclude that Flux was *wrongfully* deregistered.
@@ -181,7 +181,7 @@ Scientifically, we can draw no conclusions based on the AEC's testing.
 It is not my place to tell you what should be done instead of the current method, I can only demonstrate to you that the outcome is predetermined in Flux's case, as the test results in a false negative with probability 0.999978 ± 0.000013.
 (These numbers differ slightly from those in the hypothetical case above because the calculations are based, specifically, on Flux's second test.)
 
-Mr Rogers, Justice Kelly, and Dr Gruen: perhaps this is not enough to convince that there is a reasonable chance of some problems with the AEC's methodology.
+Mr Rogers, Justice Kenny, and Dr Gruen: perhaps this is not enough to convince that there is a reasonable chance of some problems with the AEC's methodology.
 The only other thing I can do is present you with a more in-depth statistical analysis of the method -- covering this problem and others, both historical and on-going.
 I suppose that it is most relevant for Dr Gruen, since he is the only one I can reasonably expect to have the knowledge of statistics necessary to judge the analysis.
 To my knowledge, this is the first third party review of the AEC's methodology.
@@ -196,11 +196,11 @@ If the Commission resolves to affirm the decision to deregister Flux under s137(
 Is there *anything* that would have convinced you?
 
 If that case comes to bear, then I have a request for Dr Gruen, too: if you disagree with my statistical analysis, meet me on a level playing field by providing your calculations, as [I am providing you mine](https://github.com/XertroV/aec-membership-test-simulator/blob/aec313e66acdd2ccdaa7ff8e7bd96aec6542138a/main.py#L439-L684) [2].
-Perhaps Justice Kelly can assist the Commission in determining if this is a fair request.
+Perhaps Justice Kenny can assist the Commission in determining if this is a fair request.
 
 <span></span>[2]: <https://github.com/XertroV/aec-membership-test-simulator/blob/aec313e66acdd2ccdaa7ff8e7bd96aec6542138a/main.py#L439-L684>
 
-Mr Rogers, I leave it to you as the accountable authority of the Australian Electoral Commission, along with the other members of the Commission: Justice Kelly and Dr Gruen, to uphold "[the] AEC’s values of electoral integrity through agility, professionalism and quality [...]".
+Mr Rogers, I leave it to you as the accountable authority of the Australian Electoral Commission, along with the other members of the Commission: Justice Kenny and Dr Gruen, to uphold "[the] AEC’s values of electoral integrity through agility, professionalism and quality [...]".
 
 <br>
 <br>

@@ -48,7 +48,7 @@ If something is *rigged* and a *farce* -- based on the definitions included and 
 
 **Note: I am not accusing the AEC of doing the rigging; just proving that the method *is* rigged.**
 
-To date, there is 1 known incident of a farce, *at least* 5 suspected incidents, at *at least* 5 other possible farces. This is based only on results that the AEC have published as part of a review (other results are not available).
+To date, there is 1 known incident of a farce, *at least* 5 suspected incidents, and *at least* 5 other possible farces. This is based only on results that the AEC have published as part of a review (other results are not available).
 <!-- There may be many more incidents, but the results of most membership tests are not available.
 (An FOI request may solve this.) -->
 
