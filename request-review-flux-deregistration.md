@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
 <style>
     .markdown-body > h1:first-child,
     .footer {
@@ -48,7 +49,7 @@ Given that this hypothetical party is eligible under the EA, what should we expe
 Given that this party cannot determine which of the 4,500 validatable members will respond "yes" or "no", and that this party can submit no more than 1,650 members due to AEC policy alone: the best that can be done is selecting a subset of those members, essentially at random.
 There may be some small optimizations the party could make, but in principle the limiting factors are those that we have already discussed.
 Thus each member on the submitted list is expected to respond to the AEC with a membership denial with a probability of 0.4 (40%).
-Of course, we know this because 1,800 / (2,700 + 1,800) = 0.4, and there is no reason that the ratio of denying members to confirming members would change substantially (outside the statistical variance of the selection of 1,650 members, which is not very substantial anyway).
+Of course, we know this because 1,800 / (2,700 + 1,800) = 0.4, and because there is no reason that the ratio of denying members to confirming members would change substantially (outside the statistical variance of the selection of 1,650 members, which is not very substantial anyway).
 
 Let us assume that this hypothetical party randomly selects 1,650 validatable members from its pool of 4,500.
 Dr Gruen, I hope that you find this a reasonable course of action for the party to take and have followed the logic thus far.
@@ -96,9 +97,15 @@ Dr Gruen, are you done calculating those probabilities?
 Let us compare answers.
 
 Here are my results with 95% confidence intervals: the probability that the hypothetical party passes the AEC's testing method is 0.0020% ± 0.0012%.
-The mean membership denials via the AEC's test is 23.998 ± 0.010 (out of 60 successful contacts).
-The standard deviation of that distribution is 3.765 ± 0.007.
-The SEM for these results is 0.005.
+The mean membership denials via the AEC's test is
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover></mrow><annotation encoding="application/x-tex">\bar{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.5678em;"></span><span class="mord accent"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.5678em;"><span class="" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="mord mathnormal">x</span></span><span class="" style="top: -3em;"><span class="pstrut" style="height: 3em;"></span><span class="accent-body" style="left: -0.2222em;"><span class="mord">ˉ</span></span></span></span></span></span></span></span></span></span>
+= 23.998 ± 0.010 (out of 60 successful contacts).
+The standard deviation of that distribution is
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mi>x</mi></msub></mrow><annotation encoding="application/x-tex">\sigma_{x}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.5806em; vertical-align: -0.15em;"></span><span class="mord"><span style="margin-right: 0.0359em;" class="mord mathnormal">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.1514em;"><span class="" style="top: -2.55em; margin-left: -0.0359em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord mathnormal mtight">x</span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span>
+= 3.765 ± 0.007.
+The SEM for these results is
+<span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><msub><mi>σ</mi><mover accent="true"><mi>x</mi><mo>ˉ</mo></mover></msub></mrow><annotation encoding="application/x-tex">\sigma_{\bar{x}}</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.5806em; vertical-align: -0.15em;"></span><span class="mord"><span style="margin-right: 0.0359em;" class="mord mathnormal">σ</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height: 0.2474em;"><span class="" style="top: -2.55em; margin-left: -0.0359em; margin-right: 0.05em;"><span class="pstrut" style="height: 2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight"><span class="mord accent mtight"><span class="vlist-t"><span class="vlist-r"><span class="vlist" style="height: 0.5678em;"><span class="" style="top: -2.7em;"><span class="pstrut" style="height: 2.7em;"></span><span class="mord mathnormal mtight">x</span></span><span class="" style="top: -2.7em;"><span class="pstrut" style="height: 2.7em;"></span><span class="accent-body" style="left: -0.2222em;"><span class="mord mtight">ˉ</span></span></span></span></span></span></span></span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height: 0.15em;"><span class=""></span></span></span></span></span></span></span></span></span>
+= 0.005.
 
 Dr Gruen, would you consider a statistical method accurate if the probability of it producing a false negative is 99.9980% ± 0.0012%?
 Would you consider that, for all intents and purposes, such a statistical method is *predetermined* in its outcome?
