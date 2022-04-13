@@ -240,4 +240,4 @@ Max Kaye
 
 ### Statistical Review of the AEC's Method Follows
 
-(The rest of this page is intentionally blank.)
+<a href="https://xertrov.github.io/aec-membership-test-simulator/">AEC Party Membership Test Methodology is Rigged! A Statistical Analysis of AEC Methodology and Graphs (of PMFs)</a>
