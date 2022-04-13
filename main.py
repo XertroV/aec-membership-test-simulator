@@ -577,17 +577,11 @@ def run(trial_pool: pool.Pool, n_trials: int, run_spec: RunSpec, graph_title=Non
 
     print("\n".join(fmt_stat_minmax(y, mpl_err=True) for y in ys_with_error_bars))
 
-    # assert that previous results and new results are very close (within calculated error)
+    # assert that previous results and new results are very close
     for old_y, (new_y, new_y_err) in zip(raw_ys, ys_with_error_bars):
-        try:
-            assert abs(old_y - new_y) <= new_y_err[0]
-        except AssertionError as e:
-            # Note: this has never triggered
-            print(f"old:{old_y}, new:{new_y} +- {new_y_err}")
-            print(f"\n\n  >> TRYING 2x ERROR <<")
-            print(f"PRESS ENTER TO CONFIRM")
-            input(">")
-            assert abs(old_y - new_y) <= 2 * new_y_err[0]
+        max_min_err_diff = 6 * max(0.0001, abs(new_y_err[1] - new_y_err[0]))
+        # max_min_err_diff = abs(new_y_err[1] - new_y_err[0])
+        assert abs(old_y - new_y) <= max_min_err_diff
 
     # df = pd.DataFrame(data={pass_l: ys_passed, fail_l: ys_failed}, index=xs)
     df2 = pd.DataFrame(data={pass_l: [y[0] for y in ys_passed_w_err], fail_l: [y[0] for y in ys_failed_w_err]}, index=xs)
