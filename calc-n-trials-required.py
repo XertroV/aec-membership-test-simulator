@@ -63,3 +63,6 @@ get_n_trials_req(0.89)
 
 # australian democrats
 get_n_trials_req(0.237)
+
+# hap 2022
+get_n_trials_req(0.2766)

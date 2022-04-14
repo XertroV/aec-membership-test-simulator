@@ -856,6 +856,16 @@ def aec(n_trials, show, jobs, force, collection_to_run, list_collections):
         _run(RunSpec(1650 + 2600, 333/1650, 1650, 150, TestingStandard.SEPT2021), party_name="NMVP2021@Measured")
         _run(RunSpec(1650 + 2600, 333/1650, 1650, 0, TestingStandard.SEPT2021), party_name="NMVP2021@Measured+NoFiltered")
 
+        # https://aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-health-australia-party.pdf
+        # health australia party
+        # 62 filtered: 12 + 5 + 45
+        _run(RunSpec(1650 + 119, 7 / (39+7), 1650, 62, TestingStandard.SEPT2021), party_name="HAP@Measured-2021-11", farce_extra="SUSPECTED")
+        _run(RunSpec(1650 + 119, 7 / (39+7), 1650, 62, TestingStandard.SEPT2021, filter_any=True), party_name="HAP@Measured-2021-11", farce_extra="SUSPECTED")
+        # filtered: 16 + 5 + 2 + 36 = 59
+        _run(RunSpec(1650 + 119, 7 / (39+7), 1650, 59, TestingStandard.SEPT2021), party_name="HAP@Measured-2022-02", farce_extra="SUSPECTED")
+        _run(RunSpec(1650 + 119, 7 / (39+7), 1650, 59, TestingStandard.SEPT2021, filter_any=True), party_name="HAP@Measured-2022-02", farce_extra="SUSPECTED")
+
+
     def aec_testing_tables_sims():
         # check 98% confidence of not registering a party with only 400 members
         # note: seems to pan out
