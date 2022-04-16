@@ -2,9 +2,7 @@
 
 <!-- try adding katex styles for website render via github pages -->
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<style>
-.only-gh-readme {display: none;}
-</style>
+<link rel="stylesheet" href="https://xertrov.github.io/aec-membership-test-simulator/md-styles.css" crossorigin="anonymous">
 
 <p align="center">
     <a href="https://xertrov.github.io/aec-membership-test-simulator/">Website</a>

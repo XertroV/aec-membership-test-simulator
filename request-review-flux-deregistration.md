@@ -1,10 +1,5 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.3/dist/katex.min.css" integrity="sha384-KiWOvVjnN8qwAZbuQyWDIbfCLFhLXNETzBQjA/92pIowpC0d2O3nppDGQVgwd2nB" crossorigin="anonymous">
-<style>
-    .markdown-body > h1:first-child,
-    .footer {
-        display: none;
-    }
-</style>
+<link rel="stylesheet" href="https://xertrov.github.io/aec-membership-test-simulator/md-no-header-footer.css" crossorigin="anonymous">
 
 # Request for Review of Decision to Deregister Flux
 
