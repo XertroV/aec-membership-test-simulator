@@ -28,9 +28,9 @@ def get_n_trials_req(p):
             break
         l_conf = conf
 
-    print(r, 'trials req for confidence at p =', p)
+    print(r, 'trials req for accuracy (90%) at p =', p)
     print(f"""
-| Confidence | Tests Required for 1 Success (p={p:.3f}) |
+| Chance of 1 Success | Tests Required (p={p:.3f}) |
 |---|---|
 | {r[0][0]:.0%} | {r[0][1]} |
 | {r[1][0]:.0%} | {r[1][1]} |
@@ -66,3 +66,6 @@ get_n_trials_req(0.237)
 
 # hap 2022
 get_n_trials_req(0.2766)
+
+# no tolls
+get_n_trials_req(0.0495)

@@ -523,12 +523,12 @@ Possible more:
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m591-f91-s550-r44-notolls_measured-2018.png">Fig 6.7</a>: The affirmation of decision to deregister Consumer Rights & No-Tolls on 30th August 2018 is suspected to have been a farce.</em>
 </p>
 
-| Chance of 1 Success | Tests Required (p=0.277) |
+| Chance of 1 Success | Tests Required (p=0.050) |
 |---|---|
-| 80% | 5 |
-| 90% | 8 |
-| 95% | 10 |
-| 99% | 15 |
+| 80% | 32 |
+| 90% | 46 |
+| 95% | 60 |
+| 99% | 91 |
 
 ---
 
