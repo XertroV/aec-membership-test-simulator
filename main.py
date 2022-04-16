@@ -817,13 +817,14 @@ def aec(n_trials, show, jobs, force, collection_to_run, list_collections):
 
         # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/the-new-liberals-statement-of-reasons.pdf
         # TLN 2021
-        # max confidence of 86.6%
+        # max accuracy of 86.6%
         _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017), party_name="TNL@2021", farce_extra="POSSIBLE")
         _run(RunSpec(550, 2/37, 550, 27, TestingStandard.C2017, filter_any=True), party_name="TNL@2021", farce_extra="POSSIBLE")
 
+        # australia first
         # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australia-first.pdf
         # 512-521 members after filtering
-        # max confidence 64.1% (only checked fANY)
+        # max accuracy 64.1% (only checked fANY)
         _run(RunSpec(550, 3/34, 550, 29, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
         # possible farce
         _run(RunSpec(550, 3/34, 550, 38, TestingStandard.C2012, filter_any=True), party_name="AF@2016", farce_extra="POSSIBLE")
@@ -839,7 +840,7 @@ def aec(n_trials, show, jobs, force, collection_to_run, list_collections):
         # review successful
         # note: should not have succeeded based on measured P(denial)
         _run(RunSpec(550, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
-        # confidence 61.1%
+        # accuracy 61.1%
         _run(RunSpec(568, 5/42, 550, 10, TestingStandard.C2012, filter_any=True), party_name="DLP@2016", farce_extra="POSSIBLE")
 
         # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf
@@ -865,6 +866,55 @@ def aec(n_trials, show, jobs, force, collection_to_run, list_collections):
         _run(RunSpec(1650 + 119, 7 / (39+7), 1650, 59, TestingStandard.SEPT2021), party_name="HAP@Measured-2022-02", farce_extra="SUSPECTED")
         _run(RunSpec(1650 + 119, 7 / (39+7), 1650, 59, TestingStandard.SEPT2021, filter_any=True), party_name="HAP@Measured-2022-02", farce_extra="SUSPECTED")
 
+        # AVP registration
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2022/statement-of-reasons-australian-values-party.pdf
+        # 1650 submitted
+        # filtered = 62 + 58 + 4 = 124
+        # set p(denial) to largest value that would round to 0 out of 33
+        _run(RunSpec(1650, 0.49999 / 33, 1650, 124, TestingStandard.SEPT2021), party_name="AVP@NearMeasured-2022-01")
+        _run(RunSpec(1650, 0.49999 / 33, 1650, 124, TestingStandard.SEPT2021, filter_any=True), party_name="AVP@NearMeasured-2022-01")
+
+        # kim for canberra rego
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2022/statement-of-reasons-kim-for-canberra.pdf
+        # 1649 submitted
+        # filtered = 20 + 5 = 25
+        # 0 / 53 denials, vn
+
+        # federal icac now
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2021/federal-icac-now-statement-of-reasons.pdf
+        # 550
+        # f = 3 + 11 = 14
+        # accuracy ~60%
+        _run(RunSpec(550, 5 / 44, 550, 14, TestingStandard.C2017), party_name="Fed-ICAC-Now-2021-09", farce_extra="SUSPECTED")
+        _run(RunSpec(550 + 14, 5 / 44, 550, 14, TestingStandard.C2017), party_name="Fed-ICAC-Now@Measured-2021-09", farce_extra="SUSPECTED")
+
+        # free west papua
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/free-west-papua-party-australia-electoral-commission-decision-statement-of-reasons.pdf
+        # claimed 663 members
+        _run(RunSpec(538, 7/37, 538, 18, TestingStandard.C2017), party_name="FWPPA@Measured")
+        _run(RunSpec(663, 7/37, 538, 18, TestingStandard.C2017), party_name="FWPPA@ClaimedN,Measured")
+
+        # climate action now
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/independents-for-climate-action-now-statement-of-reasons.pdf
+        # accuracy: 89.5%
+        _run(RunSpec(550, 0.5 / 26, 550, 43, TestingStandard.C2017), party_name="IFCAN@NearMeasured-2019")
+
+        # together party
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/the-together-party-statement-of-reasons.pdf
+        # accuracy: 99%+
+        _run(RunSpec(550, 1 / 44, 550, 13, TestingStandard.C2017), party_name="TTP@Measured-2019")
+
+        # CPP rego 2019
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2019/child-protection-party-statement-of-reasons-03-04-2019.pdf
+        # accuracy: 90%
+        _run(RunSpec(550, 4 / 47, 550, 9, TestingStandard.C2017), party_name="CPP@Measured2019")
+
+        # no tolls party 2018
+        # https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-consumer-rights-no-toll-party-statement-of-reasons.pdf
+        # filtered: 16+2+25 = 43 + 1 = 44
+        # dropped 1 (this counts as filtered b/c the party is not allowed to replace it)
+        _run(RunSpec(550, 4/26, 550, 44, TestingStandard.C2017), party_name="NoTolls@Measured-2018")
+        _run(RunSpec(550+41, 4/26, 550, 44, TestingStandard.C2017), party_name="NoTolls@Measured-2018", farce_extra="SUSPECTED")
 
     def aec_testing_tables_sims():
         # check 98% confidence of not registering a party with only 400 members

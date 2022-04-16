@@ -48,7 +48,7 @@ If something is *rigged* and a *farce* -- based on the definitions included and 
 
 **Note: I am not accusing the AEC of doing the rigging; just proving that the method *is* rigged.**
 
-To date, there is 1 known incident of a farce, *at least* 6 suspected incidents, and *at least* 5 other possible farces. This is based only on results that the AEC have published as part of a review (other results are not available).
+To date, there is 1 known incident of a farce, *at least* 7 suspected incidents, and *at least* 5 other possible farces. This is based only on results that the AEC have published as part of a review (other results are not available).
 <!-- There may be many more incidents, but the results of most membership tests are not available.
 (An FOI request may solve this.) -->
 
@@ -83,6 +83,10 @@ Update: Flux was deregistered on 2022-03-24. See [8. Flux’s Second Membership 
 #### 2022-04-14
 
 Added Health Australia Party's deregistration on 2022-04-05 to the list of suspected farces.
+
+#### 2022-04-16
+
+Added affirmation of deregistration of Consumer Rights & No-Tolls on 2018-08-30 to the list of suspected farces.
 
 ## 1. Background Context
 
@@ -403,6 +407,7 @@ Since, in the following cases, the excess capacity of the party undergoing testi
 4. (Fig 6.4) [12 November 2010 -- refusal to register of Seniors Action Movement](https://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm) ([mirror](https://web.archive.org/web/20140212151106/http://www.aec.gov.au/Parties_and_Representatives/party_registration/Registration_Decisions/2010/3976.htm)) -- excess capacity of 5.1% required
 5. (Fig 6.5) [1 March 2016 -- deregistration of the Australian Democrats](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf) ([mirror](https://web.archive.org/web/20170303052846/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2016/files/statement-reasons-australian-democrats.pdf)) -- excess capacity of 6.5% required
 6. (Fig 6.6) [5 April 2022 -- deregistration of Health Australia Party](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-health-australia-party.pdf) ([mirror](https://web.archive.org/web/20220411030148/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Deregistered_parties/files/statement-of-reasons-health-australia-party.pdf)) -- excess capacity of 7.2% required (Added in update on 2022-04-14)
+7. (Fig 6.7) [30th August 2018 -- affirmation of decision to deregister Consumer Rights & No-Tolls](https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-consumer-rights-no-toll-party-statement-of-reasons.pdf) ([mirror](https://web.archive.org/web/20220320031833/https://www.aec.gov.au/Parties_and_Representatives/Party_Registration/Registration_Decisions/2018/2018-consumer-rights-no-toll-party-statement-of-reasons.pdf)) -- excess capacity of 7.5% required (Added: 2022-04-16)
 
 Note, the `@Measured` in the titles of the following graphs indicates that the failure rate is calculated directly from AEC reports of the ratio of membership denials to membership contacts.
 
@@ -502,6 +507,22 @@ Possible more:
     <br>
     <em>
         <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m1769-f269-s1650-r59-fANY-hap_measured-2022-02.png">Fig 6.6</a>: The deregistration of Health Australia Party on 5th April 2022 is suspected to have been a farce. Both of HAP's membership tests were farcical. See also: <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m1769-f269-s1650-r62-fANY-hap_measured-2021-11.png">their November 2021 test</a>.</em>
+</p>
+
+| Chance of 1 Success | Tests Required (p=0.277) |
+|---|---|
+| 80% | 5 |
+| 90% | 8 |
+| 95% | 10 |
+| 99% | 15 |
+
+---
+
+<p align="center">
+    <img src="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m591-f91-s550-r44-notolls_measured-2018.png" />
+    <br>
+    <em>
+        <a href="https://xertrov.github.io/aec-membership-test-simulator/png/aec-test-sim-FARCE-N500000-m591-f91-s550-r44-notolls_measured-2018.png">Fig 6.7</a>: The affirmation of decision to deregister Consumer Rights & No-Tolls on 30th August 2018 is suspected to have been a farce.</em>
 </p>
 
 | Chance of 1 Success | Tests Required (p=0.277) |
