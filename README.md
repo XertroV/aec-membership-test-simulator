@@ -86,6 +86,10 @@ Added Health Australia Party's deregistration on 2022-04-05 to the list of suspe
 
 Added affirmation of deregistration of Consumer Rights & No-Tolls on 2018-08-30 to the list of suspected farces.
 
+#### 2022-08-11
+
+[019ac4f](https://github.com/XertroV/aec-membership-test-simulator/commit/019ac4f283098bd779951bdb43cee19f61ec4cf6) Fixed quote typo (errant character) and linked LEX3132. (Relevant to section 8)
+
 ## 1. Background Context
 
 Recently (leading up to September 2021), most parliamentarians (i.e., the 4 major parties) decided that we had too many political parties and that this was a problem! It would not do. So, a bunch of changes were made to the Electoral Act. Changes designed to make life harder for anyone who wanted to be part of our democracy, but did not want to participate in the rotten, tribalist, political cults that run the show. Some of those changes resulted in (as of Feb 2022) the pending deregistration of 12 parties, and the very real deregistration of 9 parties. In practice that is ~40% of parties, gone before the next election. Political elites will claim (and have claimed in Parliament already) that these changes, the culling, and the subsequent entrenchment of the status quo, is a good thing. That it is making our democracy better.
